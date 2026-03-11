@@ -40,7 +40,7 @@ export function useAttributions(id) {
     const [error, setError] = useState(null)
 
     useEffect(() => {
-        if(!id) return
+        if (!id) return
 
         fetch(`https://hlong200.github.io/wolf-peach/attributions.json`)
         .then(res => res.json())
