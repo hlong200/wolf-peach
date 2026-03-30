@@ -1,4 +1,4 @@
-import { ListGroup } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { useVegetableList } from "./lib/customHooks";
 import PlantCard from "./PlantCard";
 
@@ -10,17 +10,15 @@ function Catalog() {
 
     return (
         <>
-            <ListGroup variant='flush'>
-                {
-                    data.map(veggie => (
-                        <ListGroup.Item key={veggie.id}>
-
+            <Container>
+                <Row xs={1} sm={2} md={3} lg={4} className="g-3">
+                    {data.map(veggie => (
+                        <Col key={veggie.id}>
                             <PlantCard plant={veggie} />
-                            
-                        </ListGroup.Item>
-                    ))
-                }
-            </ListGroup>
+                        </Col>
+                    ))}
+                </Row>
+            </Container>
         </>
     )
 };
