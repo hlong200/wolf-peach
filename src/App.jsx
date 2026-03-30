@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import TomatoList from './TomatoList'
+import Catalog from './Catalog'
 
 function App() {
 
   return (
     <>
-      <TomatoList />
+      <Catalog />
     </>
   )
 }
