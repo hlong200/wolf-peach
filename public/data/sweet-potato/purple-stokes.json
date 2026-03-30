@@ -1,0 +1,29 @@
+{
+  "id": "purple-stokes",
+  "name": "Stokes Purple",
+  "culinary_type": "sweet-potato",
+  "subtype": "purple flesh",
+  "species": "Ipomoea batatas",
+  "image": "purple-stokes.jpg",
+  "image_alt": "Deep purple sweet potato with vivid purple flesh",
+  "description": "A striking sweet potato with purple skin and intensely purple flesh throughout. Drier, denser, and less sweet than orange varieties with a wine-like, slightly earthy flavor. Exceptionally high in anthocyanins \u2014 among the most antioxidant-rich vegetables available.",
+  "history": "Originally developed in Okinawa, Japan where purple sweet potatoes (beni imo) have been cultivated for centuries. The American Stokes Purple variety was selected by Mike Sizemore at Stokes Farms in North Carolina and introduced commercially in the early 2000s.",
+  "seasonal_quirks": "Requires a longer season than most sweet potatoes \u2014 needs 110\u2013120 days of heat. Best suited to southern climates or started very early under cover in northern gardens. The dry flesh absorbs flavors well during long roasting.",
+  "harvest_cues": "Harvest before first frost. Vines are vigorous \u2014 tubers can be large and deep. Dig carefully and widely. Cure at 85\u00b0F for 10\u201314 days just like orange types.",
+  "variety_notes": "The purple color holds remarkably well during cooking \u2014 especially when roasted, steamed, or used in baked goods. Makes stunning purple mashed potatoes, ice cream, and pie filling. The drier texture means it needs more fat or liquid in mashes than orange types.",
+  "pests_diseases": [
+    "sweet potato weevil",
+    "wireworm",
+    "fusarium wilt"
+  ],
+  "culinary_uses": [
+    "roasting",
+    "steaming",
+    "baking",
+    "mashing",
+    "ice cream",
+    "pie",
+    "tempura"
+  ],
+  "preservation": "Cure at 85\u00b0F for 10\u201314 days. Store at 55\u201360\u00b0F. Keeps 4\u20136 months \u2014 slightly shorter than orange types."
+}

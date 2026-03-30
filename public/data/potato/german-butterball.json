@@ -1,0 +1,29 @@
+{
+  "id": "german-butterball",
+  "name": "German Butterball",
+  "culinary_type": "potato",
+  "subtype": "fingerling",
+  "species": "Solanum tuberosum",
+  "image": "german-butterball.jpg",
+  "image_alt": "Golden-skinned German Butterball potatoes with yellow flesh",
+  "description": "A beloved heirloom potato with golden skin and rich, buttery yellow flesh. Versatile enough for any cooking method and forgiving enough for beginner growers. Produces heavy yields of medium-to-large tubers with a creamy texture that needs no embellishment.",
+  "history": "A German heirloom brought to America by European immigrants, German Butterball has been grown continuously in American kitchen gardens for well over a century. Its name is entirely descriptive \u2014 the flavor genuinely tastes of butter even without adding any.",
+  "seasonal_quirks": "A late-season potato that stores exceptionally well through winter. Hill soil around stems as vines grow to maximize yield. Flavor deepens in storage \u2014 potatoes dug in fall often taste better by midwinter.",
+  "harvest_cues": "Wait until vines die back completely for full-size tubers. For new potatoes, harvest 2\u20133 weeks after flowering. Dig carefully \u2014 skins are tender at harvest and cure for 1\u20132 weeks in a cool dark place before storage.",
+  "variety_notes": "One of the best all-purpose heirloom potatoes available. Performs well roasted, mashed, boiled, or fried. The yellow flesh holds its color when cooked. Less prone to hollow heart than many large-tuber varieties.",
+  "pests_diseases": [
+    "Colorado potato beetle",
+    "late blight",
+    "scab",
+    "wireworm"
+  ],
+  "culinary_uses": [
+    "roasting",
+    "mashing",
+    "boiling",
+    "potato salad",
+    "gratins",
+    "frying"
+  ],
+  "preservation": "Cure and store in cool, dark, humid conditions \u2014 38\u201340\u00b0F ideal. Stores 4\u20136 months. Do not refrigerate unwashed potatoes."
+}

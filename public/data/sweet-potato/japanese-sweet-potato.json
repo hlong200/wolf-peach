@@ -1,0 +1,28 @@
+{
+  "id": "japanese-sweet-potato",
+  "name": "Japanese Sweet Potato",
+  "culinary_type": "sweet-potato",
+  "subtype": "white flesh",
+  "species": "Ipomoea batatas",
+  "image": "japanese-sweet-potato.jpg",
+  "image_alt": "Purple-skinned sweet potato with cream-white flesh",
+  "description": "A Japanese heirloom with distinctive purple-red skin and creamy white to pale yellow flesh. The flavor when roasted is distinctly chestnut-like \u2014 rich, nutty, and sweet in a way quite different from American orange varieties. A staple of Japanese cuisine.",
+  "history": "Sweet potatoes arrived in Japan from China in the early 1600s and Japanese farmers spent centuries selecting for the unique white-fleshed, chestnut-flavored types that became staples of Japanese cooking. The Satsumaimo varieties (of which this is one) remain among the most prized sweet potatoes in the world.",
+  "seasonal_quirks": "Performs well in heat and handles slightly drier conditions than other sweet potato types. The flavor develops best when roasted slowly at moderate temperature \u2014 the traditional Japanese method of slow-roasting over stones (yaki-imo) coaxes maximum sweetness from the flesh.",
+  "harvest_cues": "Harvest before frost. Tubers tend to be more elongated than American varieties. Cure at 85\u00b0F for 10\u201314 days. Flavor improves dramatically after 30+ days of storage as starches continue converting.",
+  "variety_notes": "The skin is edible and nutritious \u2014 roast whole without peeling for the best experience. Pairs exceptionally well with miso, sesame, and soy. The white flesh makes it visually distinct in any dish. Becoming increasingly available in American specialty markets and seed catalogs.",
+  "pests_diseases": [
+    "sweet potato weevil",
+    "wireworm",
+    "fusarium wilt"
+  ],
+  "culinary_uses": [
+    "slow roasting whole",
+    "tempura",
+    "miso soup",
+    "sweets",
+    "steaming",
+    "mashing"
+  ],
+  "preservation": "Cure at 85\u00b0F for 10\u201314 days. Store at 55\u201360\u00b0F. Flavor peaks after 4\u20136 weeks of storage. Keeps up to 6 months."
+}

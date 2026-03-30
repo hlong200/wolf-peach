@@ -5,7 +5,8 @@ import './VeggieCard.css';
 const ICONS = {
   tomato:'🍅', pepper:'🌶️', squash:'🎃', cabbage:'🥬', broccoli:'🥦',
   carrot:'🥕', corn:'🌽', bean:'🫘', spinach:'🌿', lettuce:'🥗',
-  cucumber:'🥒', onion:'🧅', beet:'🫜', radish:'🫜', pea:'🫛'
+  cucumber:'🥒', onion:'🧅', beet:'🫜', radish:'🫜', pea:'🫛',
+  potato: '🥔', 'sweet-potato': '🍠'
 };
 
 const SUN = { full:'Full sun', partial:'Partial shade', shade:'Full shade' };

@@ -1,0 +1,28 @@
+{
+  "id": "irish-cobbler",
+  "name": "Irish Cobbler",
+  "culinary_type": "potato",
+  "subtype": "early",
+  "species": "Solanum tuberosum",
+  "image": "irish-cobbler.jpg",
+  "image_alt": "Round white-skinned Irish Cobbler potatoes freshly dug",
+  "description": "One of the oldest and most popular early American potato varieties \u2014 round, white-skinned, with white fluffy flesh and a classic potato flavor. Ready earlier than most varieties, making it the first fresh potato of the season.",
+  "history": "An American heirloom dating to the late 1800s, Irish Cobbler was the dominant early potato in American markets for decades. Named by a Massachusetts shoemaker who grew it, it became the benchmark for early potato flavor across New England and beyond.",
+  "seasonal_quirks": "Plant as soon as soil can be worked in spring \u2014 Irish Cobbler handles cold soil better than most. Being an early variety it matures before late blight pressure typically arrives, giving it a natural disease advantage in many climates.",
+  "harvest_cues": "New potatoes available 2\u20133 weeks after flowering \u2014 small and sweet at this stage. Full harvest when vines yellow and die back. Skins slip easily at first; allow to cure so skins set before storage.",
+  "variety_notes": "Fluffy, dry flesh makes it exceptional for mashing and baking. Not the best choice for potato salad \u2014 falls apart when boiled. The early maturity means you can follow it with a fall crop in the same bed.",
+  "pests_diseases": [
+    "Colorado potato beetle",
+    "scab",
+    "early blight",
+    "aphids"
+  ],
+  "culinary_uses": [
+    "mashing",
+    "baking",
+    "roasting",
+    "soups",
+    "home fries"
+  ],
+  "preservation": "Early potatoes don't store as long as late-season types \u2014 plan to use within 2\u20133 months. Cure before storage."
+}

@@ -38,6 +38,7 @@ function Catalog() {
                         return (
                             element.name?.toLowerCase().includes(textFilter.toLowerCase())
                             || element.culinary_type?.toLowerCase().includes(textFilter.toLowerCase())
+                            || element.family?.toLowerCase().includes(textFilter.toLowerCase())
                         )
                     })
                     .filter(element => {

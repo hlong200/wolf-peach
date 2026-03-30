@@ -1,0 +1,27 @@
+{
+  "id": "all-blue",
+  "name": "All Blue",
+  "culinary_type": "potato",
+  "subtype": "specialty",
+  "species": "Solanum tuberosum",
+  "image": "all-blue.jpg",
+  "image_alt": "Deep blue-purple potato with blue flesh sliced in half",
+  "description": "A striking heirloom potato with deep blue-purple skin and vivid blue flesh throughout. Waxy texture with a slightly nutty, earthy flavor. The anthocyanin pigment that gives it color is a powerful antioxidant \u2014 one of the most nutritious potato varieties available.",
+  "history": "A South American heirloom with roots in the ancient Andean potato tradition where blue, purple, and black potatoes have been cultivated for thousands of years. Introduced to North American gardeners through heirloom seed networks in the 1980s.",
+  "seasonal_quirks": "Mid-season producer that performs well in cool climates. The blue pigment is water-soluble \u2014 boiling causes significant color loss. Roasting or baking preserves the dramatic color far better.",
+  "harvest_cues": "Vines die back at maturity \u2014 dig carefully to avoid puncturing the thin skins. Tubers are medium-sized and somewhat irregular in shape. Cure for 1 week before storage.",
+  "variety_notes": "The blue color persists best when roasted at high heat or used in cold potato salads with acid-based dressings \u2014 acid helps stabilize anthocyanins. Sliced thin and roasted into chips, the color is extraordinary.",
+  "pests_diseases": [
+    "Colorado potato beetle",
+    "late blight",
+    "scab"
+  ],
+  "culinary_uses": [
+    "roasting",
+    "baking",
+    "potato chips",
+    "cold potato salad",
+    "gnocchi"
+  ],
+  "preservation": "Store in cool, dark, humid conditions. Keeps 3\u20134 months. Color fades over long storage."
+}

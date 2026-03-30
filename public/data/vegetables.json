@@ -808,5 +808,107 @@
       "spacing_in": 3,
       "tip": "Yellow flat pods — beautiful in stir-fries, sweeter than green types."
     }
+  },
+  {
+    "id": "german-butterball",
+    "name": "German Butterball",
+    "culinary_type": "potato",
+    "family": "Solanaceae",
+    "difficulty": "easy",
+    "days_to_maturity": 100,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["heirloom", "yellow-flesh", "fingerling", "all-purpose"],
+    "quick_view": {
+      "companions_good": ["beans", "cabbage", "marigold"],
+      "companions_bad": ["tomato", "cucumber", "squash"],
+      "spacing_in": 12,
+      "tip": "One of the most reliable all-purpose heirloom potatoes — hard to go wrong."
+    }
+  },
+  {
+    "id": "all-blue",
+    "name": "All Blue",
+    "culinary_type": "potato",
+    "family": "Solanaceae",
+    "difficulty": "easy",
+    "days_to_maturity": 90,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["heirloom", "blue-flesh", "unusual-color", "waxy"],
+    "quick_view": {
+      "companions_good": ["beans", "cabbage", "horseradish"],
+      "companions_bad": ["tomato", "fennel", "squash"],
+      "spacing_in": 12,
+      "tip": "Color fades when boiled — roast or bake to preserve the striking blue."
+    }
+  },
+  {
+    "id": "irish-cobbler",
+    "name": "Irish Cobbler",
+    "culinary_type": "potato",
+    "family": "Solanaceae",
+    "difficulty": "easy",
+    "days_to_maturity": 70,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["heirloom", "early", "white-flesh", "fluffy"],
+    "quick_view": {
+      "companions_good": ["beans", "cabbage", "marigold"],
+      "companions_bad": ["tomato", "cucumber", "fennel"],
+      "spacing_in": 12,
+      "tip": "One of the earliest potatoes — ready before most summer crops hit their stride."
+    }
+  },
+  {
+    "id": "beauregard",
+    "name": "Beauregard",
+    "culinary_type": "sweet-potato",
+    "family": "Convolvulaceae",
+    "difficulty": "easy",
+    "days_to_maturity": 90,
+    "sun": "full",
+    "water": "low",
+    "tags": ["orange-flesh", "prolific", "heat-tolerant", "storage"],
+    "quick_view": {
+      "companions_good": ["beans", "thyme", "oregano"],
+      "companions_bad": ["squash", "sunflower"],
+      "spacing_in": 12,
+      "tip": "The most widely grown sweet potato in the US — reliable and sweet."
+    }
+  },
+  {
+    "id": "purple-stokes",
+    "name": "Stokes Purple",
+    "culinary_type": "sweet-potato",
+    "family": "Convolvulaceae",
+    "difficulty": "moderate",
+    "days_to_maturity": 120,
+    "sun": "full",
+    "water": "low",
+    "tags": ["purple-flesh", "unusual-color", "antioxidant", "dense"],
+    "quick_view": {
+      "companions_good": ["beans", "thyme", "marigold"],
+      "companions_bad": ["squash", "sunflower"],
+      "spacing_in": 12,
+      "tip": "Drier and denser than orange types — needs longer roasting time."
+    }
+  },
+  {
+    "id": "japanese-sweet-potato",
+    "name": "Japanese Sweet Potato",
+    "culinary_type": "sweet-potato",
+    "family": "Convolvulaceae",
+    "difficulty": "moderate",
+    "days_to_maturity": 110,
+    "sun": "full",
+    "water": "low",
+    "tags": ["white-flesh", "purple-skin", "nutty", "heat-tolerant"],
+    "quick_view": {
+      "companions_good": ["beans", "thyme", "oregano"],
+      "companions_bad": ["squash", "sunflower"],
+      "spacing_in": 12,
+      "tip": "Chestnut-like flavor when roasted — exceptional eaten simply with butter."
+    }
   }
 ]

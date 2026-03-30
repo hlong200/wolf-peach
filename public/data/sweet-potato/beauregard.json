@@ -1,0 +1,29 @@
+{
+  "id": "beauregard",
+  "name": "Beauregard",
+  "culinary_type": "sweet-potato",
+  "subtype": "orange flesh",
+  "species": "Ipomoea batatas",
+  "image": "beauregard.jpg",
+  "image_alt": "Large orange-fleshed sweet potatoes with rose-purple skin",
+  "description": "The most widely grown sweet potato in the United States \u2014 rose-purple skin with deep orange, intensely sweet flesh. Consistently high yields, excellent disease resistance, and reliable performance across a wide range of climates make it the benchmark variety.",
+  "history": "Developed at Louisiana State University and released in 1987. Quickly became the commercial standard for sweet potato production in the American South. Named for the Louisiana parish where LSU's Sweet Potato Research Station is located.",
+  "seasonal_quirks": "Sweet potatoes need a long, hot growing season \u2014 plant slips only after soil is thoroughly warm (65\u00b0F+). Beauregard is among the more adaptable varieties and produces well further north than most. Vines spread aggressively and can be trained to keep beds tidy.",
+  "harvest_cues": "Harvest before first frost \u2014 cold damages tubers in the ground. Leaves yellowing and vines dying back signal readiness. Dig carefully with a fork, working well away from the crown. Cure immediately at 85\u00b0F and high humidity for 10\u201314 days \u2014 this is essential for flavor and storage.",
+  "variety_notes": "The curing process converts starches to sugars \u2014 uncured Beauregard is starchy and bland, properly cured it is intensely sweet. One of the few sweet potato varieties widely available as slips from garden centers.",
+  "pests_diseases": [
+    "sweet potato weevil",
+    "wireworm",
+    "fusarium wilt",
+    "soil rot"
+  ],
+  "culinary_uses": [
+    "baking",
+    "roasting",
+    "mashing",
+    "pies",
+    "soups",
+    "candied"
+  ],
+  "preservation": "Cure at 85\u00b0F and 85\u201390% humidity for 10\u201314 days. Store at 55\u201360\u00b0F \u2014 not the refrigerator. Properly cured and stored sweet potatoes keep 6\u201312 months."
+}
