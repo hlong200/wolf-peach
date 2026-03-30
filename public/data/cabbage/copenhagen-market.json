@@ -1,0 +1,54 @@
+{
+  "id": "copenhagen-market",
+  "name": "Copenhagen Market",
+  "culinary_type": "cabbage",
+  "subtype": "round head",
+  "image": "copenhagen-market.jpg",
+  "image_alt": "Round pale green cabbage head",
+  "description": "A classic round-headed cabbage with pale green, tightly packed leaves. Produces solid, sweet heads ideal for fresh use, sauerkraut, and braising. One of the most dependable spring and fall cabbages.",
+  "history": "Developed in Denmark in the early 1900s and imported to the US where it became a commercial standard. Its reliable heading and compact size made it a favorite for market gardeners and home growers alike.",
+  "companions": {
+    "good": [
+      {
+        "plant": "Dill",
+        "reason": "Attracts beneficial wasps"
+      },
+      {
+        "plant": "Celery",
+        "reason": "Repels cabbage white butterfly"
+      },
+      {
+        "plant": "Onion",
+        "reason": "Deters aphids and cabbage worms"
+      }
+    ],
+    "bad": [
+      {
+        "plant": "Tomato",
+        "reason": "Stunts cabbage growth"
+      },
+      {
+        "plant": "Strawberry",
+        "reason": "Mutual growth inhibition"
+      }
+    ]
+  },
+  "seasonal_quirks": "Best planted in early spring or late summer for fall harvest. Light frost improves sweetness significantly. Heads may split if left too long after maturity in wet weather.",
+  "pests_diseases": [
+    "cabbage looper",
+    "cabbage worm",
+    "clubroot",
+    "black rot",
+    "aphids"
+  ],
+  "harvest_cues": "Head should feel firm and solid when squeezed. Outer leaves begin to look papery. Typical size is 6\u20138 inches across.",
+  "variety_notes": "One of the best-flavored cabbages for fresh coleslaw and sauerkraut. Less prone to splitting than some large-headed types.",
+  "culinary_uses": [
+    "coleslaw",
+    "sauerkraut",
+    "braising",
+    "stuffed cabbage rolls",
+    "stir-fry"
+  ],
+  "preservation": "Ferments excellently into sauerkraut. Stores in root cellar conditions for several months."
+}

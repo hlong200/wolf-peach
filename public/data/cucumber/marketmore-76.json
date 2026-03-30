@@ -1,0 +1,57 @@
+{
+  "id": "marketmore-76",
+  "name": "Marketmore 76",
+  "culinary_type": "cucumber",
+  "subtype": "slicing",
+  "image": "marketmore-76.jpg",
+  "image_alt": "Dark green slicing cucumbers on a vine",
+  "description": "The benchmark slicing cucumber \u2014 uniform, dark green, straight 8\u20139 inch fruits with crisp flesh, small seed cavity, and mild flavor. Bred for disease resistance and reliability.",
+  "history": "Developed by Henry Munger at Cornell University and released in 1976. Bred to combine the classic flavor of heirloom slicing cucumbers with resistance to the major cucumber diseases. Became the standard for home and market gardens.",
+  "companions": {
+    "good": [
+      {
+        "plant": "Beans",
+        "reason": "Nitrogen fixation benefits cucumbers"
+      },
+      {
+        "plant": "Pea",
+        "reason": "Similar trellis needs, compatible"
+      },
+      {
+        "plant": "Radish",
+        "reason": "Deters cucumber beetles"
+      }
+    ],
+    "bad": [
+      {
+        "plant": "Potato",
+        "reason": "Shared blight susceptibility"
+      },
+      {
+        "plant": "Sage",
+        "reason": "Inhibits cucumber growth"
+      },
+      {
+        "plant": "Fennel",
+        "reason": "Allelopathic"
+      }
+    ]
+  },
+  "seasonal_quirks": "Needs consistent heat and moisture \u2014 drought stress causes bitterness. Very sensitive to frost. Highly productive once established, producing for 6\u20138 weeks. Powdery mildew resistance extends the season significantly.",
+  "pests_diseases": [
+    "cucumber beetle",
+    "powdery mildew",
+    "angular leaf spot",
+    "bacterial wilt"
+  ],
+  "harvest_cues": "Harvest at 7\u20138 inches, dark green and firm. Yellow skin indicates overripe \u2014 flavor becomes bitter and seeds tough. Check daily at peak production.",
+  "variety_notes": "The disease resistance package \u2014 scab, mosaic, and downy mildew resistant \u2014 makes this significantly more reliable than non-resistant heirlooms in humid climates.",
+  "culinary_uses": [
+    "fresh slicing",
+    "sandwiches",
+    "salads",
+    "quick pickles",
+    "gazpacho"
+  ],
+  "preservation": "Bread and butter pickles. Dill pickles. Refrigerator pickles."
+}

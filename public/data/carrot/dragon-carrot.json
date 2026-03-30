@@ -1,0 +1,51 @@
+{
+  "id": "dragon-carrot",
+  "name": "Dragon",
+  "culinary_type": "carrot",
+  "subtype": "specialty",
+  "image": "dragon-carrot.jpg",
+  "image_alt": "Purple-skinned carrots with orange interiors",
+  "description": "A striking heirloom carrot with deep purple-red skin and a bright orange interior. The anthocyanins in the skin provide a nutritional boost and the flavor is sweet and rich.",
+  "history": "An ancient carrot type \u2014 purple was the original carrot color before Dutch breeders developed orange carrots in the 17th century. Dragon is a modern selection that highlights this ancestral trait.",
+  "companions": {
+    "good": [
+      {
+        "plant": "Lettuce",
+        "reason": "Space-efficient companion"
+      },
+      {
+        "plant": "Chive",
+        "reason": "Repels carrot fly"
+      },
+      {
+        "plant": "Sage",
+        "reason": "General pest deterrent"
+      }
+    ],
+    "bad": [
+      {
+        "plant": "Dill",
+        "reason": "Risk of hybridization"
+      },
+      {
+        "plant": "Parsnip",
+        "reason": "Shared pests"
+      }
+    ]
+  },
+  "seasonal_quirks": "Purple skin color is most intense in cool conditions \u2014 summer heat can cause fading. Interior stays orange regardless. Flavor peaks after frost.",
+  "pests_diseases": [
+    "carrot fly",
+    "leaf blight",
+    "cavity spot"
+  ],
+  "harvest_cues": "Skin should be deep purple-red. Shoulders 3/4 inch or more. 75\u201380 days from seeding.",
+  "variety_notes": "The purple skin doesn't penetrate to the interior \u2014 peeling removes the anthocyanins. Use unpeeled for maximum nutritional value.",
+  "culinary_uses": [
+    "roasting unpeeled",
+    "raw in salads for color",
+    "juicing",
+    "crudit\u00e9s"
+  ],
+  "preservation": "Store in cold, moist conditions. Color fades somewhat when cooked."
+}

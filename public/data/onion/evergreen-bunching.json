@@ -1,0 +1,53 @@
+{
+  "id": "evergreen-bunching",
+  "name": "Evergreen Bunching",
+  "culinary_type": "onion",
+  "subtype": "scallion",
+  "image": "evergreen-bunching.jpg",
+  "image_alt": "Clusters of green bunching onion shoots",
+  "description": "A perennial bunching onion that never forms a true bulb \u2014 grown entirely for the mild, hollow green tops. Divides into clumps annually and can be harvested continuously for years without replanting.",
+  "history": "A Japanese heirloom in cultivation for centuries, used throughout East Asian cuisines. Introduced to American gardens by Asian immigrants and adopted widely for its convenience and perennial character.",
+  "companions": {
+    "good": [
+      {
+        "plant": "Carrot",
+        "reason": "Classic pest deterrence pairing"
+      },
+      {
+        "plant": "Beet",
+        "reason": "Compatible spacing"
+      },
+      {
+        "plant": "Pepper",
+        "reason": "Deters aphids around peppers"
+      }
+    ],
+    "bad": [
+      {
+        "plant": "Bean",
+        "reason": "Inhibits bean growth"
+      },
+      {
+        "plant": "Pea",
+        "reason": "Inhibits legume growth"
+      }
+    ]
+  },
+  "seasonal_quirks": "Truly perennial \u2014 mulch clumps in cold winters and they return in spring. Divide clumps every 2\u20133 years to maintain vigor. Harvest can begin very early in spring before most other crops are established.",
+  "pests_diseases": [
+    "onion thrips",
+    "pink root",
+    "generally more disease-resistant than bulbing onions"
+  ],
+  "harvest_cues": "Harvest outer stalks when 8\u201312 inches tall, leaving the clump center intact to regrow. Cut 1 inch above soil level. Regrows within 2\u20133 weeks.",
+  "variety_notes": "One of the most practical plants for a kitchen garden \u2014 a permanent bed provides scallions almost year-round in mild climates. Both white and green parts are mild and fully edible.",
+  "culinary_uses": [
+    "raw garnish",
+    "soups",
+    "stir-fry",
+    "dumplings",
+    "noodle dishes",
+    "egg dishes"
+  ],
+  "preservation": "Chop and freeze for cooking use. Pickle in rice vinegar."
+}

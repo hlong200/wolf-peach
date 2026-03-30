@@ -1,0 +1,29 @@
+{
+  "id": "cherokee-purple",
+  "name": "Cherokee Purple",
+  "culinary_type": "tomato",
+  "subtype": "beefsteak",
+  "image": "cherokee-purple.jpg",
+  "image_alt": "A deep dusky-purple beefsteak tomato with green shoulders",
+  "description": "One of the most beloved heirloom tomatoes, Cherokee Purple produces large, flattened fruits with a distinctive dusky rose-purple color and dark green shoulders. The flavor is exceptionally rich and complex — sweet with a smoky, wine-like depth that sets it apart from most tomatoes.",
+  "history": "Believed to have been grown by the Cherokee people for centuries, this variety was shared with gardener Craig LeHoullier in 1990 by a Tennessee family who had maintained it for generations. It quickly became a staple of the heirloom tomato revival.",
+  "companions": {
+    "good": [
+      { "plant": "Basil", "reason": "Repels aphids and whiteflies, may improve flavor" },
+      { "plant": "Carrot", "reason": "Loosens soil around tomato roots" },
+      { "plant": "Parsley", "reason": "Attracts predatory insects" },
+      { "plant": "Marigold", "reason": "Deters nematodes and aphids" }
+    ],
+    "bad": [
+      { "plant": "Fennel", "reason": "Inhibits growth of most vegetables including tomatoes" },
+      { "plant": "Brassicas", "reason": "Compete for nutrients and may stunt tomato growth" },
+      { "plant": "Corn", "reason": "Shares the tomato fruitworm pest" }
+    ]
+  },
+  "seasonal_quirks": "Sets fruit poorly when temperatures exceed 95°F. Flavor peaks after the first cool nights in late summer. The purple coloring deepens with warmth and sun exposure.",
+  "pests_diseases": ["early blight", "late blight", "tomato hornworm", "blossom end rot if watering is inconsistent"],
+  "harvest_cues": "Shoulders remain green even when ripe — check the bottom for dusky rose color and a slight give. Don't wait for the shoulders to turn.",
+  "variety_notes": "Among the 'black' tomato types alongside Paul Robeson and Black Krim. More complex and smoky than most reds. Fruits average 10–12 oz but can exceed a pound.",
+  "culinary_uses": ["fresh slicing", "caprese salads", "sandwiches", "light roasting"],
+  "preservation": "Best fresh — complex flavor diminishes somewhat when cooked. Can be frozen whole or roasted and frozen."
+}

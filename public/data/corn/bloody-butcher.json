@@ -1,0 +1,54 @@
+{
+  "id": "bloody-butcher",
+  "name": "Bloody Butcher",
+  "culinary_type": "corn",
+  "subtype": "dent/flour",
+  "image": "bloody-butcher.jpg",
+  "image_alt": "Deep red and burgundy dent corn ears",
+  "description": "A dramatic heirloom dent corn with deep red to burgundy kernels. Used for cornmeal, grits, and polenta, it produces a slightly sweeter, earthier meal than yellow dent types. Stalks grow 10\u201312 feet tall.",
+  "history": "An American heirloom dating to at least 1845, believed to have been developed by Virginia farmers. The intense red pigmentation was unusual in an era when most dent corn was yellow or white.",
+  "companions": {
+    "good": [
+      {
+        "plant": "Beans",
+        "reason": "Three Sisters classic"
+      },
+      {
+        "plant": "Squash",
+        "reason": "Ground-covering companion"
+      },
+      {
+        "plant": "Sunflower",
+        "reason": "Attracts pollinators, windbreak"
+      }
+    ],
+    "bad": [
+      {
+        "plant": "Tomato",
+        "reason": "Shared pest pressure"
+      },
+      {
+        "plant": "Fennel",
+        "reason": "Inhibits growth"
+      }
+    ]
+  },
+  "seasonal_quirks": "Very long season \u2014 needs a full 100+ days of warmth. Not suitable for short-season climates. Stalks grow exceptionally tall and may need staking in windy locations. Grow for dried corn, not fresh eating.",
+  "pests_diseases": [
+    "corn earworm",
+    "corn smut",
+    "corn borer",
+    "deer"
+  ],
+  "harvest_cues": "For dry corn, leave on stalk until husks are fully papery and kernels are hard. Finish drying indoors in a warm, airy space.",
+  "variety_notes": "The red pigment is anthocyanin \u2014 nutritionally valuable. Ground into red cornmeal for visually striking polenta and grits. Also excellent for corn flour in baking.",
+  "culinary_uses": [
+    "red cornmeal",
+    "grits",
+    "polenta",
+    "corn flour",
+    "decoration",
+    "masa"
+  ],
+  "preservation": "Dry fully and store whole ears. Shell and grind as needed for freshest flavor."
+}

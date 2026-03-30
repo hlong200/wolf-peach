@@ -1,0 +1,57 @@
+{
+  "id": "di-ciccio",
+  "name": "Di Ciccio",
+  "culinary_type": "broccoli",
+  "subtype": "sprouting",
+  "image": "di-ciccio.jpg",
+  "image_alt": "Small blue-green broccoli heads with side shoots",
+  "description": "A classic Italian sprouting broccoli that produces a small central head followed by an abundance of tender side shoots. Harvested over many weeks, it offers a longer season than heading varieties.",
+  "history": "An heirloom from the Ciccio region of Italy, brought to America by Italian immigrants in the late 19th century. Favored by Italian-American home gardeners for generations for its extended harvest and rich flavor.",
+  "companions": {
+    "good": [
+      {
+        "plant": "Dill",
+        "reason": "Attracts beneficial wasps"
+      },
+      {
+        "plant": "Celery",
+        "reason": "Repels white butterfly"
+      },
+      {
+        "plant": "Chamomile",
+        "reason": "Traditional brassica companion"
+      }
+    ],
+    "bad": [
+      {
+        "plant": "Tomato",
+        "reason": "Growth inhibition"
+      },
+      {
+        "plant": "Strawberry",
+        "reason": "Mutual antagonism"
+      },
+      {
+        "plant": "Pepper",
+        "reason": "Nutrient competition"
+      }
+    ]
+  },
+  "seasonal_quirks": "Best planted for fall harvest in most climates. After the central head is cut, side shoots proliferate \u2014 production can continue for 4\u20136 weeks. Flavor peaks after light frost.",
+  "pests_diseases": [
+    "cabbage worm",
+    "aphids",
+    "clubroot",
+    "downy mildew"
+  ],
+  "harvest_cues": "Cut central head before any yellow flowers open \u2014 buds should be tight and deep green. Harvest side shoots at 3\u20135 inches, also before flowering.",
+  "variety_notes": "The side-shoot production habit makes this the most practical broccoli for small gardens \u2014 one plant provides weeks of harvest rather than a single cut.",
+  "culinary_uses": [
+    "steaming",
+    "roasting",
+    "pasta",
+    "stir-fry",
+    "pizza topping"
+  ],
+  "preservation": "Blanch and freeze florets. Pickle florets in vinegar brine."
+}

@@ -1,0 +1,52 @@
+{
+  "id": "chioggia-beet",
+  "name": "Chioggia",
+  "culinary_type": "beet",
+  "subtype": "striped",
+  "image": "chioggia-beet.jpg",
+  "image_alt": "Sliced beet showing concentric pink and white rings",
+  "description": "An Italian heirloom beet with concentric rings of pink and white inside \u2014 visually one of the most striking vegetables in the garden. Mild, sweet flavor with less of the earthy quality of dark beets.",
+  "history": "Named for the fishing village of Chioggia near Venice, where it has been grown for centuries. Also called 'Bulls-eye beet' or 'Candy Cane beet' in American seed catalogs for its circus-like interior pattern.",
+  "companions": {
+    "good": [
+      {
+        "plant": "Lettuce",
+        "reason": "Compatible spacing, different root zones"
+      },
+      {
+        "plant": "Onion",
+        "reason": "Efficient bed use"
+      },
+      {
+        "plant": "Kohlrabi",
+        "reason": "Compatible brassica companion"
+      }
+    ],
+    "bad": [
+      {
+        "plant": "Pole bean",
+        "reason": "Beans and beets inhibit each other"
+      },
+      {
+        "plant": "Mustard",
+        "reason": "Attracts shared pests"
+      }
+    ]
+  },
+  "seasonal_quirks": "Cool-season crop \u2014 best spring and fall. Heat causes zoning (the rings) to become less distinct and flavor to become earthier. The pink-white color fades to uniform pale pink when cooked.",
+  "pests_diseases": [
+    "leaf miner",
+    "cercospora leaf spot",
+    "aphids"
+  ],
+  "harvest_cues": "Best at 2\u20133 inches diameter. Larger roots become woodier and rings less distinct. Greens are edible \u2014 harvest outer leaves throughout the season.",
+  "variety_notes": "Slice raw for salads to show the striking pattern \u2014 it disappears when cooked. The mild flavor makes it accessible to beet skeptics. Greens are among the most tender and mild of beet tops.",
+  "culinary_uses": [
+    "raw in salads",
+    "roasting",
+    "pickling",
+    "borscht",
+    "greens saut\u00e9ed"
+  ],
+  "preservation": "Roast and freeze. Pickle in spiced vinegar brine \u2014 color will fade but flavor is excellent."
+}

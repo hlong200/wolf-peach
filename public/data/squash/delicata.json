@@ -1,0 +1,27 @@
+{
+  "id": "delicata",
+  "name": "Delicata",
+  "culinary_type": "squash",
+  "subtype": "winter squash",
+  "image": "delicata.jpg",
+  "image_alt": "Cream and green striped oblong winter squash",
+  "description": "A small, oblong winter squash with cream-colored skin striped in green and orange. The flesh is sweet, dense, and nutty — often compared to sweet potato. The thin, edible skin is one of its best features.",
+  "history": "First introduced in 1894 by Peter Henderson & Co. of New York. Fell out of commercial favor in the mid-20th century but was revived by small farms and seed savers in the 1990s as interest in heirloom vegetables grew.",
+  "companions": {
+    "good": [
+      { "plant": "Corn", "reason": "Classic Three Sisters — provides structure for vines" },
+      { "plant": "Beans", "reason": "Fixes nitrogen, fills ground space" },
+      { "plant": "Nasturtium", "reason": "Repels squash bugs and aphids" }
+    ],
+    "bad": [
+      { "plant": "Potato", "reason": "Shares blight susceptibility" },
+      { "plant": "Fennel", "reason": "Inhibits most garden vegetables" }
+    ]
+  },
+  "seasonal_quirks": "Unlike most winter squash, Delicata does not store for many months — expect 3 months maximum. The thin skin that makes it so appealing also limits shelf life. Flavor sweetens after a few weeks of curing.",
+  "pests_diseases": ["squash vine borer", "powdery mildew", "squash bugs"],
+  "harvest_cues": "Skin should be fully cream-colored with no green remaining. The stem should be dry and corky. Skin won't dent with a fingernail when ripe.",
+  "variety_notes": "Each plant produces 4–6 fruits, making yield calculation easy. The single-serving size (about 1 lb each) makes it practical for weeknight cooking — no cutting a huge squash.",
+  "culinary_uses": ["roasting halved", "stuffing and baking", "soups", "cubed in grain bowls"],
+  "preservation": "Cure at room temperature for 1–2 weeks after harvest. Store in a cool, dry place up to 3 months. Does not freeze as well as thicker-fleshed types."
+}

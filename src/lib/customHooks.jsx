@@ -6,7 +6,7 @@ export function useVegetableList() {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetch('https://hlong200.github.io/wolf-peach/vegetables.json')
+        fetch(`${import.meta.env.BASE_URL}data/vegetables.json`)
         .then(res => res.json())
         .then(data => setData(data))
         .catch(err => {setError(err);console.log(err)})

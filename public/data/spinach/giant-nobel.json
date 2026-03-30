@@ -1,0 +1,48 @@
+{
+  "id": "giant-nobel",
+  "name": "Giant Nobel",
+  "culinary_type": "spinach",
+  "subtype": "smooth",
+  "image": "giant-nobel.jpg",
+  "image_alt": "Large smooth flat spinach leaves",
+  "description": "A large, smooth-leaf spinach producing very broad, flat leaves with a mild flavor. Preferred for cooking over savoyed types because the smooth leaves are easier to clean and wilt more evenly.",
+  "history": "A Dutch heirloom dating to the early 20th century, bred for large leaf production in European market gardens. The 'Nobel' designation indicated top quality in Dutch horticultural nomenclature of the era.",
+  "companions": {
+    "good": [
+      {
+        "plant": "Strawberry",
+        "reason": "Compatible and mutually beneficial"
+      },
+      {
+        "plant": "Pea",
+        "reason": "Cool-season companion, nitrogen fixer"
+      },
+      {
+        "plant": "Garlic",
+        "reason": "Deters aphids that attack spinach"
+      }
+    ],
+    "bad": [
+      {
+        "plant": "Fennel",
+        "reason": "Inhibits growth"
+      }
+    ]
+  },
+  "seasonal_quirks": "Bolts faster than Bloomsdale in heat \u2014 best for early spring and fall. Very cold-hardy. Overwinters in mild climates with minimal protection.",
+  "pests_diseases": [
+    "leaf miner",
+    "downy mildew",
+    "aphids"
+  ],
+  "harvest_cues": "Leaves are best at 4\u20136 inches for fresh salads. Allow to grow larger for cooking \u2014 leaves stay tender even at 8\u201310 inches.",
+  "variety_notes": "The large flat leaves are ideal for blanching whole for stuffed pasta applications. Smooth surface makes washing much easier than savoyed types.",
+  "culinary_uses": [
+    "saut\u00e9ing",
+    "blanching for pasta",
+    "quiche",
+    "soups",
+    "smoothies"
+  ],
+  "preservation": "Blanch and freeze. Spinach reduces to a fraction of fresh volume \u2014 grow plenty."
+}

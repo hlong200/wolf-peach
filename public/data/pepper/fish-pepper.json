@@ -1,0 +1,27 @@
+{
+  "id": "fish-pepper",
+  "name": "Fish Pepper",
+  "culinary_type": "pepper",
+  "subtype": "hot",
+  "image": "fish-pepper.jpg",
+  "image_alt": "Variegated white and green striped peppers on a plant with mottled foliage",
+  "description": "A striking African-American heirloom pepper with dramatically variegated cream-and-green foliage and fruits that pass through white, striped, and orange stages before ripening red. Heat level is moderate — hotter than a jalapeño, milder than a serrano.",
+  "history": "Used extensively in 19th-century Baltimore fish and shellfish cookery in African-American communities. Nearly lost, it was preserved by artist and gardener Horace Pippin's family and reintroduced through William Woys Weaver's seed preservation work in the 1990s.",
+  "companions": {
+    "good": [
+      { "plant": "Basil", "reason": "Repels pests common to nightshades" },
+      { "plant": "Tomato", "reason": "Compatible growing conditions" },
+      { "plant": "Parsley", "reason": "Attracts beneficial predatory insects" }
+    ],
+    "bad": [
+      { "plant": "Fennel", "reason": "Inhibits nightshade family plants" },
+      { "plant": "Cabbage", "reason": "Attracts cabbage loopers which spread to pepper plants" }
+    ]
+  },
+  "seasonal_quirks": "The variegation is most vivid in cooler parts of the season. Fruits go through a beautiful progression of colors — white with green stripes, then orange-striped, then solid red. Each stage has a slightly different flavor profile.",
+  "pests_diseases": ["aphids", "pepper maggot", "bacterial spot"],
+  "harvest_cues": "Harvest at any color stage depending on heat preference — white for mildest, red for hottest. Fruits are 2–3 inches long and slightly curved.",
+  "variety_notes": "The ornamental quality rivals any flowering plant — grow it where it can be seen. The variegated foliage is a genetic trait; some plants express it more strongly than others.",
+  "culinary_uses": ["hot sauce", "pickling", "fresh in salsas", "seafood seasoning", "drying"],
+  "preservation": "Excellent pickled whole at the white stage. Dry red fruits for flakes or powder."
+}

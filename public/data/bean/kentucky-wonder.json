@@ -1,0 +1,58 @@
+{
+  "id": "kentucky-wonder",
+  "name": "Kentucky Wonder",
+  "culinary_type": "bean",
+  "subtype": "pole",
+  "image": "kentucky-wonder.jpg",
+  "image_alt": "Long green pole beans hanging from a trellis",
+  "description": "The gold standard of American pole beans. Produces long, flat to slightly rounded pods with a meaty texture and rich, full bean flavor. One of the most productive heirloom beans in cultivation.",
+  "history": "Introduced in 1864 as 'Texas Pole' and renamed Kentucky Wonder by 1877. Has been continuously popular for 150 years \u2014 a testament to its unmatched combination of flavor, productivity, and adaptability.",
+  "companions": {
+    "good": [
+      {
+        "plant": "Corn",
+        "reason": "Three Sisters \u2014 beans climb corn stalks"
+      },
+      {
+        "plant": "Squash",
+        "reason": "Three Sisters companion"
+      },
+      {
+        "plant": "Carrot",
+        "reason": "Compatible root depths"
+      }
+    ],
+    "bad": [
+      {
+        "plant": "Onion",
+        "reason": "Inhibits bean growth"
+      },
+      {
+        "plant": "Fennel",
+        "reason": "Allelopathic to most vegetables"
+      },
+      {
+        "plant": "Garlic",
+        "reason": "Inhibits bean growth"
+      }
+    ]
+  },
+  "seasonal_quirks": "Requires warm soil \u2014 do not plant until soil reaches 60\u00b0F. Produces prolifically through summer with consistent harvesting. Yields drop in extreme heat above 95\u00b0F but resume when temperatures moderate.",
+  "pests_diseases": [
+    "Mexican bean beetle",
+    "bean leaf beetle",
+    "anthracnose",
+    "bacterial blight"
+  ],
+  "harvest_cues": "Pods should snap cleanly when bent. 6\u20139 inches long, before seeds develop visible bulges. Check every 2\u20133 days at peak season.",
+  "variety_notes": "Can also be grown as a dry shell bean \u2014 let pods dry on the vine for brown seeds with excellent storage quality. The dry beans are good in soups.",
+  "culinary_uses": [
+    "fresh steamed",
+    "saut\u00e9ed with butter",
+    "pickling",
+    "soups",
+    "casseroles",
+    "dry beans"
+  ],
+  "preservation": "Blanch and freeze. Pickle in dill brine. Shell and dry for winter storage."
+}

@@ -1,0 +1,52 @@
+{
+  "id": "red-torpedo",
+  "name": "Red Torpedo",
+  "culinary_type": "onion",
+  "subtype": "cipollini",
+  "image": "red-torpedo.jpg",
+  "image_alt": "Elongated red-purple Italian torpedo onions",
+  "description": "An Italian heirloom onion with a distinctive elongated torpedo shape and deep red-purple skin. Mild and sweet with a complex flavor that intensifies beautifully when caramelized.",
+  "history": "A traditional onion from Tropea, Calabria in southern Italy \u2014 the cipolla rossa di Tropea \u2014 which has been grown there since ancient times and holds PGI status in Italy. American growers cultivate it as Red Torpedo.",
+  "companions": {
+    "good": [
+      {
+        "plant": "Carrot",
+        "reason": "Classic pest-deterrence pairing"
+      },
+      {
+        "plant": "Tomato",
+        "reason": "Deters aphids that attack tomatoes"
+      },
+      {
+        "plant": "Chamomile",
+        "reason": "Traditional companion said to improve flavor"
+      }
+    ],
+    "bad": [
+      {
+        "plant": "Bean",
+        "reason": "Inhibits bean growth"
+      },
+      {
+        "plant": "Pea",
+        "reason": "Similar inhibition"
+      }
+    ]
+  },
+  "seasonal_quirks": "A short-day onion \u2014 bulbs in response to 12-hour days, making it best for southern regions or fall planting. In northern climates, start indoors very early or treat as a specialty spring planting.",
+  "pests_diseases": [
+    "onion thrips",
+    "neck rot",
+    "downy mildew"
+  ],
+  "harvest_cues": "Tops fall over when mature. Elongated torpedo shape should be well developed \u2014 4\u20136 inches long. Cure for 2\u20133 weeks.",
+  "variety_notes": "One of the most prized onions in Italian cuisine. The red color deepens when pickled \u2014 makes beautiful pink pickled onions. Raw slices make a striking garnish.",
+  "culinary_uses": [
+    "caramelizing",
+    "grilling whole",
+    "quick pickles",
+    "salads",
+    "flatbread topping"
+  ],
+  "preservation": "Pickles beautifully \u2014 becomes vivid pink in vinegar. Stores 3\u20134 months when cured."
+}

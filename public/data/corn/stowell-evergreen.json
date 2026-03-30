@@ -1,0 +1,53 @@
+{
+  "id": "stowell-evergreen",
+  "name": "Stowell's Evergreen",
+  "culinary_type": "corn",
+  "subtype": "sweet white",
+  "image": "stowell-evergreen.jpg",
+  "image_alt": "Large white sweet corn ears",
+  "description": "A large white sweet corn from the 1840s, producing 8\u20139 inch ears with creamy white kernels and an exceptionally sweet, rich flavor. One of the longest-popular sweet corn varieties in American garden history.",
+  "history": "Introduced by Nathan Stowell of Burlington, New Jersey around 1848. The 'Evergreen' name refers to its ability to hold its eating quality longer on the stalk than other varieties of its time \u2014 a revolutionary trait for 19th-century growers.",
+  "companions": {
+    "good": [
+      {
+        "plant": "Beans",
+        "reason": "Three Sisters nitrogen fixation"
+      },
+      {
+        "plant": "Squash",
+        "reason": "Ground-covering companion"
+      },
+      {
+        "plant": "Pumpkin",
+        "reason": "Similar Three Sisters dynamic"
+      }
+    ],
+    "bad": [
+      {
+        "plant": "Tomato",
+        "reason": "Shared earworm pressure"
+      },
+      {
+        "plant": "Fennel",
+        "reason": "Allelopathic"
+      }
+    ]
+  },
+  "seasonal_quirks": "Long season requires a full summer of heat. Better choice for warmer climates or long-season regions. The ears hold their quality on the stalk slightly longer than many heirlooms \u2014 giving a day or two of harvest flexibility.",
+  "pests_diseases": [
+    "corn earworm",
+    "European corn borer",
+    "corn smut",
+    "raccoons"
+  ],
+  "harvest_cues": "Large, full ears with tight, milky white kernels. Silks fully brown. Husks still green and tight. Kernels should feel full and round.",
+  "variety_notes": "Favored for cream-style corn and corn chowder due to its high sugar and starch balance. Stalks are tall \u2014 up to 9 feet \u2014 and need wind protection or they will lodge.",
+  "culinary_uses": [
+    "cream-style corn",
+    "chowder",
+    "boiling",
+    "grilling",
+    "succotash"
+  ],
+  "preservation": "Excellent cream-style canned or frozen. Whole ear freezes well blanched."
+}

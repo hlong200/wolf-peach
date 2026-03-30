@@ -1,0 +1,57 @@
+{
+  "id": "walla-walla",
+  "name": "Walla Walla",
+  "culinary_type": "onion",
+  "subtype": "sweet",
+  "image": "walla-walla.jpg",
+  "image_alt": "Large round pale yellow sweet onion",
+  "description": "The most celebrated sweet onion in American cuisine. Produces very large, mild, flat-to-round bulbs with pale yellow skin and white flesh. So low in pungency it can be eaten like an apple.",
+  "history": "Brought to Washington's Walla Walla Valley by a French soldier named Peter Pieri from Corsica in the 1900s. Local farmers selected for sweetness over generations. The Walla Walla Sweet became federally recognized as a PGI product in 1995.",
+  "companions": {
+    "good": [
+      {
+        "plant": "Carrot",
+        "reason": "Mutual pest deterrence \u2014 classic companion pairing"
+      },
+      {
+        "plant": "Beet",
+        "reason": "Compatible spacing and cultural needs"
+      },
+      {
+        "plant": "Lettuce",
+        "reason": "Efficient use of space, different root zones"
+      }
+    ],
+    "bad": [
+      {
+        "plant": "Bean",
+        "reason": "Onions inhibit bean growth"
+      },
+      {
+        "plant": "Pea",
+        "reason": "Similar inhibition effect"
+      },
+      {
+        "plant": "Sage",
+        "reason": "Competes for similar nutrients"
+      }
+    ]
+  },
+  "seasonal_quirks": "A long-day onion \u2014 requires 14\u201316 hours of daylight to bulb. Plant in fall in mild climates for spring harvest, or start indoors very early for summer harvest. High water content means shorter storage than pungent types \u2014 use within 2\u20133 months.",
+  "pests_diseases": [
+    "onion thrips",
+    "neck rot",
+    "pink root",
+    "downy mildew"
+  ],
+  "harvest_cues": "Tops will fall over naturally when bulbs are mature. Cure in a warm, dry place for 2\u20133 weeks before storage. Skin should be papery and dry.",
+  "variety_notes": "The sweetness comes from low pyruvate content \u2014 the compound responsible for onion pungency and eye irritation. High water content makes fresh use far superior to cooking.",
+  "culinary_uses": [
+    "raw in salads",
+    "onion rings",
+    "caramelizing",
+    "fresh salsas",
+    "sandwiches"
+  ],
+  "preservation": "Short storage life \u2014 2\u20133 months maximum. Does not pickle as well as pungent types."
+}

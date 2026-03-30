@@ -1,0 +1,47 @@
+{
+  "id": "rouge-dHiver",
+  "name": "Rouge d'Hiver",
+  "culinary_type": "lettuce",
+  "subtype": "red romaine",
+  "image": "rouge-dhiver.jpg",
+  "image_alt": "Upright red-bronze romaine lettuce heads",
+  "description": "A French heirloom winter romaine with upright, bronze-red leaves that deepen in color with cold. Exceptionally cold-hardy with a crisp texture and slightly nutty, complex flavor.",
+  "history": "Rouge d'Hiver means 'red of winter' in French \u2014 named for its ability to be grown through autumn and early winter in French kitchen gardens. Documented in French seed catalogs since the 19th century.",
+  "companions": {
+    "good": [
+      {
+        "plant": "Carrot",
+        "reason": "Space-efficient pairing"
+      },
+      {
+        "plant": "Radish",
+        "reason": "Fast-maturing complement"
+      },
+      {
+        "plant": "Beet",
+        "reason": "Similar cold preferences, efficient bed use"
+      }
+    ],
+    "bad": [
+      {
+        "plant": "Fennel",
+        "reason": "Inhibits most vegetables"
+      }
+    ]
+  },
+  "seasonal_quirks": "Color deepens from green-bronze to deep red-burgundy as temperatures drop. Best sown in late summer for fall and winter harvest. One of the most cold-tolerant lettuces \u2014 survives temperatures down to 20\u00b0F with protection.",
+  "pests_diseases": [
+    "aphids",
+    "slugs",
+    "downy mildew"
+  ],
+  "harvest_cues": "Heads should be upright and firm, 8\u201310 inches tall. Outer leaves can be harvested at any stage. Best flavor when nights are cold.",
+  "variety_notes": "One of the few lettuces that improves in flavor as temperatures drop. Ideal for succession planting into late fall. Paired with Little Gem, gives a range of textures and colors for a winter salad garden.",
+  "culinary_uses": [
+    "winter salads",
+    "sandwiches",
+    "braised like endive",
+    "raw with robust dressings"
+  ],
+  "preservation": "Stores in cold frames or refrigerator. Does not freeze."
+}

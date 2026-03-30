@@ -1,0 +1,27 @@
+{
+  "id": "riesentraube",
+  "name": "Riesentraube",
+  "culinary_type": "tomato",
+  "subtype": "cherry",
+  "image": "riesentraube.jpg",
+  "image_alt": "Large trusses of small pointed red cherry tomatoes on the vine",
+  "description": "A prolific German heirloom cherry tomato — the name means 'giant bunch of grapes'. Produces enormous trusses of small, pointed red fruits with a sweet, rich, old-fashioned tomato flavor.",
+  "history": "A pre-1850s German heirloom, one of the oldest documented cherry tomatoes in cultivation. Grown widely in Pennsylvania Dutch communities and nearly lost before being preserved by seed savers in the late 20th century.",
+  "companions": {
+    "good": [
+      { "plant": "Basil", "reason": "Repels thrips and aphids" },
+      { "plant": "Carrot", "reason": "Loosens compacted soil around roots" },
+      { "plant": "Borage", "reason": "Repels tomato hornworm, attracts pollinators" }
+    ],
+    "bad": [
+      { "plant": "Fennel", "reason": "Inhibits tomato growth" },
+      { "plant": "Corn", "reason": "Shares fruitworm pests" }
+    ]
+  },
+  "seasonal_quirks": "Clusters become so heavy they can snap vines — tie trusses to support as they develop. Flavor peaks in late summer heat. Very heat tolerant for a cherry tomato.",
+  "pests_diseases": ["tomato hornworm", "early blight", "fruit splitting in heavy rain"],
+  "harvest_cues": "Fruits turn deep red and develop a slight give. Pick entire trusses when most fruits on the cluster are ripe — they hold well on the truss for several days.",
+  "variety_notes": "The pointed blossom end and very large cluster size distinguish it from other cherries. Flavor is notably richer than most modern cherry varieties.",
+  "culinary_uses": ["snacking", "salads", "roasting whole", "pasta", "preservation in oil"],
+  "preservation": "Excellent slow-roasted and packed in olive oil. Also good for cherry tomato jam."
+}

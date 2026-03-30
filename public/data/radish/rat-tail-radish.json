@@ -1,0 +1,47 @@
+{
+  "id": "rat-tail-radish",
+  "name": "Rat's Tail",
+  "culinary_type": "radish",
+  "subtype": "pod radish",
+  "image": "rat-tail-radish.jpg",
+  "image_alt": "Long purple seed pods on a flowering radish plant",
+  "description": "A unique radish grown not for its roots but for its long, tender seed pods. Allowed to flower and set pods, it produces 6\u20138 inch purple-tinged pods with a spicy radish crunch. Heat tolerant and extremely prolific.",
+  "history": "Grown in Southeast Asia and India for centuries, this radish was known in European gardens since the 17th century. The Dutch name 'Rattenschw\u00e4nze' (rat tails) described the long thin pods. Revived in American specialty gardens in the 1990s.",
+  "companions": {
+    "good": [
+      {
+        "plant": "Carrot",
+        "reason": "Different harvest goals \u2014 good bed companion"
+      },
+      {
+        "plant": "Cucumber",
+        "reason": "Pod radishes may deter cucumber beetles"
+      },
+      {
+        "plant": "Bean",
+        "reason": "Compatible summer companions"
+      }
+    ],
+    "bad": [
+      {
+        "plant": "Hyssop",
+        "reason": "Inhibits radish growth"
+      }
+    ]
+  },
+  "seasonal_quirks": "Plant in spring and let it bolt \u2014 that's the point. Heat tolerant unlike spring radishes. Pods are most tender when young and should be harvested frequently to maintain production. Continues producing for weeks.",
+  "pests_diseases": [
+    "flea beetle",
+    "aphids on flowers"
+  ],
+  "harvest_cues": "Pick pods at 4\u20136 inches \u2014 crisp and snapping. Leave beyond 8 inches and pods become tough and fibrous. Check every 2\u20133 days at peak production.",
+  "variety_notes": "The only radish deliberately grown to flower. A novelty for most American gardeners but a staple in South Asian kitchens. The spicy flavor mellows quickly when pickled.",
+  "culinary_uses": [
+    "raw as crudit\u00e9s",
+    "stir-fry",
+    "quick pickles",
+    "South Asian cooking",
+    "fermented"
+  ],
+  "preservation": "Quick pickle in vinegar and salt. Ferment like kimchi."
+}

@@ -1,0 +1,48 @@
+{
+  "id": "forellenschluss",
+  "name": "Forellenschluss",
+  "culinary_type": "lettuce",
+  "subtype": "butterhead",
+  "image": "forellenschluss.jpg",
+  "image_alt": "Green butterhead lettuce with red-brown speckles",
+  "description": "An Austrian heirloom butterhead lettuce with beautiful green leaves heavily spotted with red-brown \u2014 the name means 'trout's back' in German. Exceptionally tender with a mild, sweet flavor.",
+  "history": "An heirloom from the Austrian Tyrol documented since the 18th century. Brought to American gardens through the seed-saving community in the 1990s and quickly became a favorite for its beauty and flavor.",
+  "companions": {
+    "good": [
+      {
+        "plant": "Carrot",
+        "reason": "Efficient space use with different root depths"
+      },
+      {
+        "plant": "Radish",
+        "reason": "Quick-maturing companion"
+      },
+      {
+        "plant": "Chive",
+        "reason": "Deters aphids"
+      }
+    ],
+    "bad": [
+      {
+        "plant": "Fennel",
+        "reason": "Inhibits lettuce growth"
+      }
+    ]
+  },
+  "seasonal_quirks": "The speckled coloration intensifies in cooler weather and strong light. High temperatures reduce the spotting and increase bitterness. More heat-tolerant than many butterheads.",
+  "pests_diseases": [
+    "aphids",
+    "slugs",
+    "downy mildew in wet conditions",
+    "tipburn"
+  ],
+  "harvest_cues": "Harvest when head is formed but before it elongates and begins to bolt. Outer leaves can be taken at any time. Full heads are 6\u20138 inches across.",
+  "variety_notes": "Also known as 'Flashy Trout's Back' in American seed catalogs. Among the most visually stunning lettuces \u2014 excellent for markets and kitchen gardens where appearance matters.",
+  "culinary_uses": [
+    "fresh salads",
+    "lettuce cups",
+    "garnish",
+    "sandwiches"
+  ],
+  "preservation": "Best eaten fresh. Store in refrigerator up to 1 week."
+}

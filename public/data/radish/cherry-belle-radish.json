@@ -1,0 +1,52 @@
+{
+  "id": "cherry-belle-radish",
+  "name": "Cherry Belle",
+  "culinary_type": "radish",
+  "subtype": "spring",
+  "image": "cherry-belle-radish.jpg",
+  "image_alt": "Round bright red radishes with white flesh",
+  "description": "The classic round red spring radish \u2014 bright scarlet skin, pure white flesh, and a crisp, mildly spicy bite. Matures in an astonishing 22 days from seeding.",
+  "history": "An AAS winner in 1949, Cherry Belle became the standard small round spring radish for American home gardens. Its consistency, speed, and mild flavor made it the benchmark against which other spring radishes are measured.",
+  "companions": {
+    "good": [
+      {
+        "plant": "Carrot",
+        "reason": "Radishes loosen soil and mark slow carrot rows"
+      },
+      {
+        "plant": "Cucumber",
+        "reason": "Said to deter cucumber beetles"
+      },
+      {
+        "plant": "Lettuce",
+        "reason": "Fast-maturing companion that doesn't compete"
+      }
+    ],
+    "bad": [
+      {
+        "plant": "Hyssop",
+        "reason": "Inhibits radish growth"
+      },
+      {
+        "plant": "Turnip",
+        "reason": "Same pest and disease pressure"
+      }
+    ]
+  },
+  "seasonal_quirks": "Bolts to seed rapidly in heat \u2014 strictly a cool-season crop. In warm climates, grows only in early spring and fall. Sow in succession every 1\u20132 weeks for continuous supply. Over-mature roots become pithy and overly hot.",
+  "pests_diseases": [
+    "flea beetle",
+    "cabbage maggot",
+    "clubroot"
+  ],
+  "harvest_cues": "Shoulders visible at soil surface, 1 inch in diameter. Pull one to check before harvesting the row. Delay makes roots pithy.",
+  "variety_notes": "The speed of 22 days makes it uniquely useful as a row marker for slow-germinating crops like carrots and parsnips \u2014 sow together and the radishes emerge first, marking the row.",
+  "culinary_uses": [
+    "raw with butter and salt",
+    "salads",
+    "crudit\u00e9s",
+    "pickling",
+    "tacos"
+  ],
+  "preservation": "Quick pickle in rice vinegar with salt \u2014 ready in 30 minutes. Refrigerator pickles last 2 weeks."
+}

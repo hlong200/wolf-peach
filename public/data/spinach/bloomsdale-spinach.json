@@ -1,0 +1,50 @@
+{
+  "id": "bloomsdale-spinach",
+  "name": "Bloomsdale Longstanding",
+  "culinary_type": "spinach",
+  "subtype": "savoy",
+  "image": "bloomsdale-spinach.jpg",
+  "image_alt": "Dark crinkled savoy spinach leaves",
+  "description": "The standard heirloom savoy-leaf spinach with deeply crinkled, glossy dark green leaves. Richer flavor than smooth-leaf types and more resistant to bolting. The 'Longstanding' name indicates its improved bolt resistance.",
+  "history": "Introduced before 1826 and continuously grown ever since, making it one of the oldest heirloom vegetables still widely grown in America. Bloomsdale is a farm in Bristol, Pennsylvania where the variety was selected.",
+  "companions": {
+    "good": [
+      {
+        "plant": "Strawberry",
+        "reason": "Symbiotic relationship, both benefit"
+      },
+      {
+        "plant": "Pea",
+        "reason": "Cool-season compatible, peas fix nitrogen"
+      },
+      {
+        "plant": "Radish",
+        "reason": "Radishes mark rows, mature at different time"
+      }
+    ],
+    "bad": [
+      {
+        "plant": "Fennel",
+        "reason": "Inhibits most vegetables"
+      }
+    ]
+  },
+  "seasonal_quirks": "Must be grown in cool weather \u2014 bolts quickly when days exceed 14 hours or temperatures rise above 75\u00b0F. Spring plantings should be timed to mature before heat. Excellent fall crop. Tolerates hard frost.",
+  "pests_diseases": [
+    "spinach leaf miner",
+    "downy mildew",
+    "aphids",
+    "slug damage"
+  ],
+  "harvest_cues": "Outer leaves can be harvested at any size. Full harvest when plant has 6\u20138 leaves and outer leaves are 4\u20136 inches. Cut outer leaves and plant continues to produce.",
+  "variety_notes": "The savoyed (crinkled) leaf traps more grit than smooth spinach \u2014 wash thoroughly. The crinkled texture holds dressings and sauces better than flat types.",
+  "culinary_uses": [
+    "fresh salads",
+    "saut\u00e9ed with garlic",
+    "pasta",
+    "quiche",
+    "smoothies",
+    "creamed spinach"
+  ],
+  "preservation": "Blanch and freeze well. Wilt and freeze for cooking applications."
+}

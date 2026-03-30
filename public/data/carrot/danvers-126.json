@@ -1,0 +1,54 @@
+{
+  "id": "danvers-126",
+  "name": "Danvers 126",
+  "culinary_type": "carrot",
+  "subtype": "storage",
+  "image": "danvers-126.jpg",
+  "image_alt": "Blunt-tipped deep orange carrots just pulled from soil",
+  "description": "A classic American heirloom carrot with a blunt tip, broad shoulders, and deep orange flesh throughout. More tolerant of heavy or clay soils than most carrots, and excellent for long-term storage.",
+  "history": "Developed in Danvers, Massachusetts in the 1870s and selected over decades for reliability and storage quality. Became the standard commercial carrot of the late 19th century and remains one of the most widely grown heirlooms.",
+  "companions": {
+    "good": [
+      {
+        "plant": "Lettuce",
+        "reason": "Compatible root depths, efficient use of space"
+      },
+      {
+        "plant": "Onion",
+        "reason": "Onion fly and carrot fly deter each other"
+      },
+      {
+        "plant": "Rosemary",
+        "reason": "Repels carrot fly"
+      }
+    ],
+    "bad": [
+      {
+        "plant": "Dill",
+        "reason": "Cross-pollinates and may hybridize"
+      },
+      {
+        "plant": "Parsnip",
+        "reason": "Shares carrot fly pest pressure"
+      }
+    ]
+  },
+  "seasonal_quirks": "Flavor sweetens dramatically after frost as starches convert to sugars. Can be left in ground through winter in mild climates. Needs consistent moisture for crack-free roots.",
+  "pests_diseases": [
+    "carrot fly",
+    "alternaria leaf blight",
+    "cavity spot",
+    "forking in rocky soil"
+  ],
+  "harvest_cues": "Shoulders should be 3/4 inch or more across. Brush away soil to check root diameter. Tops of roots visible at soil surface. 70\u201380 days from seeding.",
+  "variety_notes": "Shorter and blunter than Imperator types \u2014 better for heavy soils where long carrots fork or struggle. Sweet and tender when young, stores well when mature.",
+  "culinary_uses": [
+    "roasting",
+    "soups",
+    "stews",
+    "juicing",
+    "raw snacking",
+    "glazing"
+  ],
+  "preservation": "Stores in cold, moist conditions for 4\u20136 months. Blanch and freeze. Excellent pickled."
+}

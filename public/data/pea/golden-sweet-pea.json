@@ -1,0 +1,52 @@
+{
+  "id": "golden-sweet-pea",
+  "name": "Golden Sweet",
+  "culinary_type": "pea",
+  "subtype": "snow pea",
+  "image": "golden-sweet-pea.jpg",
+  "image_alt": "Flat yellow snow pea pods on climbing vines",
+  "description": "A striking Indian heirloom snow pea with flat, entirely edible pods that mature golden-yellow rather than green. Sweeter than typical snow peas with a tender, crisp texture.",
+  "history": "An heirloom from India where yellow-podded peas have been grown for centuries. Brought to American seed savers through heirloom exchanges in the 1990s. Rare but increasingly popular for its flavor and visual appeal.",
+  "companions": {
+    "good": [
+      {
+        "plant": "Carrot",
+        "reason": "Nitrogen fixation"
+      },
+      {
+        "plant": "Radish",
+        "reason": "Row companion"
+      },
+      {
+        "plant": "Spinach",
+        "reason": "Cool-season companion"
+      }
+    ],
+    "bad": [
+      {
+        "plant": "Onion",
+        "reason": "Inhibits pea growth"
+      },
+      {
+        "plant": "Garlic",
+        "reason": "Same effect"
+      }
+    ]
+  },
+  "seasonal_quirks": "Similar growing requirements to other snow peas but slightly more heat-tolerant. Yellow color makes pods easy to spot at harvest \u2014 nothing hides in the foliage. Cool-season crop.",
+  "pests_diseases": [
+    "powdery mildew",
+    "aphids",
+    "pea moth"
+  ],
+  "harvest_cues": "Pods should be flat \u2014 any noticeable pea bumps indicate slightly past peak. Golden-yellow, 3\u20134 inches long, snapping cleanly.",
+  "variety_notes": "The yellow pods fade to tan when cooked \u2014 use raw or very briefly stir-fried for maximum color impact. Excellent in stir-fries where the yellow provides visual contrast.",
+  "culinary_uses": [
+    "raw in salads",
+    "stir-fry",
+    "quick saut\u00e9",
+    "crudit\u00e9s",
+    "noodle dishes"
+  ],
+  "preservation": "Blanch briefly and freeze. Quick pickle in rice vinegar."
+}

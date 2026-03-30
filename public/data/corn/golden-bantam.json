@@ -1,0 +1,53 @@
+{
+  "id": "golden-bantam",
+  "name": "Golden Bantam",
+  "culinary_type": "corn",
+  "subtype": "sweet",
+  "image": "golden-bantam.jpg",
+  "image_alt": "Golden yellow sweet corn ears on tall stalks",
+  "description": "The heirloom sweet corn that defined what corn should taste like before hybrid varieties changed the standard. Small 6-inch ears with golden yellow kernels and a rich, full corn flavor with balanced sweetness.",
+  "history": "Introduced in 1902 by W. Atlee Burpee, Golden Bantam was the first widely available yellow sweet corn at a time when white corn dominated. It revolutionized home corn growing and remained the standard until hybrid varieties displaced it in the 1950s.",
+  "companions": {
+    "good": [
+      {
+        "plant": "Beans",
+        "reason": "Classic Three Sisters \u2014 fixes nitrogen"
+      },
+      {
+        "plant": "Squash",
+        "reason": "Ground cover, reduces weeds and moisture loss"
+      },
+      {
+        "plant": "Cucumber",
+        "reason": "Benefits from corn windbreak"
+      }
+    ],
+    "bad": [
+      {
+        "plant": "Tomato",
+        "reason": "Shares fruitworm/earworm pest"
+      },
+      {
+        "plant": "Fennel",
+        "reason": "Inhibits most garden plants"
+      }
+    ]
+  },
+  "seasonal_quirks": "Needs warm soil (60\u00b0F+) to germinate well. Block planting is essential \u2014 corn is wind-pollinated and single rows produce poorly. Peak flavor is within hours of harvest as sugars convert to starch rapidly.",
+  "pests_diseases": [
+    "corn earworm",
+    "corn smut",
+    "European corn borer",
+    "Stewart's wilt"
+  ],
+  "harvest_cues": "Silks should be brown and dry. Pierce a kernel \u2014 milky juice means peak ripeness. Watery juice means too early, pasty means too late. Usually 3 weeks after silks appear.",
+  "variety_notes": "Flavor surpasses modern supersweet hybrids in complexity \u2014 less cloying sweetness, more genuine corn character. Must be eaten immediately after harvest for best results.",
+  "culinary_uses": [
+    "boiling",
+    "grilling in husk",
+    "creamed corn",
+    "chowder",
+    "cornmeal"
+  ],
+  "preservation": "Blanch and freeze kernels. Dry and grind into cornmeal."
+}

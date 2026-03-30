@@ -1,0 +1,54 @@
+{
+  "id": "sugar-snap-pea",
+  "name": "Sugar Snap",
+  "culinary_type": "pea",
+  "subtype": "snap",
+  "image": "sugar-snap-pea.jpg",
+  "image_alt": "Plump round snap pea pods on a tall trellis",
+  "description": "The snap pea that changed how Americans eat peas \u2014 plump, crunchy pods with rounded peas inside, entirely edible pod and all. Exceptionally sweet and best eaten raw straight from the vine.",
+  "history": "Developed by Dr. Calvin Lamborn at the Gallatin Valley Seed Company and introduced in 1979 as an AAS winner. It was a genetic breakthrough \u2014 combining the edible pod of a snow pea with the plump sweetness of a shelling pea.",
+  "companions": {
+    "good": [
+      {
+        "plant": "Carrot",
+        "reason": "Nitrogen fixation benefit"
+      },
+      {
+        "plant": "Radish",
+        "reason": "Quick companion that matures before peas crowd"
+      },
+      {
+        "plant": "Mint",
+        "reason": "Repels aphids"
+      }
+    ],
+    "bad": [
+      {
+        "plant": "Onion",
+        "reason": "Inhibits pea growth"
+      },
+      {
+        "plant": "Garlic",
+        "reason": "Same effect"
+      }
+    ]
+  },
+  "seasonal_quirks": "Vines reach 5\u20136 feet and need a substantial trellis. Extremely heavy producer over a 3\u20134 week period. Flavor peaks when cool \u2014 heat ends the season abruptly.",
+  "pests_diseases": [
+    "powdery mildew",
+    "pea moth",
+    "aphids",
+    "leaf and pod spot"
+  ],
+  "harvest_cues": "Pods should be plump and round, skin still smooth and taut. The pod should snap cleanly. Slightly past prime pods become tough-stringed \u2014 remove the string if harvesting late.",
+  "variety_notes": "The sweetness diminishes rapidly after harvest \u2014 the sugar-to-starch conversion is faster than in shelling peas. Eat within hours for peak quality, or refrigerate immediately.",
+  "culinary_uses": [
+    "raw snacking",
+    "salads",
+    "stir-fry",
+    "quick saut\u00e9",
+    "crudit\u00e9s",
+    "pasta"
+  ],
+  "preservation": "Blanch and freeze \u2014 texture softens but flavor holds well."
+}

@@ -1,0 +1,52 @@
+{
+  "id": "jacob-cattle",
+  "name": "Jacob's Cattle",
+  "culinary_type": "bean",
+  "subtype": "dry",
+  "image": "jacob-cattle.jpg",
+  "image_alt": "White beans mottled with deep maroon markings",
+  "description": "A striking heirloom dry bean with white seeds heavily mottled with maroon-burgundy markings \u2014 each bean is unique. Earthy, rich flavor with a creamy texture when cooked. Excellent drought tolerance.",
+  "history": "Brought by the Passamaquoddy people of Maine to European settlers, making it one of the oldest beans in continuous cultivation in North America. The name derives from the biblical Jacob's speckled cattle.",
+  "companions": {
+    "good": [
+      {
+        "plant": "Corn",
+        "reason": "Three Sisters \u2014 classic pairing"
+      },
+      {
+        "plant": "Squash",
+        "reason": "Ground-covering companion"
+      },
+      {
+        "plant": "Carrot",
+        "reason": "Compatible root depths, fixes nitrogen for nearby plants"
+      }
+    ],
+    "bad": [
+      {
+        "plant": "Onion",
+        "reason": "Inhibits bean germination and growth"
+      },
+      {
+        "plant": "Garlic",
+        "reason": "Growth inhibition"
+      }
+    ]
+  },
+  "seasonal_quirks": "Extremely drought-tolerant once established \u2014 ideal for dry climates and seasons. Needs full season to mature for dry bean use. Can be harvested green as a shell bean for a shorter season option.",
+  "pests_diseases": [
+    "Mexican bean beetle",
+    "bean weevil in storage",
+    "anthracnose in wet weather"
+  ],
+  "harvest_cues": "For dry beans: pods should be fully papery and rattling when shaken. For shell beans: pods plump and beginning to show color but not yet papery.",
+  "variety_notes": "The mottled markings fade somewhat when cooked but remain visible. Store dried beans in an airtight container away from light \u2014 the beautiful markings last for months.",
+  "culinary_uses": [
+    "soups",
+    "stews",
+    "baked beans",
+    "cassoulet",
+    "refried beans"
+  ],
+  "preservation": "Dry fully and store in airtight containers for 2+ years. Excellent canned for long-term storage."
+}

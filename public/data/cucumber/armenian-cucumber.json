@@ -1,0 +1,51 @@
+{
+  "id": "armenian-cucumber",
+  "name": "Armenian",
+  "culinary_type": "cucumber",
+  "subtype": "specialty",
+  "image": "armenian-cucumber.jpg",
+  "image_alt": "Long ribbed pale green cucumber coiled on a vine",
+  "description": "A long, pale green, ribbed cucumber that is technically a muskmelon (Cucumis melo) but used entirely as a cucumber. Exceptionally heat and drought tolerant, never bitter, and produces through summer heat that defeats true cucumbers.",
+  "history": "Originated in Armenia and spread through the Middle East and Mediterranean. Grown in America since colonial times. Thomas Jefferson cultivated it at Monticello. Known by many names \u2014 snake melon, yard-long cucumber, painted serpent.",
+  "companions": {
+    "good": [
+      {
+        "plant": "Beans",
+        "reason": "Nitrogen fixer"
+      },
+      {
+        "plant": "Corn",
+        "reason": "Windbreak, trellis alternative"
+      },
+      {
+        "plant": "Nasturtium",
+        "reason": "Repels aphids and beetles"
+      }
+    ],
+    "bad": [
+      {
+        "plant": "Potato",
+        "reason": "Blight susceptibility"
+      },
+      {
+        "plant": "Sage",
+        "reason": "Growth inhibition"
+      }
+    ]
+  },
+  "seasonal_quirks": "Thrives in conditions that stress true cucumbers \u2014 high heat, lower water. Being a melon, it needs heat to perform well. Grows extremely long (up to 3 feet) if left on the vine \u2014 harvest regularly.",
+  "pests_diseases": [
+    "powdery mildew",
+    "aphids \u2014 generally less pest pressure than true cucumbers"
+  ],
+  "harvest_cues": "Best at 12\u201315 inches \u2014 pale green, slightly ribbed, firm. Coils naturally on the vine. Left longer it turns yellow and develops a melon character. Cut rather than pull to avoid vine damage.",
+  "variety_notes": "Never needs peeling \u2014 the thin skin is completely edible. Flesh is extremely mild with no bitterness even when slightly overripe. One of the best choices for hot, dry climates.",
+  "culinary_uses": [
+    "fresh slicing",
+    "tzatziki",
+    "Middle Eastern salads",
+    "quick pickles",
+    "juicing"
+  ],
+  "preservation": "Quick pickle in sumac and salt. Refrigerator pickles."
+}

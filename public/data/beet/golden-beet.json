@@ -1,0 +1,52 @@
+{
+  "id": "golden-beet",
+  "name": "Burpee's Golden",
+  "culinary_type": "beet",
+  "subtype": "golden",
+  "image": "golden-beet.jpg",
+  "image_alt": "Round golden yellow beet with orange flesh",
+  "description": "A golden-yellow beet with orange flesh, sweet and mild with none of the earthiness of red beets. The great advantage: it doesn't bleed. Adds golden color to dishes without staining everything pink.",
+  "history": "Introduced by W. Atlee Burpee in 1828 and continuously improved. The non-bleeding quality made it popular for cooking demonstrations and elegant dishes where red beet staining was undesirable.",
+  "companions": {
+    "good": [
+      {
+        "plant": "Lettuce",
+        "reason": "Space efficiency"
+      },
+      {
+        "plant": "Cabbage",
+        "reason": "Compatible brassica companion"
+      },
+      {
+        "plant": "Onion",
+        "reason": "Good bed companion"
+      }
+    ],
+    "bad": [
+      {
+        "plant": "Pole bean",
+        "reason": "Mutual inhibition"
+      },
+      {
+        "plant": "Mustard",
+        "reason": "Shared pests"
+      }
+    ]
+  },
+  "seasonal_quirks": "Germinates slightly slower than red beets \u2014 keep soil consistently moist. Flavor sweetens in cold conditions. Roots may be slightly smaller than red types at the same maturity stage.",
+  "pests_diseases": [
+    "leaf miner",
+    "cercospora leaf spot",
+    "aphids"
+  ],
+  "harvest_cues": "2\u20133 inches diameter. The golden color is fully developed at maturity. Greens are edible but milder than red beet tops.",
+  "variety_notes": "Use raw in salads where the golden color shows best \u2014 it fades to tan when roasted. Pairs beautifully with goat cheese and walnuts in classic presentations.",
+  "culinary_uses": [
+    "roasting",
+    "raw in salads",
+    "pickling",
+    "golden borscht",
+    "glazing"
+  ],
+  "preservation": "Roast and freeze. Pickle in apple cider vinegar for a beautiful golden pickle."
+}

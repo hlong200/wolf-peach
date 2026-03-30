@@ -1,0 +1,27 @@
+{
+  "id": "carmen",
+  "name": "Carmen",
+  "culinary_type": "pepper",
+  "subtype": "sweet italian",
+  "image": "carmen.jpg",
+  "image_alt": "Long tapered red Italian frying peppers on the plant",
+  "description": "An All-America Selections winner, Carmen produces long, tapered Italian-style frying peppers that ripen from green to a brilliant red. One of the sweetest and most reliable sweet peppers for home gardens.",
+  "history": "Introduced by Harris Seeds in 2006 after winning AAS honors. Bred specifically to combine the classic Italian frying pepper shape with improved disease resistance and productivity for home gardeners.",
+  "companions": {
+    "good": [
+      { "plant": "Basil", "reason": "Repels aphids and spider mites" },
+      { "plant": "Carrot", "reason": "Loosens soil and doesn't compete heavily for nutrients" },
+      { "plant": "Tomato", "reason": "Similar cultural needs, can be interplanted" }
+    ],
+    "bad": [
+      { "plant": "Fennel", "reason": "Inhibits growth of most nightshades" },
+      { "plant": "Brassicas", "reason": "Attract different pests, compete for space" }
+    ]
+  },
+  "seasonal_quirks": "Needs consistent heat to set and ripen well. In cool summers, fruit stays green longer — flavor is still good but sweetness fully develops only when red. Very productive once temperatures stabilize above 70°F nights.",
+  "pests_diseases": ["pepper maggot", "aphids", "bacterial spot", "blossom drop in heat above 90°F"],
+  "harvest_cues": "Pick green for a firmer, slightly bitter flavor, or wait for full red for maximum sweetness. The transition from green to red takes 2–3 weeks. Fruit reaches 6–8 inches when mature.",
+  "variety_notes": "One of the top-performing sweet peppers in university trials. Thick walls, very few seeds, and a cavity that's perfect for stuffing or roasting whole over a flame.",
+  "culinary_uses": ["frying", "roasting", "stuffing", "fresh in salads", "antipasto"],
+  "preservation": "Roast and freeze in strips. Excellent pickled or packed in oil after roasting."
+}

@@ -1,0 +1,53 @@
+{
+  "id": "purple-sprouting",
+  "name": "Purple Sprouting",
+  "culinary_type": "broccoli",
+  "subtype": "overwintering",
+  "image": "purple-sprouting.jpg",
+  "image_alt": "Purple-tinged broccoli shoots in late winter garden",
+  "description": "An overwintering broccoli planted in summer and harvested in late winter or early spring. Produces masses of purple-tinged shoots with a sweet, almost nutty flavor that is distinctly different from standard broccoli.",
+  "history": "A traditional British and Italian garden vegetable, grown for centuries to provide fresh greens in late winter when almost nothing else is available. It fills the 'hungry gap' \u2014 the period before spring crops are ready.",
+  "companions": {
+    "good": [
+      {
+        "plant": "Dill",
+        "reason": "Pest management"
+      },
+      {
+        "plant": "Celery",
+        "reason": "Repels white butterfly"
+      },
+      {
+        "plant": "Onion",
+        "reason": "Deters aphids"
+      }
+    ],
+    "bad": [
+      {
+        "plant": "Tomato",
+        "reason": "Growth antagonism"
+      },
+      {
+        "plant": "Strawberry",
+        "reason": "Mutual inhibition"
+      }
+    ]
+  },
+  "seasonal_quirks": "Must be planted in summer to overwinter and produce in late winter/spring. Needs cold exposure to trigger flowering. Purple color intensifies in cold. The long season demands patience but the late-winter harvest is uniquely rewarding.",
+  "pests_diseases": [
+    "cabbage worm",
+    "aphids",
+    "downy mildew",
+    "pigeon damage in winter"
+  ],
+  "harvest_cues": "Cut shoots when 4\u20136 inches long, before flowers open. The whole shoot including leaves and stem is edible. Harvest frequently to encourage continuous production.",
+  "variety_notes": "The purple color fades to green when cooked. Flavor is sweeter and less sulfurous than summer broccoli. One of the most satisfying crops for dedicated gardeners willing to plan months ahead.",
+  "culinary_uses": [
+    "steaming",
+    "roasting",
+    "pasta",
+    "stir-fry",
+    "saut\u00e9ed with garlic and olive oil"
+  ],
+  "preservation": "Best eaten fresh. Blanch and freeze if needed."
+}

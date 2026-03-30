@@ -1,0 +1,27 @@
+{
+  "id": "yellow-crookneck",
+  "name": "Yellow Crookneck",
+  "culinary_type": "squash",
+  "subtype": "summer squash",
+  "image": "yellow-crookneck.jpg",
+  "image_alt": "Bumpy yellow crookneck squash with curved neck on a bush plant",
+  "description": "One of America's oldest cultivated squashes, with a distinctive curved neck and bumpy yellow skin. Tender and buttery when harvested young, with a richer flavor than most modern summer squashes.",
+  "history": "Documented in American gardens since at least the 1700s and likely cultivated by Native Americans for far longer. Thomas Jefferson grew it at Monticello. Despite the proliferation of smoother modern varieties, the Crookneck has never truly left American gardens.",
+  "companions": {
+    "good": [
+      { "plant": "Nasturtium", "reason": "Classic squash companion, repels pests" },
+      { "plant": "Corn", "reason": "Three Sisters companion" },
+      { "plant": "Dill", "reason": "Attracts beneficial wasps that parasitize squash pests" }
+    ],
+    "bad": [
+      { "plant": "Potato", "reason": "Shared disease susceptibility" },
+      { "plant": "Fennel", "reason": "Allelopathic to most vegetables" }
+    ]
+  },
+  "seasonal_quirks": "The bumpy skin becomes more pronounced with age — very young fruits are nearly smooth. Older fruits develop a hard skin and large seeds. Heat accelerates maturation significantly in midsummer.",
+  "pests_diseases": ["squash vine borer", "squash bugs", "powdery mildew", "cucumber beetle"],
+  "harvest_cues": "Harvest at 4–6 inches for peak quality — flesh is tender with no developed seeds. The neck should bend easily. Skin should be tender enough to pierce with a fingernail.",
+  "variety_notes": "The bumpy texture and curved shape make it harder to dice uniformly than straight summer squash, but the flavor rewards the extra prep. Young fruits are excellent eaten raw.",
+  "culinary_uses": ["sautéing", "grilling", "pickles", "fritters", "raw with dips"],
+  "preservation": "Pickle slices in a bread-and-butter brine. Blanch and freeze for cooking use."
+}

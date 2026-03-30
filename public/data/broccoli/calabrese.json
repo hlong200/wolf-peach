@@ -1,0 +1,58 @@
+{
+  "id": "calabrese",
+  "name": "Calabrese",
+  "culinary_type": "broccoli",
+  "subtype": "heading",
+  "image": "calabrese.jpg",
+  "image_alt": "Large domed green broccoli head",
+  "description": "The standard Italian heading broccoli \u2014 large, domed, blue-green heads with thick stalks and a rich, full flavor. The definitive broccoli type that established the vegetable in American cuisine.",
+  "history": "Named for Calabria in southern Italy, this is the variety Italian immigrants brought to America in the late 19th and early 20th centuries that introduced mainstream Americans to broccoli. By the 1920s it was commercially grown in California.",
+  "companions": {
+    "good": [
+      {
+        "plant": "Dill",
+        "reason": "Attracts parasitic wasps"
+      },
+      {
+        "plant": "Rosemary",
+        "reason": "Repels cabbage moths"
+      },
+      {
+        "plant": "Sage",
+        "reason": "Traditional brassica companion"
+      }
+    ],
+    "bad": [
+      {
+        "plant": "Tomato",
+        "reason": "Allelopathic relationship"
+      },
+      {
+        "plant": "Pepper",
+        "reason": "Nutrient competition"
+      },
+      {
+        "plant": "Mustard",
+        "reason": "Attracts shared pests"
+      }
+    ]
+  },
+  "seasonal_quirks": "Bolts quickly in heat \u2014 plant for spring or fall harvest. Heads yellow rapidly in warm weather once ready. Consistent moisture essential for tight, dark heads.",
+  "pests_diseases": [
+    "cabbage looper",
+    "imported cabbage worm",
+    "aphids",
+    "alternaria leaf spot"
+  ],
+  "harvest_cues": "Harvest when head is fully developed but before any buds begin to open or show yellow. A firm, domed head that fills your hand. Usually 6\u20139 inches across.",
+  "variety_notes": "Produces smaller side shoots after main head is cut, though fewer and smaller than Di Ciccio. The thick stalk is edible and as sweet as the florets when peeled.",
+  "culinary_uses": [
+    "steaming",
+    "roasting",
+    "stir-fry",
+    "soup",
+    "raw with dip",
+    "gratin"
+  ],
+  "preservation": "Blanch and freeze. Pickles well as giardiniera component."
+}

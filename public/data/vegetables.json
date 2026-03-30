@@ -1,0 +1,812 @@
+[
+  {
+    "id": "cherokee-purple",
+    "name": "Cherokee Purple",
+    "emoji": "🍅",
+    "culinary_type": "tomato",
+    "family": "Solanaceae",
+    "difficulty": "moderate",
+    "days_to_maturity": 80,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["heirloom", "indeterminate", "heat-tolerant", "large-fruited"],
+    "quick_view": {
+      "companions_good": ["basil", "carrot", "parsley"],
+      "companions_bad": ["fennel", "brassicas"],
+      "spacing_in": 24,
+      "tip": "Stake or cage early — gets top-heavy fast."
+    }
+  },
+  {
+    "id": "mortgage-lifter",
+    "name": "Mortgage Lifter",
+    "emoji": "🍅",
+    "culinary_type": "tomato",
+    "family": "Solanaceae",
+    "difficulty": "easy",
+    "days_to_maturity": 85,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["heirloom", "indeterminate", "large-fruited", "low-acid"],
+    "quick_view": {
+      "companions_good": ["basil", "marigold", "garlic"],
+      "companions_bad": ["fennel", "brassicas"],
+      "spacing_in": 36,
+      "tip": "One of the most forgiving heirlooms for beginners."
+    }
+  },
+  {
+    "id": "riesentraube",
+    "name": "Riesentraube",
+    "emoji": "🍅",
+    "culinary_type": "tomato",
+    "family": "Solanaceae",
+    "difficulty": "easy",
+    "days_to_maturity": 78,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["heirloom", "indeterminate", "cherry", "prolific"],
+    "quick_view": {
+      "companions_good": ["basil", "carrot", "borage"],
+      "companions_bad": ["fennel", "corn"],
+      "spacing_in": 24,
+      "tip": "Produces enormous clusters — provide strong support."
+    }
+  },
+  {
+    "id": "carmen",
+    "name": "Carmen",
+    "emoji": "🫑",
+    "culinary_type": "pepper",
+    "family": "Solanaceae",
+    "difficulty": "easy",
+    "days_to_maturity": 70,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["sweet", "italian-type", "prolific", "early"],
+    "quick_view": {
+      "companions_good": ["basil", "carrot", "tomato"],
+      "companions_bad": ["fennel", "brassicas"],
+      "spacing_in": 18,
+      "tip": "Pick red for sweetness or green for a firmer texture."
+    }
+  },
+  {
+    "id": "fish-pepper",
+    "name": "Fish Pepper",
+    "emoji": "🫑",
+    "culinary_type": "pepper",
+    "family": "Solanaceae",
+    "difficulty": "moderate",
+    "days_to_maturity": 80,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["heirloom", "hot", "variegated", "african-american-heritage"],
+    "quick_view": {
+      "companions_good": ["basil", "tomato", "parsley"],
+      "companions_bad": ["fennel", "cabbage"],
+      "spacing_in": 18,
+      "tip": "Stunning variegated foliage — ornamental as well as edible."
+    }
+  },
+  {
+    "id": "black-beauty-pepper",
+    "name": "Black Beauty",
+    "emoji": "🫑",
+    "culinary_type": "pepper",
+    "family": "Solanaceae",
+    "difficulty": "moderate",
+    "days_to_maturity": 75,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["sweet", "bell-type", "unusual-color", "compact"],
+    "quick_view": {
+      "companions_good": ["basil", "carrot", "spinach"],
+      "companions_bad": ["fennel", "brassicas"],
+      "spacing_in": 18,
+      "tip": "Deep purple-black fruit ripens to red — harvest at either stage."
+    }
+  },
+  {
+    "id": "black-beauty-squash",
+    "name": "Black Beauty",
+    "emoji": "🍆",
+    "culinary_type": "squash",
+    "family": "Cucurbitaceae",
+    "difficulty": "easy",
+    "days_to_maturity": 55,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["zucchini", "summer-squash", "prolific", "compact"],
+    "quick_view": {
+      "companions_good": ["nasturtium", "corn", "beans"],
+      "companions_bad": ["potato", "fennel"],
+      "spacing_in": 36,
+      "tip": "Harvest at 6–8 inches for best flavor — overgrows quickly."
+    }
+  },
+  {
+    "id": "delicata",
+    "name": "Delicata",
+    "emoji": "🍆",
+    "culinary_type": "squash",
+    "family": "Cucurbitaceae",
+    "difficulty": "easy",
+    "days_to_maturity": 100,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["winter-squash", "sweet", "small-fruited", "edible-skin"],
+    "quick_view": {
+      "companions_good": ["corn", "beans", "nasturtium"],
+      "companions_bad": ["potato", "fennel"],
+      "spacing_in": 48,
+      "tip": "Skin is thin enough to eat — no peeling required."
+    }
+  },
+  {
+    "id": "yellow-crookneck",
+    "name": "Yellow Crookneck",
+    "emoji": "🍆",
+    "culinary_type": "squash",
+    "family": "Cucurbitaceae",
+    "difficulty": "easy",
+    "days_to_maturity": 50,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["summer-squash", "heirloom", "prolific", "early"],
+    "quick_view": {
+      "companions_good": ["nasturtium", "corn", "dill"],
+      "companions_bad": ["potato", "fennel"],
+      "spacing_in": 36,
+      "tip": "One of the oldest American squashes — extremely reliable producer."
+    }
+  },
+  {
+    "id": "copenhagen-market",
+    "name": "Copenhagen Market",
+    "emoji": "🥬",
+    "culinary_type": "cabbage",
+    "family": "Brassicaceae",
+    "difficulty": "moderate",
+    "days_to_maturity": 72,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["heirloom", "cool-season", "round-head", "early"],
+    "quick_view": {
+      "companions_good": ["dill", "celery", "onion"],
+      "companions_bad": ["tomato", "strawberry", "pepper"],
+      "spacing_in": 18,
+      "tip": "Tolerates light frost — great for spring and fall planting."
+    }
+  },
+  {
+    "id": "red-acre",
+    "name": "Red Acre",
+    "emoji": "🥬",
+    "culinary_type": "cabbage",
+    "family": "Brassicaceae",
+    "difficulty": "moderate",
+    "days_to_maturity": 76,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["heirloom", "cool-season", "red", "compact"],
+    "quick_view": {
+      "companions_good": ["dill", "celery", "chamomile"],
+      "companions_bad": ["tomato", "strawberry"],
+      "spacing_in": 18,
+      "tip": "Color deepens with cold — flavor improves after light frost."
+    }
+  },
+  {
+    "id": "savoy-perfection",
+    "name": "Savoy Perfection",
+    "emoji": "🥬",
+    "culinary_type": "cabbage",
+    "family": "Brassicaceae",
+    "difficulty": "moderate",
+    "days_to_maturity": 90,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["heirloom", "cool-season", "crinkled-leaf", "mild-flavor"],
+    "quick_view": {
+      "companions_good": ["dill", "sage", "onion"],
+      "companions_bad": ["tomato", "pepper"],
+      "spacing_in": 24,
+      "tip": "Milder and more tender than smooth-leaf types."
+    }
+  },
+  {
+    "id": "di-ciccio",
+    "name": "Di Ciccio",
+    "emoji": "🥦",
+    "culinary_type": "broccoli",
+    "family": "Brassicaceae",
+    "difficulty": "moderate",
+    "days_to_maturity": 70,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["heirloom", "italian", "sprouting", "cool-season"],
+    "quick_view": {
+      "companions_good": ["dill", "celery", "chamomile"],
+      "companions_bad": ["tomato", "strawberry", "pepper"],
+      "spacing_in": 18,
+      "tip": "Produces many small side shoots after main head is cut."
+    }
+  },
+  {
+    "id": "calabrese",
+    "name": "Calabrese",
+    "emoji": "🥦",
+    "culinary_type": "broccoli",
+    "family": "Brassicaceae",
+    "difficulty": "easy",
+    "days_to_maturity": 65,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["heirloom", "italian", "large-head", "cool-season"],
+    "quick_view": {
+      "companions_good": ["dill", "rosemary", "sage"],
+      "companions_bad": ["tomato", "pepper", "mustard"],
+      "spacing_in": 24,
+      "tip": "The classic Italian broccoli — harvest before flowers open."
+    }
+  },
+  {
+    "id": "purple-sprouting",
+    "name": "Purple Sprouting",
+    "emoji": "🥦",
+    "culinary_type": "broccoli",
+    "family": "Brassicaceae",
+    "difficulty": "hard",
+    "days_to_maturity": 200,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["heirloom", "overwintering", "purple", "cool-season"],
+    "quick_view": {
+      "companions_good": ["dill", "celery", "onion"],
+      "companions_bad": ["tomato", "strawberry"],
+      "spacing_in": 24,
+      "tip": "Plant in summer for late-winter harvest — worth the wait."
+    }
+  },
+  {
+    "id": "danvers-126",
+    "name": "Danvers 126",
+    "emoji": "🥕",
+    "culinary_type": "carrot",
+    "family": "Apiaceae",
+    "difficulty": "easy",
+    "days_to_maturity": 75,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["heirloom", "storage", "heavy-soil-tolerant", "reliable"],
+    "quick_view": {
+      "companions_good": ["lettuce", "onion", "rosemary"],
+      "companions_bad": ["dill", "parsnip"],
+      "spacing_in": 3,
+      "tip": "Does well in heavy clay soils other carrots struggle in."
+    }
+  },
+  {
+    "id": "dragon-carrot",
+    "name": "Dragon",
+    "emoji": "🥕",
+    "culinary_type": "carrot",
+    "family": "Apiaceae",
+    "difficulty": "moderate",
+    "days_to_maturity": 80,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["heirloom", "purple-exterior", "unusual-color", "sweet"],
+    "quick_view": {
+      "companions_good": ["lettuce", "chive", "sage"],
+      "companions_bad": ["dill", "parsnip"],
+      "spacing_in": 3,
+      "tip": "Purple skin, orange interior — anthocyanins in the skin."
+    }
+  },
+  {
+    "id": "paris-market",
+    "name": "Paris Market",
+    "emoji": "🥕",
+    "culinary_type": "carrot",
+    "family": "Apiaceae",
+    "difficulty": "easy",
+    "days_to_maturity": 65,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["heirloom", "round", "container-friendly", "early"],
+    "quick_view": {
+      "companions_good": ["lettuce", "onion", "leek"],
+      "companions_bad": ["dill", "parsnip"],
+      "spacing_in": 3,
+      "tip": "Golf ball–sized roots — ideal for containers or shallow soil."
+    }
+  },
+  {
+    "id": "golden-bantam",
+    "name": "Golden Bantam",
+    "emoji": "🌽",
+    "culinary_type": "corn",
+    "family": "Poaceae",
+    "difficulty": "moderate",
+    "days_to_maturity": 78,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["heirloom", "sweet", "open-pollinated", "yellow"],
+    "quick_view": {
+      "companions_good": ["beans", "squash", "cucumber"],
+      "companions_bad": ["tomato", "fennel"],
+      "spacing_in": 12,
+      "tip": "Plant in blocks of at least 4 rows for good pollination."
+    }
+  },
+  {
+    "id": "stowell-evergreen",
+    "name": "Stowell's Evergreen",
+    "emoji": "🌽",
+    "culinary_type": "corn",
+    "family": "Poaceae",
+    "difficulty": "moderate",
+    "days_to_maturity": 95,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["heirloom", "white", "sweet", "long-season"],
+    "quick_view": {
+      "companions_good": ["beans", "squash", "pumpkin"],
+      "companions_bad": ["tomato", "fennel"],
+      "spacing_in": 12,
+      "tip": "Classic white sweet corn from the 1840s — still beloved."
+    }
+  },
+  {
+    "id": "bloody-butcher",
+    "name": "Bloody Butcher",
+    "emoji": "🌽",
+    "culinary_type": "corn",
+    "family": "Poaceae",
+    "difficulty": "moderate",
+    "days_to_maturity": 100,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["heirloom", "dent", "red", "flour-corn", "ornamental"],
+    "quick_view": {
+      "companions_good": ["beans", "squash", "sunflower"],
+      "companions_bad": ["tomato", "fennel"],
+      "spacing_in": 12,
+      "tip": "Striking deep-red kernels — used for flour, grits, or decoration."
+    }
+  },
+  {
+    "id": "kentucky-wonder",
+    "name": "Kentucky Wonder",
+    "emoji": "🫘",
+    "culinary_type": "bean",
+    "family": "Fabaceae",
+    "difficulty": "easy",
+    "days_to_maturity": 65,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["heirloom", "pole", "string-bean", "prolific"],
+    "quick_view": {
+      "companions_good": ["corn", "squash", "carrot"],
+      "companions_bad": ["onion", "fennel", "garlic"],
+      "spacing_in": 6,
+      "tip": "Classic three-sisters pole bean — needs a trellis or corn stalks."
+    }
+  },
+  {
+    "id": "dragon-tongue",
+    "name": "Dragon Tongue",
+    "emoji": "🫘",
+    "culinary_type": "bean",
+    "family": "Fabaceae",
+    "difficulty": "easy",
+    "days_to_maturity": 57,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["heirloom", "bush", "wax-bean", "unusual-color", "early"],
+    "quick_view": {
+      "companions_good": ["corn", "squash", "cucumber"],
+      "companions_bad": ["onion", "fennel"],
+      "spacing_in": 6,
+      "tip": "Yellow pods with purple stripes — purple fades when cooked."
+    }
+  },
+  {
+    "id": "jacob-cattle",
+    "name": "Jacob's Cattle",
+    "emoji": "🫘",
+    "culinary_type": "bean",
+    "family": "Fabaceae",
+    "difficulty": "easy",
+    "days_to_maturity": 85,
+    "sun": "full",
+    "water": "low",
+    "tags": ["heirloom", "dry-bean", "drought-tolerant", "native-american"],
+    "quick_view": {
+      "companions_good": ["corn", "squash", "carrot"],
+      "companions_bad": ["onion", "garlic"],
+      "spacing_in": 6,
+      "tip": "Striking maroon-and-white mottled dried bean — excellent for soups."
+    }
+  },
+  {
+    "id": "bloomsdale-spinach",
+    "name": "Bloomsdale Longstanding",
+    "emoji": "🥬",
+    "culinary_type": "spinach",
+    "family": "Amaranthaceae",
+    "difficulty": "easy",
+    "days_to_maturity": 48,
+    "sun": "partial",
+    "water": "moderate",
+    "tags": ["heirloom", "cool-season", "savoy-leaf", "bolt-resistant"],
+    "quick_view": {
+      "companions_good": ["strawberry", "pea", "radish"],
+      "companions_bad": ["fennel"],
+      "spacing_in": 6,
+      "tip": "Crinkled savoyed leaves — more bolt-resistant than flat types."
+    }
+  },
+  {
+    "id": "giant-nobel",
+    "name": "Giant Nobel",
+    "emoji": "🥬",
+    "culinary_type": "spinach",
+    "family": "Amaranthaceae",
+    "difficulty": "easy",
+    "days_to_maturity": 45,
+    "sun": "partial",
+    "water": "moderate",
+    "tags": ["heirloom", "cool-season", "large-leaf", "smooth-leaf"],
+    "quick_view": {
+      "companions_good": ["strawberry", "pea", "garlic"],
+      "companions_bad": ["fennel"],
+      "spacing_in": 6,
+      "tip": "Smooth flat leaves — preferred for cooking over savoyed types."
+    }
+  },
+  {
+    "id": "new-zealand-spinach",
+    "name": "New Zealand Spinach",
+    "emoji": "🥬",
+    "culinary_type": "spinach",
+    "family": "Tetragoniaceae",
+    "difficulty": "easy",
+    "days_to_maturity": 60,
+    "sun": "full",
+    "water": "low",
+    "tags": ["heat-tolerant", "drought-tolerant", "summer-spinach", "spreading"],
+    "quick_view": {
+      "companions_good": ["tomato", "pepper", "corn"],
+      "companions_bad": ["fennel"],
+      "spacing_in": 24,
+      "tip": "Not true spinach but fills the same role in hot weather."
+    }
+  },
+  {
+    "id": "little-gem",
+    "name": "Little Gem",
+    "emoji": "🥬",
+    "culinary_type": "lettuce",
+    "family": "Asteraceae",
+    "difficulty": "easy",
+    "days_to_maturity": 50,
+    "sun": "partial",
+    "water": "moderate",
+    "tags": ["romaine-type", "compact", "cool-season", "sweet"],
+    "quick_view": {
+      "companions_good": ["carrot", "radish", "strawberry"],
+      "companions_bad": ["fennel", "celery"],
+      "spacing_in": 8,
+      "tip": "Mini romaine — sweet and crisp, perfect for small spaces."
+    }
+  },
+  {
+    "id": "forellenschluss",
+    "name": "Forellenschluss",
+    "emoji": "🥬",
+    "culinary_type": "lettuce",
+    "family": "Asteraceae",
+    "difficulty": "easy",
+    "days_to_maturity": 55,
+    "sun": "partial",
+    "water": "moderate",
+    "tags": ["heirloom", "butterhead", "speckled", "austrian", "cool-season"],
+    "quick_view": {
+      "companions_good": ["carrot", "radish", "chive"],
+      "companions_bad": ["fennel"],
+      "spacing_in": 10,
+      "tip": "Trout-spotted leaves — one of the most beautiful lettuces."
+    }
+  },
+  {
+    "id": "rouge-dHiver",
+    "name": "Rouge d'Hiver",
+    "emoji": "🥬",
+    "culinary_type": "lettuce",
+    "family": "Asteraceae",
+    "difficulty": "easy",
+    "days_to_maturity": 60,
+    "sun": "partial",
+    "water": "moderate",
+    "tags": ["heirloom", "romaine-type", "red", "cold-tolerant", "french"],
+    "quick_view": {
+      "companions_good": ["carrot", "radish", "beet"],
+      "companions_bad": ["fennel"],
+      "spacing_in": 10,
+      "tip": "Deep red romaine — color intensifies in cold weather."
+    }
+  },
+  {
+    "id": "marketmore-76",
+    "name": "Marketmore 76",
+    "emoji": "🥒",
+    "culinary_type": "cucumber",
+    "family": "Cucurbitaceae",
+    "difficulty": "easy",
+    "days_to_maturity": 67,
+    "sun": "full",
+    "water": "high",
+    "tags": ["heirloom", "slicing", "disease-resistant", "reliable"],
+    "quick_view": {
+      "companions_good": ["beans", "pea", "radish"],
+      "companions_bad": ["potato", "sage", "fennel"],
+      "spacing_in": 12,
+      "tip": "The standard for slicing cucumbers — consistently reliable."
+    }
+  },
+  {
+    "id": "lemon-cucumber",
+    "name": "Lemon",
+    "emoji": "🥒",
+    "culinary_type": "cucumber",
+    "family": "Cucurbitaceae",
+    "difficulty": "easy",
+    "days_to_maturity": 65,
+    "sun": "full",
+    "water": "high",
+    "tags": ["heirloom", "round", "mild", "unusual-color"],
+    "quick_view": {
+      "companions_good": ["beans", "pea", "sunflower"],
+      "companions_bad": ["potato", "sage"],
+      "spacing_in": 12,
+      "tip": "Round yellow fruit — mild, never bitter, great fresh eating."
+    }
+  },
+  {
+    "id": "armenian-cucumber",
+    "name": "Armenian",
+    "emoji": "🥒",
+    "culinary_type": "cucumber",
+    "family": "Cucurbitaceae",
+    "difficulty": "easy",
+    "days_to_maturity": 65,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["heirloom", "heat-tolerant", "ribbed", "long-fruited"],
+    "quick_view": {
+      "companions_good": ["beans", "corn", "nasturtium"],
+      "companions_bad": ["potato", "sage"],
+      "spacing_in": 18,
+      "tip": "Technically a melon — exceptionally heat and drought tolerant."
+    }
+  },
+  {
+    "id": "walla-walla",
+    "name": "Walla Walla",
+    "emoji": "🧅",
+    "culinary_type": "onion",
+    "family": "Amaryllidaceae",
+    "difficulty": "moderate",
+    "days_to_maturity": 125,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["heirloom", "sweet", "large", "long-day"],
+    "quick_view": {
+      "companions_good": ["carrot", "beet", "lettuce"],
+      "companions_bad": ["bean", "pea", "sage"],
+      "spacing_in": 6,
+      "tip": "Among the sweetest onions — low pungency, great raw."
+    }
+  },
+  {
+    "id": "red-torpedo",
+    "name": "Red Torpedo",
+    "emoji": "🧅",
+    "culinary_type": "onion",
+    "family": "Amaryllidaceae",
+    "difficulty": "moderate",
+    "days_to_maturity": 110,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["heirloom", "italian", "elongated", "mild", "short-day"],
+    "quick_view": {
+      "companions_good": ["carrot", "tomato", "chamomile"],
+      "companions_bad": ["bean", "pea"],
+      "spacing_in": 6,
+      "tip": "Italian cipollini-style — torpedo shape, mild and sweet."
+    }
+  },
+  {
+    "id": "evergreen-bunching",
+    "name": "Evergreen Bunching",
+    "emoji": "🧅",
+    "culinary_type": "onion",
+    "family": "Amaryllidaceae",
+    "difficulty": "easy",
+    "days_to_maturity": 65,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["heirloom", "scallion", "perennial", "non-bulbing"],
+    "quick_view": {
+      "companions_good": ["carrot", "beet", "pepper"],
+      "companions_bad": ["bean", "pea"],
+      "spacing_in": 2,
+      "tip": "Perennial scallion — divide clumps each spring."
+    }
+  },
+  {
+    "id": "chioggia-beet",
+    "name": "Chioggia",
+    "emoji": "🫜",
+    "culinary_type": "beet",
+    "family": "Amaranthaceae",
+    "difficulty": "easy",
+    "days_to_maturity": 55,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["heirloom", "italian", "candy-striped", "mild", "early"],
+    "quick_view": {
+      "companions_good": ["lettuce", "onion", "kohlrabi"],
+      "companions_bad": ["pole-bean", "mustard"],
+      "spacing_in": 4,
+      "tip": "Concentric pink-and-white rings inside — color fades when cooked."
+    }
+  },
+  {
+    "id": "bulls-blood-beet",
+    "name": "Bull's Blood",
+    "emoji": "🫜",
+    "culinary_type": "beet",
+    "family": "Amaranthaceae",
+    "difficulty": "easy",
+    "days_to_maturity": 58,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["heirloom", "dark-foliage", "dual-purpose", "ornamental"],
+    "quick_view": {
+      "companions_good": ["lettuce", "onion", "garlic"],
+      "companions_bad": ["pole-bean", "mustard"],
+      "spacing_in": 4,
+      "tip": "Leaves are as beautiful and edible as the roots."
+    }
+  },
+  {
+    "id": "golden-beet",
+    "name": "Burpee's Golden",
+    "emoji": "🫜",
+    "culinary_type": "beet",
+    "family": "Amaranthaceae",
+    "difficulty": "easy",
+    "days_to_maturity": 55,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["heirloom", "golden", "no-bleed", "sweet", "mild"],
+    "quick_view": {
+      "companions_good": ["lettuce", "cabbage", "onion"],
+      "companions_bad": ["pole-bean", "mustard"],
+      "spacing_in": 4,
+      "tip": "Doesn't bleed when cut — great for salads and roasting."
+    }
+  },
+  {
+    "id": "cherry-belle-radish",
+    "name": "Cherry Belle",
+    "emoji": "🫜",
+    "culinary_type": "radish",
+    "family": "Brassicaceae",
+    "difficulty": "easy",
+    "days_to_maturity": 22,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["heirloom", "round", "early", "cool-season", "fast"],
+    "quick_view": {
+      "companions_good": ["carrot", "cucumber", "lettuce"],
+      "companions_bad": ["hyssop", "turnip"],
+      "spacing_in": 2,
+      "tip": "Ready in 3 weeks — perfect for marking slow-germinating rows."
+    }
+  },
+  {
+    "id": "watermelon-radish",
+    "name": "Watermelon",
+    "emoji": "🫜",
+    "culinary_type": "radish",
+    "family": "Brassicaceae",
+    "difficulty": "easy",
+    "days_to_maturity": 60,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["daikon-type", "unusual-color", "mild", "cool-season"],
+    "quick_view": {
+      "companions_good": ["carrot", "cucumber", "spinach"],
+      "companions_bad": ["hyssop"],
+      "spacing_in": 6,
+      "tip": "Green outside, vivid pink inside — best flavor in cool weather."
+    }
+  },
+  {
+    "id": "rat-tail-radish",
+    "name": "Rat's Tail",
+    "emoji": "🫜",
+    "culinary_type": "radish",
+    "family": "Brassicaceae",
+    "difficulty": "easy",
+    "days_to_maturity": 50,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["heirloom", "pod-radish", "edible-pods", "heat-tolerant"],
+    "quick_view": {
+      "companions_good": ["carrot", "cucumber", "bean"],
+      "companions_bad": ["hyssop"],
+      "spacing_in": 6,
+      "tip": "Grown for crunchy seed pods, not roots — harvest pods young."
+    }
+  },
+  {
+    "id": "alaska-pea",
+    "name": "Alaska",
+    "emoji": "🫛",
+    "culinary_type": "pea",
+    "family": "Fabaceae",
+    "difficulty": "easy",
+    "days_to_maturity": 55,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["heirloom", "shelling", "early", "cool-season", "short-vine"],
+    "quick_view": {
+      "companions_good": ["carrot", "radish", "turnip"],
+      "companions_bad": ["onion", "garlic", "fennel"],
+      "spacing_in": 3,
+      "tip": "One of the earliest shelling peas — tolerates light frost."
+    }
+  },
+  {
+    "id": "sugar-snap-pea",
+    "name": "Sugar Snap",
+    "emoji": "🫛",
+    "culinary_type": "pea",
+    "family": "Fabaceae",
+    "difficulty": "easy",
+    "days_to_maturity": 62,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["snap-pea", "edible-pod", "sweet", "tall-vine", "cool-season"],
+    "quick_view": {
+      "companions_good": ["carrot", "radish", "mint"],
+      "companions_bad": ["onion", "garlic"],
+      "spacing_in": 3,
+      "tip": "Needs a tall trellis — vines reach 6 feet."
+    }
+  },
+  {
+    "id": "golden-sweet-pea",
+    "name": "Golden Sweet",
+    "emoji": "🫛",
+    "culinary_type": "pea",
+    "family": "Fabaceae",
+    "difficulty": "easy",
+    "days_to_maturity": 60,
+    "sun": "full",
+    "water": "moderate",
+    "tags": ["heirloom", "snow-pea", "yellow-pod", "unusual-color", "cool-season"],
+    "quick_view": {
+      "companions_good": ["carrot", "radish", "spinach"],
+      "companions_bad": ["onion", "garlic"],
+      "spacing_in": 3,
+      "tip": "Yellow flat pods — beautiful in stir-fries, sweeter than green types."
+    }
+  }
+]

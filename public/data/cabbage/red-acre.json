@@ -1,0 +1,53 @@
+{
+  "id": "red-acre",
+  "name": "Red Acre",
+  "culinary_type": "cabbage",
+  "subtype": "red",
+  "image": "red-acre.jpg",
+  "image_alt": "Deep purple-red round cabbage head",
+  "description": "A compact, deeply colored red cabbage with dense, slightly peppery leaves. Color deepens from purple to near-red after cold exposure. One of the best red cabbages for northern climates.",
+  "history": "An American heirloom from the early 1900s, bred for reliability in short-season northern climates. Has remained a standard for home gardeners who want a compact, dependable red cabbage without the long season requirements of European types.",
+  "companions": {
+    "good": [
+      {
+        "plant": "Dill",
+        "reason": "Beneficial insect attractor"
+      },
+      {
+        "plant": "Celery",
+        "reason": "Repels white butterfly"
+      },
+      {
+        "plant": "Chamomile",
+        "reason": "May improve flavor and growth"
+      }
+    ],
+    "bad": [
+      {
+        "plant": "Tomato",
+        "reason": "Growth inhibition"
+      },
+      {
+        "plant": "Strawberry",
+        "reason": "Mutual antagonism"
+      }
+    ]
+  },
+  "seasonal_quirks": "Color deepens dramatically after the first frost \u2014 plan fall plantings to catch cold weather. Anthocyanin content increases in cold, making leaves more nutritious and more colorful.",
+  "pests_diseases": [
+    "cabbage looper",
+    "cabbage worm",
+    "aphids",
+    "clubroot"
+  ],
+  "harvest_cues": "Heads should feel very firm \u2014 red cabbage is denser than green. 4\u20136 inches across, leaves tightly packed.",
+  "variety_notes": "The red color bleeds into pickling liquid, creating gorgeous pink-purple pickles. Add vinegar when cooking to preserve the color \u2014 alkaline conditions turn it blue-gray.",
+  "culinary_uses": [
+    "braised red cabbage",
+    "coleslaw",
+    "pickles",
+    "sauerkraut",
+    "raw salads"
+  ],
+  "preservation": "Excellent pickled. Ferments into a beautiful pink sauerkraut. Stores well in cold conditions."
+}

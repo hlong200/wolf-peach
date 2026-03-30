@@ -1,0 +1,52 @@
+{
+  "id": "dragon-tongue",
+  "name": "Dragon Tongue",
+  "culinary_type": "bean",
+  "subtype": "wax bush",
+  "image": "dragon-tongue.jpg",
+  "image_alt": "Yellow pods with purple streaks on a bush plant",
+  "description": "A Dutch heirloom wax bean with stunning yellow pods streaked with purple. The most visually distinctive bean in the garden. Flavor is sweet and mild \u2014 one of the best-tasting bush beans available.",
+  "history": "A Dutch heirloom, the 'Dragon's Tongue' name reflects the vivid purple streaking on yellow pods. Gained widespread popularity in American specialty and heirloom seed markets in the 1990s.",
+  "companions": {
+    "good": [
+      {
+        "plant": "Corn",
+        "reason": "Three Sisters pairing"
+      },
+      {
+        "plant": "Squash",
+        "reason": "Three Sisters companion"
+      },
+      {
+        "plant": "Cucumber",
+        "reason": "Compatible moisture needs"
+      }
+    ],
+    "bad": [
+      {
+        "plant": "Onion",
+        "reason": "Inhibits bean growth"
+      },
+      {
+        "plant": "Fennel",
+        "reason": "Allelopathic"
+      }
+    ]
+  },
+  "seasonal_quirks": "The purple streaks fade completely when cooked \u2014 use raw or quickly blanched for visual impact. Very early to produce for a wax bean.",
+  "pests_diseases": [
+    "Mexican bean beetle",
+    "aphids",
+    "bean mosaic virus"
+  ],
+  "harvest_cues": "Pods are ready at 5\u20137 inches \u2014 yellow with prominent purple streaks, plump but not bumpy with seed outlines. More forgiving of slightly oversize harvest than green beans.",
+  "variety_notes": "Exceptional for fresh eating raw in salads. The color contrast with green salad vegetables is striking. Also good as a shell bean if allowed to mature.",
+  "culinary_uses": [
+    "raw in salads",
+    "quick pickling",
+    "steaming",
+    "saut\u00e9ing",
+    "crudit\u00e9s"
+  ],
+  "preservation": "Quick pickle in a light vinegar brine. Blanch and freeze \u2014 note color is lost."
+}

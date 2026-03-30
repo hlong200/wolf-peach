@@ -1,0 +1,53 @@
+{
+  "id": "little-gem",
+  "name": "Little Gem",
+  "culinary_type": "lettuce",
+  "subtype": "mini romaine",
+  "image": "little-gem.jpg",
+  "image_alt": "Small tight heads of romaine-type lettuce",
+  "description": "A compact mini romaine lettuce forming tight, upright heads with sweet, crunchy leaves and a buttery heart. One of the most flavorful lettuces available, combining romaine's crunch with butterhead sweetness.",
+  "history": "A British heirloom, long grown in English kitchen gardens as 'Sugar Cos'. Gained widespread popularity in American specialty food culture in the early 2000s when it became a restaurant favorite.",
+  "companions": {
+    "good": [
+      {
+        "plant": "Carrot",
+        "reason": "Different root depths, efficient use of space"
+      },
+      {
+        "plant": "Radish",
+        "reason": "Radishes mark rows and mature before lettuce crowds them"
+      },
+      {
+        "plant": "Strawberry",
+        "reason": "Mutually beneficial pairing"
+      }
+    ],
+    "bad": [
+      {
+        "plant": "Fennel",
+        "reason": "Inhibits most vegetables"
+      },
+      {
+        "plant": "Celery",
+        "reason": "Both prefer same resources, compete"
+      }
+    ]
+  },
+  "seasonal_quirks": "Bolt-resistant for a romaine type but will eventually bolt in long days and heat. Partial shade in hot climates extends the season. Very cold-hardy \u2014 survives light frost.",
+  "pests_diseases": [
+    "aphids",
+    "lettuce mosaic virus",
+    "tipburn in heat",
+    "slugs"
+  ],
+  "harvest_cues": "Harvest as individual leaves or as whole head when firm and upright \u2014 4\u20136 inches tall. Heart should be pale yellow-green and tightly packed.",
+  "variety_notes": "The most popular lettuce in high-end restaurant kitchens. Individual leaves are naturally cup-shaped \u2014 ideal for lettuce wraps. Single-serving size makes waste-free harvesting easy.",
+  "culinary_uses": [
+    "salads",
+    "lettuce wraps",
+    "grilling halved",
+    "wedge salads",
+    "cups for fillings"
+  ],
+  "preservation": "Store unwashed in refrigerator up to 1 week. Does not freeze."
+}

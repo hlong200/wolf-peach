@@ -1,0 +1,52 @@
+{
+  "id": "bulls-blood-beet",
+  "name": "Bull's Blood",
+  "culinary_type": "beet",
+  "subtype": "dark foliage",
+  "image": "bulls-blood-beet.jpg",
+  "image_alt": "Deep burgundy beet with striking dark red leaves",
+  "description": "A dual-purpose beet grown as much for its stunning deep burgundy foliage as for its roots. Young leaves are among the most beautiful and flavorful salad greens available. Roots are deep red-purple with earthy, sweet flavor.",
+  "history": "An heirloom dating to the 1840s in France, grown primarily as an ornamental vegetable for its striking dark foliage. The leaf color was used to indicate blood type compatibility in early folk medicine, hence the name.",
+  "companions": {
+    "good": [
+      {
+        "plant": "Lettuce",
+        "reason": "Efficient space use"
+      },
+      {
+        "plant": "Onion",
+        "reason": "Compatible spacing"
+      },
+      {
+        "plant": "Garlic",
+        "reason": "General pest deterrence"
+      }
+    ],
+    "bad": [
+      {
+        "plant": "Pole bean",
+        "reason": "Mutual inhibition"
+      },
+      {
+        "plant": "Mustard",
+        "reason": "Shared pest pressure"
+      }
+    ]
+  },
+  "seasonal_quirks": "Leaf color is most intense in cool weather and full sun \u2014 heat and shade reduce the dramatic burgundy. Baby leaves harvested young are the most tender and colorful for salads.",
+  "pests_diseases": [
+    "leaf miner",
+    "cercospora leaf spot",
+    "slugs on young plants"
+  ],
+  "harvest_cues": "Harvest baby leaves at 2\u20133 inches for salads. Full roots at 2\u20133 inches diameter. Roots are best before they exceed 3 inches \u2014 older roots can become fibrous.",
+  "variety_notes": "One of the most ornamental edibles \u2014 suitable as a border plant in flower beds. The deep color bleeds aggressively when cut \u2014 wear an apron.",
+  "culinary_uses": [
+    "baby leaves in salads",
+    "roasting",
+    "pickling",
+    "borscht",
+    "microgreens"
+  ],
+  "preservation": "Roast and freeze roots. Pickle in vinegar brine."
+}

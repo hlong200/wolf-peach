@@ -1,0 +1,48 @@
+{
+  "id": "watermelon-radish",
+  "name": "Watermelon",
+  "culinary_type": "radish",
+  "subtype": "daikon type",
+  "image": "watermelon-radish.jpg",
+  "image_alt": "Sliced radish showing green exterior and vivid pink interior",
+  "description": "A large Chinese daikon-type radish with pale green exterior and a vivid magenta-pink interior \u2014 resembling the flesh of a watermelon when sliced. Mild, slightly sweet flavor with a satisfying crunch.",
+  "history": "A traditional Chinese radish (xinlimei) grown for centuries in China. Brought to American farmers markets in the early 2000s where its dramatic appearance made it an instant sensation among chefs and specialty growers.",
+  "companions": {
+    "good": [
+      {
+        "plant": "Carrot",
+        "reason": "Compatible root crops, different depths"
+      },
+      {
+        "plant": "Cucumber",
+        "reason": "Deters cucumber beetles"
+      },
+      {
+        "plant": "Spinach",
+        "reason": "Cool-season bed companion"
+      }
+    ],
+    "bad": [
+      {
+        "plant": "Hyssop",
+        "reason": "Inhibits radish growth"
+      }
+    ]
+  },
+  "seasonal_quirks": "A fall radish \u2014 plant in late summer for fall harvest. Spring-planted roots bolt before developing properly. Cool weather intensifies the pink interior color. Stores well in cold conditions.",
+  "pests_diseases": [
+    "flea beetle",
+    "cabbage maggot",
+    "relatively less pest pressure than spring types"
+  ],
+  "harvest_cues": "2\u20133 inches in diameter. Slice to check interior color \u2014 vivid pink means ready. Green exterior with slight give indicates maturity.",
+  "variety_notes": "Slice thin for maximum visual impact \u2014 the color gradient from green edge to pink center is most striking in thin rounds. Best used raw or very quickly pickled to preserve color.",
+  "culinary_uses": [
+    "raw in salads",
+    "sushi and poke bowls",
+    "quick pickles",
+    "crudit\u00e9s",
+    "Korean banchan"
+  ],
+  "preservation": "Quick pickle in rice vinegar \u2014 color holds beautifully. Stores whole in cold, moist conditions for several months."
+}

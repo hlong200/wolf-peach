@@ -1,0 +1,53 @@
+{
+  "id": "savoy-perfection",
+  "name": "Savoy Perfection",
+  "culinary_type": "cabbage",
+  "subtype": "savoy",
+  "image": "savoy-perfection.jpg",
+  "image_alt": "Crinkled blue-green savoy cabbage head",
+  "description": "A large, crinkled-leaf savoy cabbage with loosely packed, deeply textured blue-green leaves. Milder and more tender than smooth-leaf types, with a buttery flavor that improves dramatically with cold.",
+  "history": "Savoy cabbages originated in the Savoy region of the Alps, and this selection was refined over generations for consistent head formation and cold hardiness. It became popular among European immigrant communities in America.",
+  "companions": {
+    "good": [
+      {
+        "plant": "Dill",
+        "reason": "Pest deterrent and beneficial insect attractor"
+      },
+      {
+        "plant": "Sage",
+        "reason": "Repels cabbage moths"
+      },
+      {
+        "plant": "Onion",
+        "reason": "Deters aphids"
+      }
+    ],
+    "bad": [
+      {
+        "plant": "Tomato",
+        "reason": "Growth antagonism"
+      },
+      {
+        "plant": "Pepper",
+        "reason": "Compete for similar nutrients"
+      }
+    ]
+  },
+  "seasonal_quirks": "Most cold-hardy of the cabbage types \u2014 handles hard frost well. Leaves become more tender and less bitter in cold weather. Slower to develop than round-head types.",
+  "pests_diseases": [
+    "cabbage looper",
+    "aphids",
+    "downy mildew",
+    "black rot"
+  ],
+  "harvest_cues": "Head should feel substantial but not as rock-hard as smooth cabbages \u2014 savoy is naturally looser. Outer leaves will be crinkled and blue-green.",
+  "variety_notes": "The crinkled texture holds sauces and dressings better than smooth cabbage. Excellent for stuffed cabbage rolls \u2014 leaves are more pliable when blanched.",
+  "culinary_uses": [
+    "braising",
+    "stuffed rolls",
+    "soups",
+    "stir-fry",
+    "pasta dishes"
+  ],
+  "preservation": "Less ideal for sauerkraut than smooth types. Stores well in cold conditions for several months."
+}

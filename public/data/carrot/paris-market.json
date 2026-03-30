@@ -1,0 +1,51 @@
+{
+  "id": "paris-market",
+  "name": "Paris Market",
+  "culinary_type": "carrot",
+  "subtype": "round",
+  "image": "paris-market.jpg",
+  "image_alt": "Small round orange carrots in a cluster",
+  "description": "A French heirloom carrot that grows as a round, golf-ball-sized root rather than the typical long tapered shape. Sweet and tender, ideal for container growing or shallow or rocky soils.",
+  "history": "A 19th-century French market garden variety developed for growing in shallow Parisian market garden beds with little soil depth. The round shape was a practical solution to limited growing space.",
+  "companions": {
+    "good": [
+      {
+        "plant": "Lettuce",
+        "reason": "Space-efficient pairing"
+      },
+      {
+        "plant": "Onion",
+        "reason": "Mutual pest deterrence"
+      },
+      {
+        "plant": "Leek",
+        "reason": "Similar deterrence effect"
+      }
+    ],
+    "bad": [
+      {
+        "plant": "Dill",
+        "reason": "Hybridization risk"
+      },
+      {
+        "plant": "Parsnip",
+        "reason": "Shared pests"
+      }
+    ]
+  },
+  "seasonal_quirks": "Matures quickly relative to standard carrots. Can be sown in succession every 3 weeks for continuous harvest. Handles hot weather better than most carrots when kept well watered.",
+  "pests_diseases": [
+    "carrot fly",
+    "leaf blight"
+  ],
+  "harvest_cues": "Roots should be 1.5\u20132 inches in diameter. Gently push soil aside to check. 55\u201365 days from seeding.",
+  "variety_notes": "The round shape makes them easier to harvest cleanly in heavy soil. Excellent for children's gardens \u2014 easy to pull and fun to discover.",
+  "culinary_uses": [
+    "roasting whole",
+    "glazing",
+    "raw snacking",
+    "pickles",
+    "crudit\u00e9s"
+  ],
+  "preservation": "Short roots store well in moist sand. Pickle whole in vinegar brine."
+}

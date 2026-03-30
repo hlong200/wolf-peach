@@ -1,0 +1,27 @@
+{
+  "id": "black-beauty-squash",
+  "name": "Black Beauty Zucchini",
+  "culinary_type": "squash",
+  "subtype": "zucchini",
+  "image": "black-beauty-squash.jpg",
+  "image_alt": "Dark green glossy zucchini on a large leafy plant",
+  "description": "The standard by which other zucchinis are measured. Dark, glossy green fruits with creamy white flesh and a mild, slightly sweet flavor. An extremely prolific bush plant that can outproduce almost any other summer squash.",
+  "history": "Introduced in the 1920s and an AAS winner in 1957. Descended from Italian zucchini types brought to America by Italian immigrants. Became the dominant commercial and home garden zucchini variety for decades.",
+  "companions": {
+    "good": [
+      { "plant": "Nasturtium", "reason": "Repels squash bugs and aphids, edible flowers" },
+      { "plant": "Corn", "reason": "Classic Three Sisters companion" },
+      { "plant": "Beans", "reason": "Fixes nitrogen, compatible growth habit" }
+    ],
+    "bad": [
+      { "plant": "Potato", "reason": "Both susceptible to blight, can cross-infect" },
+      { "plant": "Fennel", "reason": "Inhibits growth of most vegetables" }
+    ]
+  },
+  "seasonal_quirks": "Produces so prolifically in peak season that daily harvesting is necessary. Fruits left on the plant beyond 8 inches divert energy from new production and become seedy. Powdery mildew commonly appears on leaves mid-season but rarely stops production.",
+  "pests_diseases": ["squash vine borer", "squash bugs", "powdery mildew", "cucumber mosaic virus"],
+  "harvest_cues": "Best at 6–8 inches — tender skin, mild flavor, no tough seeds. Check daily in peak season. Glossy skin indicates freshness; dull skin means overripe.",
+  "variety_notes": "The large leaves and hollow stems make the plant attractive to squash vine borers. Planting through black plastic mulch can deter them. Blossoms are edible and excellent stuffed and fried.",
+  "culinary_uses": ["sautéing", "grilling", "stuffing", "baking", "fritters", "raw in salads"],
+  "preservation": "Blanch and freeze shredded for baking. Spiralize and freeze for noodles. Pickles well as bread-and-butter style."
+}

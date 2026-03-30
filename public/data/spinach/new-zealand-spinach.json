@@ -1,0 +1,48 @@
+{
+  "id": "new-zealand-spinach",
+  "name": "New Zealand Spinach",
+  "culinary_type": "spinach",
+  "subtype": "summer",
+  "image": "new-zealand-spinach.jpg",
+  "image_alt": "Low spreading plant with small thick dark green leaves",
+  "description": "Not a true spinach but fills the same culinary role in hot weather when true spinach bolts. Thick, succulent leaves with a mild spinach-like flavor. Extremely heat and drought tolerant.",
+  "history": "Native to New Zealand, Australia, and Japan, it was collected by Joseph Banks during Captain Cook's 1769 voyage and brought to European gardens. Sailors used it to prevent scurvy on long voyages.",
+  "companions": {
+    "good": [
+      {
+        "plant": "Tomato",
+        "reason": "Compatible heat preferences"
+      },
+      {
+        "plant": "Pepper",
+        "reason": "Both thrive in summer heat"
+      },
+      {
+        "plant": "Corn",
+        "reason": "Ground cover under tall corn"
+      }
+    ],
+    "bad": [
+      {
+        "plant": "Fennel",
+        "reason": "Inhibits most vegetables"
+      }
+    ]
+  },
+  "seasonal_quirks": "Thrives in conditions that kill true spinach \u2014 high heat, low water. Grows as a sprawling ground cover 2\u20133 feet wide. Does not tolerate frost. Start indoors or sow after last frost.",
+  "pests_diseases": [
+    "relatively pest-free",
+    "occasional aphids",
+    "slugs when young"
+  ],
+  "harvest_cues": "Harvest young shoot tips 3\u20134 inches long continuously. Do not harvest entire plant. New tips regrow quickly from the nodes.",
+  "variety_notes": "Soaking seeds overnight significantly improves germination rate. The spreading habit makes it a useful living mulch. Raw texture is slightly mucilaginous \u2014 cooking is generally preferred.",
+  "culinary_uses": [
+    "saut\u00e9ed as spinach substitute",
+    "quiche",
+    "soups",
+    "pasta",
+    "frittata"
+  ],
+  "preservation": "Blanch and freeze like true spinach."
+}

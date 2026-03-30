@@ -1,0 +1,27 @@
+{
+  "id": "black-beauty-pepper",
+  "name": "Black Beauty",
+  "culinary_type": "pepper",
+  "subtype": "sweet bell",
+  "image": "black-beauty-pepper.jpg",
+  "image_alt": "Deep purple-black bell peppers on a compact plant",
+  "description": "A visually dramatic sweet bell pepper with deep purple-black fruits that ripen to red. Flavor is sweet and mild throughout both stages — the black color comes from high anthocyanin content rather than any bitterness.",
+  "history": "A relatively modern variety developed for the ornamental-edible market. Gained popularity among gardeners attracted to unusual vegetable colors and the dual harvest window — striking black when immature, sweet red when ripe.",
+  "companions": {
+    "good": [
+      { "plant": "Basil", "reason": "Pest deterrent for aphids and spider mites" },
+      { "plant": "Carrot", "reason": "Compatible root depth, doesn't compete heavily" },
+      { "plant": "Spinach", "reason": "Ground cover that retains moisture around peppers" }
+    ],
+    "bad": [
+      { "plant": "Fennel", "reason": "Inhibits nightshade family growth" },
+      { "plant": "Brassicas", "reason": "Attract different pests, poor companions" }
+    ]
+  },
+  "seasonal_quirks": "The black color is most intense with full sun and warm temperatures. In cool or shaded conditions fruits may be more purple-green than true black. Anthocyanins fade to red faster in very hot weather.",
+  "pests_diseases": ["aphids", "bacterial spot", "blossom drop in temperature extremes"],
+  "harvest_cues": "Harvest black for drama and a slightly firmer texture, or leave to ripen fully red for maximum sweetness. Fruit is blocky, 3–4 lobed, 3–4 inches.",
+  "variety_notes": "The anthocyanin content makes these particularly nutritious. Color provides natural camouflage from some pests that target green fruits. Compact plant habit makes it suitable for containers.",
+  "culinary_uses": ["fresh in salads", "stuffing", "roasting", "crudités"],
+  "preservation": "Roast and freeze. The black color fades when cooked regardless — use fresh for visual impact."
+}

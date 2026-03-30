@@ -1,0 +1,57 @@
+{
+  "id": "alaska-pea",
+  "name": "Alaska",
+  "culinary_type": "pea",
+  "subtype": "shelling",
+  "image": "alaska-pea.jpg",
+  "image_alt": "Plump green pea pods on short vines",
+  "description": "One of the earliest-maturing shelling peas, producing plump pods on compact 2-3 foot vines. Round, smooth seeds with a sweet, classic pea flavor. Thrives in cold, wet conditions that stall other varieties.",
+  "history": "An heirloom documented since 1880, bred for far-north climates where the growing season is short and cold. The name reflects its adaptation to Alaska-like conditions \u2014 it will germinate in near-freezing soil.",
+  "companions": {
+    "good": [
+      {
+        "plant": "Carrot",
+        "reason": "Classic companion \u2014 peas fix nitrogen for carrots"
+      },
+      {
+        "plant": "Radish",
+        "reason": "Fast-maturing row companion"
+      },
+      {
+        "plant": "Turnip",
+        "reason": "Cool-season compatible"
+      }
+    ],
+    "bad": [
+      {
+        "plant": "Onion",
+        "reason": "Inhibits pea growth"
+      },
+      {
+        "plant": "Garlic",
+        "reason": "Same inhibition effect"
+      },
+      {
+        "plant": "Fennel",
+        "reason": "Allelopathic"
+      }
+    ]
+  },
+  "seasonal_quirks": "Sow as early as soil can be worked \u2014 even in frozen ground in mild winters. Germination at 40\u00b0F. Stops producing when heat arrives \u2014 plan succession or treat as a single-harvest spring crop.",
+  "pests_diseases": [
+    "pea moth",
+    "powdery mildew",
+    "pea aphid",
+    "fusarium wilt"
+  ],
+  "harvest_cues": "Pods should be round and plump, filling the pod completely. Shell and taste \u2014 peas should be sweet, not starchy. Entire plant harvest at peak.",
+  "variety_notes": "Best choice for cold, wet spring climates. Smooth seeds (not wrinkled) indicate cool-temperature adaptation \u2014 wrinkled types need warmer soil to germinate reliably.",
+  "culinary_uses": [
+    "fresh shelling",
+    "soups",
+    "pasta",
+    "risotto",
+    "stir-fry"
+  ],
+  "preservation": "Blanch and freeze \u2014 peas freeze exceptionally well. Dry for split peas."
+}

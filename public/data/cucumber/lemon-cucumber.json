@@ -1,0 +1,52 @@
+{
+  "id": "lemon-cucumber",
+  "name": "Lemon",
+  "culinary_type": "cucumber",
+  "subtype": "specialty",
+  "image": "lemon-cucumber.jpg",
+  "image_alt": "Round yellow cucumber fruit resembling a lemon",
+  "description": "A round, pale yellow cucumber about the size and shape of a lemon. Thin skin, crisp white flesh, and an exceptionally mild, never-bitter flavor. One of the most widely loved specialty cucumbers.",
+  "history": "An American heirloom documented since the 1890s. The pale color and round shape were initially a novelty, but the reliable mild flavor and thin skin won it a permanent place in American seed catalogs.",
+  "companions": {
+    "good": [
+      {
+        "plant": "Beans",
+        "reason": "Nitrogen fixation"
+      },
+      {
+        "plant": "Pea",
+        "reason": "Compatible trellis"
+      },
+      {
+        "plant": "Sunflower",
+        "reason": "Attracts pollinators critical for cucumber fruiting"
+      }
+    ],
+    "bad": [
+      {
+        "plant": "Potato",
+        "reason": "Shared disease susceptibility"
+      },
+      {
+        "plant": "Sage",
+        "reason": "Growth inhibition"
+      }
+    ]
+  },
+  "seasonal_quirks": "Skin toughens and flavor can become slightly bitter if left on vine too long \u2014 harvest promptly at lemon-yellow color. Seeds are small and tender when picked at the right time.",
+  "pests_diseases": [
+    "cucumber beetle",
+    "powdery mildew",
+    "bacterial wilt"
+  ],
+  "harvest_cues": "Harvest when fully lemon-yellow but before white streaking appears. Firm to the touch. Size of a large lemon or baseball \u2014 2.5\u20133 inches across.",
+  "variety_notes": "The thin skin means these don't need peeling. Seeds are usually tender enough to eat at proper harvest stage. Extremely prolific \u2014 one or two plants is usually enough.",
+  "culinary_uses": [
+    "fresh slicing",
+    "salads",
+    "quick pickles",
+    "crudit\u00e9s",
+    "agua fresca"
+  ],
+  "preservation": "Excellent quick-pickled in rice vinegar with dill. Refrigerator pickles."
+}

@@ -1,0 +1,27 @@
+{
+  "id": "mortgage-lifter",
+  "name": "Mortgage Lifter",
+  "culinary_type": "tomato",
+  "subtype": "beefsteak",
+  "image": "mortgage-lifter.jpg",
+  "image_alt": "A large smooth pink-red beefsteak tomato",
+  "description": "A massive, meaty pink beefsteak with very few seeds and thick flesh. One of the most reliably productive large heirlooms, with a sweet, low-acid flavor that makes it universally appealing.",
+  "history": "Developed in the 1930s by M.C. 'Radiator Charlie' Byles of Logan, West Virginia. Over six years he crossed the four largest tomatoes he could find. He sold plants for $1 each and paid off his $6,000 mortgage in six years — hence the name.",
+  "companions": {
+    "good": [
+      { "plant": "Basil", "reason": "Classic companion — repels pests, may enhance flavor" },
+      { "plant": "Marigold", "reason": "Deters nematodes and aphids" },
+      { "plant": "Garlic", "reason": "Repels spider mites and aphids" }
+    ],
+    "bad": [
+      { "plant": "Fennel", "reason": "Allelopathic — inhibits growth of most garden plants" },
+      { "plant": "Brassicas", "reason": "Compete for nutrients and attract conflicting pests" }
+    ]
+  },
+  "seasonal_quirks": "Very forgiving across a wide range of conditions. Fruits crack at the shoulders in heavy rain — consistent watering reduces this. Sets fruit reliably even in heat.",
+  "pests_diseases": ["early blight", "late blight", "tomato hornworm", "shoulder cracking in wet conditions"],
+  "harvest_cues": "Deep pink-red color across the entire fruit with slight give under pressure. Fruits can reach 2 lbs — support heavy clusters to prevent vine damage.",
+  "variety_notes": "Often compared to Brandywine but more productive and beginner-friendly. Low acid makes it good for those sensitive to acidic tomatoes. Meaty flesh with small seed cavities is excellent for slicing.",
+  "culinary_uses": ["fresh slicing", "sandwiches", "tomato sauce", "canning"],
+  "preservation": "Excellent for sauce and canning due to meaty flesh and low water content. Freezes well."
+}
