@@ -1,4 +1,4 @@
-.veggie-card {
+.plant-card {
   width: 260px;
   border: none !important;
   border-radius: 20px !important;
@@ -8,12 +8,12 @@
   cursor: pointer;
   font-family: 'DM Sans', sans-serif;
 }
-.veggie-card:hover {
+.plant-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 32px rgba(0,0,0,0.13), 0 0 0 1px rgba(0,0,0,0.06) !important;
 }
 
-.veggie-img-area {
+.plant-img-area {
   background: #f5f3ec;
   height: 170px;
   border-radius: 14px;
@@ -25,14 +25,14 @@
   filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
 }
 
-.veggie-card .card-title {
+.plant-card .card-title {
   font-family: 'Lora', serif;
   font-weight: 600;
   font-size: 16px;
   color: #1a1a1a;
   margin-bottom: 2px;
 }
-.veggie-card .card-subtitle {
+.plant-card .card-subtitle {
   font-family: 'Lora', serif;
   font-style: italic;
   font-size: 12.5px;
@@ -41,7 +41,7 @@
 }
 
 /* Badge pill color overrides */
-.veggie-card .badge {
+.plant-card .badge {
   font-size: 12px;
   font-weight: 500;
   padding: 5px 10px;
@@ -56,7 +56,7 @@
 .pill-season   { background-color: #e8faf3 !important; color: #0e6e50 !important; }
 
 /* Accordion overrides */
-.veggie-accordion .accordion-button {
+.plant-accordion .accordion-button {
   font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
@@ -66,10 +66,10 @@
   background: transparent !important;
   box-shadow: none !important;
 }
-.veggie-accordion .accordion-button:not(.collapsed) { color: #555; }
-.veggie-accordion .accordion-item { border: none; background: transparent; }
-.veggie-accordion .accordion-body { padding: 0 0 8px; }
-.veggie-accordion .accordion-collapse { border-top: 1px solid #f0ede6; }
+.plant-accordion .accordion-button:not(.collapsed) { color: #555; }
+.plant-accordion .accordion-item { border: none; background: transparent; }
+.plant-accordion .accordion-body { padding: 0 0 8px; }
+.plant-accordion .accordion-collapse { border-top: 1px solid #f0ede6; }
 
 .companion-label {
   font-size: 10px;

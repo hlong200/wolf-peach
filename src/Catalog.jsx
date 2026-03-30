@@ -18,18 +18,16 @@ function Catalog() {
 
     return (
         <>
-            <div className="sticky-top">
-                <FilterBar
-                    textFilter={textFilter}
-                    setTextFilter={setTextFilter}
-                    sunFilter={sunFilter}
-                    setSunFilter={setSunFilter}
-                    difficultyFilter={difficultyFilter}
-                    setDifficultyFilter={setDifficultyFilter}
-                    sortBy={sortBy}
-                    setSortBy={setSortBy}
-                />
-            </div>
+            <FilterBar
+                textFilter={textFilter}
+                setTextFilter={setTextFilter}
+                sunFilter={sunFilter}
+                setSunFilter={setSunFilter}
+                difficultyFilter={difficultyFilter}
+                setDifficultyFilter={setDifficultyFilter}
+                sortBy={sortBy}
+                setSortBy={setSortBy}
+            />
             <Container>
                 <Row xs={1} sm={2} md={3} lg={4} className="g-3">
                     {
@@ -38,7 +36,7 @@ function Catalog() {
                         return (
                             element.name?.toLowerCase().includes(textFilter.toLowerCase())
                             || element.culinary_type?.toLowerCase().includes(textFilter.toLowerCase())
-                            || element.family?.toLowerCase().includes(textFilter.toLowerCase())
+                            || element.species?.toLowerCase().includes(textFilter.toLowerCase())
                         )
                     })
                     .filter(element => {

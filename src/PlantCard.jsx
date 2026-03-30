@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Card, Badge, Accordion } from 'react-bootstrap';
-import './VeggieCard.css';
+import './PlantCard.css';
 
 const ICONS = {
   tomato:'🍅', pepper:'🌶️', squash:'🎃', cabbage:'🥬', broccoli:'🥦',
@@ -15,20 +15,20 @@ const GROWTH_TAGS = ['indeterminate','determinate'];
 
 const fmt = t => t.split('-').map(w => w[0].toUpperCase() + w.slice(1)).join(' ');
 
-export default function VeggieCard({ plant, species }) {
+export default function PlantCard({ plant, species }) {
   const seasonTag = plant.tags.find(t => SEASON_TAGS.includes(t));
   const growthTag = plant.tags.find(t => GROWTH_TAGS.includes(t));
   const qv = plant.quick_view;
 
   return (
-    <Card className="veggie-card">
-      <div className="veggie-img-area">
+    <Card className="plant-card">
+      <div className="plant-img-area">
         {ICONS[plant.culinary_type] || '🌱'}
       </div>
 
       <Card.Body className="pt-1 pb-2 px-3">
         <Card.Title>{plant.name} {fmt(plant.culinary_type)}</Card.Title>
-        <Card.Subtitle>{plant.family}</Card.Subtitle>
+        <Card.Subtitle>{plant.species}</Card.Subtitle>
 
         <div className="d-flex flex-wrap gap-1 mb-1">
           <Badge className="pill-days">{plant.days_to_maturity} days</Badge>
@@ -43,7 +43,7 @@ export default function VeggieCard({ plant, species }) {
         </div>
 
         {qv && (
-          <Accordion className="veggie-accordion mt-1">
+          <Accordion className="plant-accordion mt-1">
             <Accordion.Item eventKey="0">
               <Accordion.Header>Quick view</Accordion.Header>
               <Accordion.Body>

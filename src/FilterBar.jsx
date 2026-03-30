@@ -25,18 +25,16 @@ function FilterBar({
     };
 
     return (
-        <>
-            <Stack direction="horizontal" gap={2} className="mb-4">
-                <InputGroup>
-                    <Form>
-                        <Form.Label>Search</Form.Label>
-                        <Form.Control
-                            type="text"
-                            placeholder="cherokee purple"
-                            value={textFilter}
-                            onChange={e => setTextFilter(e.target.value)} />
-                    </Form>
-                </InputGroup>
+        <div className="sticky-top py-2">
+            <Stack direction="horizontal" gap={2} className="mb-4 shadow-sm rounded p-3">
+                <div className="d-flex align-items-center gap-2">
+                    <Form.Label>Search</Form.Label>
+                    <Form.Control
+                        type="text"
+                        placeholder="cherokee purple"
+                        value={textFilter}
+                        onChange={e => setTextFilter(e.target.value)} />
+                </div>
                 {['easy', 'moderate', 'hard'].map(option => (
                     <Button
                         key={option}
@@ -65,7 +63,7 @@ function FilterBar({
                     <Dropdown.Item onClick={() => setSortBy('difficulty')}>Difficulty</Dropdown.Item>
                 </DropdownButton>
             </Stack>
-        </>
+        </div>
     )
 };
 
