@@ -14,21 +14,26 @@ function Catalog() {
     if(loading) return <p>Loading...</p>;
     if(error) return <p>Something went wrong.</p>;
 
+    const DIFF_ORDER = ['easy', 'moderate', 'hard'];
+
     return (
         <>
-            <FilterBar
-                textFilter={textFilter}
-                setTextFilter={setTextFilter}
-                sunFilter={sunFilter}
-                setSunFilter={setSunFilter}
-                difficultyFilter={difficultyFilter}
-                setDifficultyFilter={setDifficultyFilter}
-                sortBy={sortBy}
-                setSortBy={setSortBy}
-            />
+            <div className="sticky-top">
+                <FilterBar
+                    textFilter={textFilter}
+                    setTextFilter={setTextFilter}
+                    sunFilter={sunFilter}
+                    setSunFilter={setSunFilter}
+                    difficultyFilter={difficultyFilter}
+                    setDifficultyFilter={setDifficultyFilter}
+                    sortBy={sortBy}
+                    setSortBy={setSortBy}
+                />
+            </div>
             <Container>
                 <Row xs={1} sm={2} md={3} lg={4} className="g-3">
-                    {data
+                    {
+                    [...data]
                     .filter(element => {
                         return (
                             element.name?.toLowerCase().includes(textFilter.toLowerCase())
@@ -43,24 +48,15 @@ function Catalog() {
                     })
                     .sort((a, b) => {
                         if(sortBy === 'name') {
-                            return a.name > b.name;
-                        } else if(sortBy === 'days') {
-                            return a.days > b.days;
-                        } else if(sortBy === 'difficulty') {
-                            if(a.difficulty === b.difficulty) {
-                                return false;
-                            } else if(a.difficulty === 'easy' && b.difficulty === 'moderate') {
-                                return false;
-                            } else if(a.difficulty === 'easy' && b.difficulty === 'hard') {
-                                return false;
-                            } else if(a.difficulty === 'moderate' && b.difficulty === 'hard') {
-                                return false;
-                            } else {
-                                return true;
-                            }
-                        } else {
-                            return false;
+                            return a.name.localeCompare(b.name);
                         }
+                        if(sortBy === 'days') {
+                            return a.days_to_maturity - b.days_to_maturity;
+                        }
+                        if(sortBy === 'difficulty') {
+                            return DIFF_ORDER.indexOf(a.difficulty) - DIFF_ORDER.indexOf(b.difficulty);
+                        }
+                        return 0;
                     })
                     .map(veggie => (
                         <Col key={veggie.id}>
