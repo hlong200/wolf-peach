@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Card, Badge, Accordion } from 'react-bootstrap';
 import './PlantCard.css';
 

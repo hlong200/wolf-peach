@@ -1,5 +1,4 @@
-import { Dropdown, InputGroup, Stack, Button, FormControl, Form, DropdownButton } from "react-bootstrap";
-import { useState } from "react";
+import { Dropdown, Stack, Button, Form, DropdownButton } from "react-bootstrap";
 
 function FilterBar({
     textFilter,
@@ -9,7 +8,8 @@ function FilterBar({
     difficultyFilter,
     setDifficultyFilter,
     sortBy,
-    setSortBy
+    setSortBy,
+    compact
     }) {
 
     const SORT_LABELS = {

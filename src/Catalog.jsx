@@ -1,5 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap";
-import { useVegetableList } from "./lib/customHooks";
+import { useIsMobile, useVegetableList } from "./lib/customHooks";
 import PlantCard from "./PlantCard";
 import FilterBar from "./FilterBar";
 import { useState } from "react";
@@ -39,9 +39,11 @@ function Catalog() {
                             || element.species?.toLowerCase().includes(textFilter.toLowerCase())
                         )
                     })
+                    // Checks if filtering on difficulty; if so, return true if the filtered difficulty matches the plant's difficulty
                     .filter(element => {
                         return difficultyFilter === null ? true : element.difficulty === difficultyFilter
                     })
+                    // 
                     .filter(element => {
                         return sunFilter === null ? true : element.sun === sunFilter
                     })

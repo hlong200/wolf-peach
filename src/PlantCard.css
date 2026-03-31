@@ -47,13 +47,13 @@
   padding: 5px 10px;
   border-radius: 999px;
 }
-.pill-days     { background-color: #edf7ee !important; color: #2d7a35 !important; }
-.pill-sun      { background-color: #fdf3e7 !important; color: #c06a1a !important; }
-.pill-easy     { background-color: #fff0f0 !important; color: #c0392b !important; }
-.pill-moderate { background-color: #fff7e6 !important; color: #b07800 !important; }
-.pill-hard     { background-color: #f3e8ff !important; color: #7c3aed !important; }
-.pill-tag      { background-color: #e8f4fb !important; color: #1a6fa0 !important; }
-.pill-season   { background-color: #e8faf3 !important; color: #0e6e50 !important; }
+.plant-card .pill-days     { background-color: #edf7ee !important; color: #2d7a35 !important; }
+.plant-card .pill-sun      { background-color: #fdf3e7 !important; color: #c06a1a !important; }
+.plant-card .pill-easy     { background-color: #fff0f0 !important; color: #c0392b !important; }
+.plant-card .pill-moderate { background-color: #fff7e6 !important; color: #b07800 !important; }
+.plant-card .pill-hard     { background-color: #f3e8ff !important; color: #7c3aed !important; }
+.plant-card .pill-tag      { background-color: #e8f4fb !important; color: #1a6fa0 !important; }
+.plant-card .pill-season   { background-color: #e8faf3 !important; color: #0e6e50 !important; }
 
 /* Accordion overrides */
 .plant-accordion .accordion-button {
