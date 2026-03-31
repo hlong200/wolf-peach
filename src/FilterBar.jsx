@@ -28,7 +28,6 @@ function FilterBar({
         <div className="sticky-top py-2">
             <Stack direction="horizontal" gap={2} className="mb-4 shadow-sm rounded p-3">
                 <div className="d-flex align-items-center gap-2">
-                    <Form.Label>Search</Form.Label>
                     <Form.Control
                         type="text"
                         placeholder="cherokee purple"

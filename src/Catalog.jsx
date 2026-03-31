@@ -6,6 +6,8 @@ import { useState } from "react";
 
 function Catalog() {
     const {data, loading, error} = useVegetableList();
+
+    // Move these states to context hook FilterProvider?
     const [sunFilter, setSunFilter] = useState(null);
     const [difficultyFilter, setDifficultyFilter] = useState(null);
     const [sortBy, setSortBy] = useState('name');
@@ -18,6 +20,10 @@ function Catalog() {
 
     return (
         <>
+            { /* 
+                Might want to make a context hook to not have to pass so many props making FilterBar more modular
+                TODO: Add conditional rendering for mobile
+            */ }
             <FilterBar
                 textFilter={textFilter}
                 setTextFilter={setTextFilter}
@@ -28,7 +34,9 @@ function Catalog() {
                 sortBy={sortBy}
                 setSortBy={setSortBy}
             />
+
             <Container>
+                { /* Catalog grid displaying different number of columns based on screen size */ }
                 <Row xs={1} sm={2} md={3} lg={4} className="g-3">
                     {
                     [...data]
@@ -43,10 +51,11 @@ function Catalog() {
                     .filter(element => {
                         return difficultyFilter === null ? true : element.difficulty === difficultyFilter
                     })
-                    // 
+                    // Sun filter
                     .filter(element => {
                         return sunFilter === null ? true : element.sun === sunFilter
                     })
+                    // Sort based on the selected sorting variable
                     .sort((a, b) => {
                         if(sortBy === 'name') {
                             return a.name.localeCompare(b.name);
@@ -59,6 +68,7 @@ function Catalog() {
                         }
                         return 0;
                     })
+                    // Render filtered, sorted list of plant cards
                     .map(veggie => (
                         <Col key={veggie.id}>
                             <PlantCard plant={veggie} />
