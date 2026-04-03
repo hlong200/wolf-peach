@@ -6,27 +6,28 @@ import './Navigator.css';
 
 function Navigator() {
     return (
-        <>
-            <Navbar bg="primary" data-bs-theme="dark">
-                <Container>
-                    <Navbar.Brand href="/">Wolf Peach</Navbar.Brand>
-                    <Nav className="me-auto">
+        <Navbar bg="primary" data-bs-theme="dark" expand="md">
+            <Container>
+                <Navbar.Toggle aria-controls="main-nav" />
+                <Navbar.Brand href="/">Wolf Peach</Navbar.Brand>
+                <Navbar.Collapse id="main-nav">
+                    <Nav>
                         <LinkContainer to="/wolf-peach">
                             <Nav.Link>Catalog</Nav.Link>
                         </LinkContainer>
                         <LinkContainer to="/garden">
                             <Nav.Link>My Garden</Nav.Link>
                         </LinkContainer>
-                        <LinkContainer to="companion">
+                        <LinkContainer to="/companion">
                             <Nav.Link>Companion Planting</Nav.Link>
                         </LinkContainer>
                         <LinkContainer to="/seasons">
                             <Nav.Link>Seasonal Calendar</Nav.Link>
                         </LinkContainer>
                     </Nav>
-                </Container>
-            </Navbar>
-        </>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
     );
 }
 

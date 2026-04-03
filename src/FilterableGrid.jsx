@@ -1,10 +1,20 @@
 import { Container, Row, Col } from "react-bootstrap";
 import PlantCard from "./PlantCard";
 import FilterBar from "./FilterBar";
+import AlphabetScrubber from "./AlphabetScrubber";
 import { useFilters } from "./lib/FilterProvider";
 import { useIsMobile } from "./lib/customHooks";
 
 const DIFF_ORDER = ['easy', 'moderate', 'hard'];
+
+function groupByFirstLetter(plants) {
+    return plants.reduce((acc, plant) => {
+        const letter = plant.name[0].toUpperCase();
+        if (!acc[letter]) acc[letter] = [];
+        acc[letter].push(plant);
+        return acc;
+    }, {});
+}
 
 export default function FilterableGrid({ plants }) {
     const { sunFilter, difficultyFilter, sortBy, sortOrder, textFilter } = useFilters();
@@ -26,19 +36,47 @@ export default function FilterableGrid({ plants }) {
             return sortOrder === 'asc' ? cmp : -cmp;
         });
 
+    const grouped = groupByFirstLetter(filtered);
+    const letters = Object.keys(grouped).sort();
+
     return (
         <>
             {!isMobile && <FilterBar />}
-            <Container className={isMobile ? 'pb-5 mb-4' : ''}>
-                <Row xs={1} sm={2} md={3} lg={4} className="g-3">
-                    {filtered.map(plant => (
-                        <Col key={plant.id}>
-                            <PlantCard plant={plant} />
-                        </Col>
-                    ))}
-                </Row>
+
+            <Container className={isMobile ? 'pb-5 mb-4 pe-5' : ''}>
+                {letters.map(letter => (
+                    <div key={letter} id={`section-${letter}`} className="catalog-section">
+                        <div className={`section-header ${!isMobile ? 'section-header-sticky' : ''}`}>
+                            {letter}
+                        </div>
+
+                        {isMobile ? (
+                            <Row xs={1} sm={2} className="g-3">
+                                {grouped[letter].map(plant => (
+                                    <Col key={plant.id}>
+                                        <PlantCard plant={plant} />
+                                    </Col>
+                                ))}
+                            </Row>
+                        ) : (
+                            <div className="masonry-grid">
+                                {grouped[letter].map(plant => (
+                                    <div key={plant.id} className="masonry-item">
+                                        <PlantCard plant={plant} />
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                ))}
             </Container>
-            {isMobile && <FilterBar compact />}
+
+            {isMobile && (
+                <>
+                    <AlphabetScrubber availableLetters={letters} />
+                    <FilterBar compact />
+                </>
+            )}
         </>
     );
 }

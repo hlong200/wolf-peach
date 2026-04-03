@@ -76,7 +76,7 @@ function FilterBar({ compact = false }) {
     }
 
     return (
-        <div className="sticky-top py-2">
+        <div className="filterbar-desktop sticky-top py-2">
             <div className="d-flex align-items-center gap-2">
                 {controls}
             </div>

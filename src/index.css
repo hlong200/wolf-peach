@@ -4,15 +4,45 @@
   padding: 2em;
 }
 
+.filterbar-desktop {
+  background: linear-gradient(to right,
+    rgba(var(--bs-body-bg-rgb), 0),
+    rgba(var(--bs-body-bg-rgb), 0.78) 8%,
+    rgba(var(--bs-body-bg-rgb), 0.78) 92%,
+    rgba(var(--bs-body-bg-rgb), 0)
+  );
+}
+
 .filterbar-compact {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 1030;
-  background: var(--bs-body-bg);
   border-top: 2px solid #343a40;
   padding: 8px 12px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  background: linear-gradient(to bottom,
+    rgba(var(--bs-body-bg-rgb), 0),
+    rgba(var(--bs-body-bg-rgb), 0.78) 30%
+  );
+}
+
+.filterbar-compact::after {
+  content: '›';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #343a40;
+  background: linear-gradient(to right, transparent, var(--bs-body-bg) 60%);
+  pointer-events: none;
 }
 
 .filterbar-compact-inner {
@@ -22,8 +52,93 @@
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
+  padding-right: 32px;
 }
 
 .filterbar-compact-inner::-webkit-scrollbar {
   display: none;
+}
+
+/* ── Catalog sections ── */
+.catalog-section {
+  margin-bottom: 2rem;
+  scroll-margin-top: 70px;
+}
+
+.section-header {
+  font-size: 2rem;
+  font-weight: 700;
+  border-bottom: 3px solid #343a40;
+  margin-bottom: 1rem;
+  padding-bottom: 2px;
+  background: var(--bs-body-bg);
+}
+
+.section-header-sticky {
+  position: sticky;
+  top: 56px;
+  z-index: 100;
+  padding-bottom: 14px;
+  background: linear-gradient(to bottom,
+    rgba(var(--bs-body-bg-rgb), 0.78) 55%,
+    rgba(var(--bs-body-bg-rgb), 0)
+  );
+}
+
+/* ── Desktop masonry ── */
+.masonry-grid {
+  columns: 2;
+  column-gap: 1rem;
+}
+
+@media (min-width: 992px)  { .masonry-grid { columns: 3; } }
+@media (min-width: 1400px) { .masonry-grid { columns: 4; } }
+
+.masonry-item {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 1rem;
+  break-inside: avoid;
+}
+
+/* ── Alphabet scrubber ── */
+.alphabet-scrubber {
+  position: fixed;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  bottom: 70px;
+  z-index: 1020;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1px;
+  touch-action: none;
+}
+
+.scrubber-letter {
+  font-size: 10px;
+  font-weight: 700;
+  width: 20px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  user-select: none;
+}
+
+.scrubber-letter-active {
+  color: #343a40;
+  cursor: pointer;
+}
+
+.scrubber-letter-active:hover {
+  background: #343a40;
+  color: #fff;
+}
+
+.scrubber-letter-inactive {
+  color: #ccc;
+  cursor: default;
 }
