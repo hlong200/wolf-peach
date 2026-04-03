@@ -7,13 +7,53 @@ import { useIsMobile, useColumnCount } from "./lib/customHooks";
 
 const DIFF_ORDER = ['easy', 'moderate', 'hard'];
 
-function groupByFirstLetter(plants) {
+function getDaysLabel(days) {
+    const start = Math.floor(days / 5) * 5;
+    return `${start} – ${start + 4} days`;
+}
+
+function parseDaysBucketStart(label) {
+    return parseInt(label, 10);
+}
+
+function groupPlants(plants, sortBy) {
     return plants.reduce((acc, plant) => {
-        const letter = plant.name[0].toUpperCase();
-        if (!acc[letter]) acc[letter] = [];
-        acc[letter].push(plant);
+        let key;
+        if (sortBy === 'name')       key = plant.name[0].toUpperCase();
+        else if (sortBy === 'difficulty') key = plant.difficulty;
+        else if (sortBy === 'days')  key = getDaysLabel(plant.days_to_maturity);
+        if (!acc[key]) acc[key] = [];
+        acc[key].push(plant);
         return acc;
     }, {});
+}
+
+function sortKeys(keys, sortBy, sortOrder) {
+    if (sortBy === 'name') {
+        return [...keys].sort((a, b) =>
+            sortOrder === 'asc' ? a.localeCompare(b) : b.localeCompare(a)
+        );
+    }
+    if (sortBy === 'difficulty') {
+        const order = sortOrder === 'asc' ? DIFF_ORDER : [...DIFF_ORDER].reverse();
+        return [...keys].sort((a, b) => order.indexOf(a) - order.indexOf(b));
+    }
+    if (sortBy === 'days') {
+        return [...keys].sort((a, b) => {
+            const cmp = parseDaysBucketStart(a) - parseDaysBucketStart(b);
+            return sortOrder === 'asc' ? cmp : -cmp;
+        });
+    }
+    return keys;
+}
+
+function formatHeader(key, sortBy) {
+    if (sortBy === 'difficulty') return key[0].toUpperCase() + key.slice(1);
+    return key;
+}
+
+function sectionId(key) {
+    return `section-${key.replace(/[^a-zA-Z0-9]/g, '-')}`;
 }
 
 function splitIntoColumns(items, colCount) {
@@ -32,6 +72,7 @@ export default function FilterableGrid({ plants }) {
             p.name?.toLowerCase().includes(textFilter.toLowerCase())
             || p.culinary_type?.toLowerCase().includes(textFilter.toLowerCase())
             || p.species?.toLowerCase().includes(textFilter.toLowerCase())
+            || p.tags.some(t => t?.includes(textFilter.toLowerCase()))
         )
         .filter(p => difficultyFilter === null || p.difficulty === difficultyFilter)
         .filter(p => sunFilter === null || p.sun === sunFilter)
@@ -43,23 +84,23 @@ export default function FilterableGrid({ plants }) {
             return sortOrder === 'asc' ? cmp : -cmp;
         });
 
-    const grouped = groupByFirstLetter(filtered);
-    const letters = Object.keys(grouped).sort();
+    const grouped = groupPlants(filtered, sortBy);
+    const keys = sortKeys(Object.keys(grouped), sortBy, sortOrder);
 
     return (
         <>
             {!isMobile && <FilterBar />}
 
             <Container className={isMobile ? 'pb-5 mb-4 pe-5' : ''}>
-                {letters.map(letter => (
-                    <div key={letter} id={`section-${letter}`} className="catalog-section">
+                {keys.map(key => (
+                    <div key={key} id={sectionId(key)} className="catalog-section">
                         <div className={`section-header ${!isMobile ? 'section-header-sticky' : ''}`}>
-                            {letter}
+                            {formatHeader(key, sortBy)}
                         </div>
 
                         {isMobile ? (
                             <Row xs={1} sm={2} className="g-3">
-                                {grouped[letter].map(plant => (
+                                {grouped[key].map(plant => (
                                     <Col key={plant.id}>
                                         <PlantCard plant={plant} />
                                     </Col>
@@ -67,7 +108,7 @@ export default function FilterableGrid({ plants }) {
                             </Row>
                         ) : (
                             <div className="masonry-grid">
-                                {splitIntoColumns(grouped[letter], colCount).map((col, ci) => (
+                                {splitIntoColumns(grouped[key], colCount).map((col, ci) => (
                                     <div key={ci} className="masonry-col">
                                         {col.map(plant => (
                                             <div key={plant.id} className="masonry-item">
@@ -84,7 +125,7 @@ export default function FilterableGrid({ plants }) {
 
             {isMobile && (
                 <>
-                    <AlphabetScrubber availableLetters={letters} />
+                    {sortBy === 'name' && <AlphabetScrubber availableLetters={keys} />}
                     <FilterBar compact />
                 </>
             )}

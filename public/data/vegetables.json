@@ -90,6 +90,38 @@
     }
   },
   {
+    "id": "queen-of-the-night",
+    "name": "Queen of the Night",
+    "emoji": "🍅",
+    "culinary_type": "tomato",
+    "species": "Solanum lycopersicum",
+    "difficulty": "moderate",
+    "days_to_maturity": 80,
+    "sun": "full",
+    "water": "moderate",
+    "tags": [
+      "sweet",
+      "fragrant",
+      "compact",
+      "rhine",
+      "compact",
+      "vermillion"
+    ],
+    "quick_view": {
+      "companions_good": [
+        "basil",
+        "carrot",
+        "borage"
+      ],
+      "companions_bad": [
+        "fennel",
+        "corn"
+      ],
+      "spacing_in": 24,
+      "tip": "Plant in slightly acidic soil - stake or cage support"
+    }
+  },
+  {
     "id": "carmen",
     "name": "Carmen",
     "emoji": "🫑",
