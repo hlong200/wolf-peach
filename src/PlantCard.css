@@ -2,11 +2,15 @@
   width: 100%;
   min-height: 320px;
   cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.15s ease;
 }
 
 .plant-img-area {
   position: relative;
-  background: #f5f3ec;
+  background-color: #f5f3ec;
+  background-image: radial-gradient(circle, rgba(0,0,0,0.12) 1px, transparent 1px);
+  background-size: 14px 14px;
   height: 170px;
   margin: 10px;
   display: flex;
@@ -16,13 +20,47 @@
   border: 2px solid #343a40;
 }
 
-.fav-btn {
+.fav-ribbon {
   position: absolute;
-  top: 6px;
-  right: 6px;
+  top: 18px;
+  left: -26px;
+  width: 100px;
+  padding: 8px 0;
+  text-align: center;
   font-size: 15px;
-  line-height: 1;
-  padding: 2px 6px;
+  font-weight: 700;
+  transform: rotate(-45deg);
+  cursor: pointer;
+  user-select: none;
+  z-index: 10;
+  transition: filter 0.12s;
+  /* V-notch on the tail end (right side before rotation = lower-left after) */
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(50% - 7px),
+    calc(100% - 10px) 50%,
+    100% calc(50% + 7px),
+    100% 100%,
+    0 100%
+  );
+}
+
+.fav-ribbon-off {
+  background: rgba(0, 0, 0, 0.07);
+  color: rgba(0, 0, 0, 0.2);
+}
+
+.fav-ribbon-off:hover {
+  background: rgba(255, 193, 7, 0.25);
+  color: rgba(0, 0, 0, 0.5);
+  filter: drop-shadow(1px 2px 3px rgba(0,0,0,0.15));
+}
+
+.fav-ribbon-on {
+  background: linear-gradient(to bottom, #ffd54f, #ffc107 45%, #ffb300);
+  color: #343a40;
+  filter: drop-shadow(1px 2px 3px rgba(0,0,0,0.3));
 }
 
 .plant-card .card-subtitle {
@@ -39,9 +77,9 @@
 }
 .plant-card .pill-days     { background-color: #28a745 !important; color: #fff !important; }
 .plant-card .pill-sun      { background-color: #fd7e14 !important; color: #fff !important; }
-.plant-card .pill-easy     { background-color: #dc3545 !important; color: #fff !important; }
+.plant-card .pill-easy     { background-color: #6f42c1 !important; color: #fff !important; }
 .plant-card .pill-moderate { background-color: #ffc107 !important; color: #343a40 !important; }
-.plant-card .pill-hard     { background-color: #6f42c1 !important; color: #fff !important; }
+.plant-card .pill-hard     { background-color: #dc3545 !important; color: #fff !important; }
 .plant-card .pill-tag      { background-color: #17a2b8 !important; color: #fff !important; }
 .plant-card .pill-season   { background-color: #20c997 !important; color: #fff !important; }
 

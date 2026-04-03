@@ -48,6 +48,21 @@ export function useAttributions(id) {
     })
 }
 
+export function useColumnCount() {
+    const getCount = () => {
+        if (window.innerWidth >= 1400) return 4;
+        if (window.innerWidth >= 992)  return 3;
+        return 2;
+    };
+    const [count, setCount] = useState(getCount);
+    useEffect(() => {
+        const handler = () => setCount(getCount());
+        window.addEventListener('resize', handler);
+        return () => window.removeEventListener('resize', handler);
+    }, []);
+    return count;
+}
+
 export function useIsMobile(breakpoint = 576) {
     const [isMobile, setIsMobile] = useState(() => window.innerWidth < breakpoint);
     useEffect(() => {

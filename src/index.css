@@ -1,7 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
 
+body {
+  background-color: #fefcf6 !important;
+}
+
 .card {
   padding: 2em;
+}
+
+.filterbar-desktop input::placeholder,
+.filterbar-compact input::placeholder {
+  opacity: 0.35;
 }
 
 .filterbar-desktop {
@@ -69,8 +78,10 @@
   font-size: 2rem;
   font-weight: 700;
   border-bottom: 3px solid #343a40;
+  border-left: 4px solid #c0392b;
   margin-bottom: 1rem;
   padding-bottom: 2px;
+  padding-left: 10px;
   background: var(--bs-body-bg);
 }
 
@@ -87,19 +98,27 @@
 
 /* ── Desktop masonry ── */
 .masonry-grid {
-  columns: 2;
-  column-gap: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
 }
 
-@media (min-width: 992px)  { .masonry-grid { columns: 3; } }
-@media (min-width: 1400px) { .masonry-grid { columns: 4; } }
+.masonry-col {
+  flex: 1;
+  min-width: 0;
+}
 
 .masonry-item {
-  display: inline-block;
-  width: 100%;
   margin-bottom: 1rem;
-  break-inside: avoid;
+  content-visibility: auto;
+  contain-intrinsic-size: 0 340px;
 }
+
+.masonry-item:nth-child(4n+1) .plant-card { transform: translateZ(0) rotate(-0.5deg); }
+.masonry-item:nth-child(4n+2) .plant-card { transform: translateZ(0) rotate(0.4deg);  }
+.masonry-item:nth-child(4n+3) .plant-card { transform: translateZ(0) rotate(-0.7deg); }
+.masonry-item:nth-child(4n+4) .plant-card { transform: translateZ(0) rotate(0.3deg);  }
+.masonry-item:hover .plant-card           { transform: translateZ(0) rotate(0deg) scale(1.01); }
 
 /* ── Alphabet scrubber ── */
 .alphabet-scrubber {

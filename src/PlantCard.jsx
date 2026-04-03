@@ -24,15 +24,15 @@ export default function PlantCard({ plant, species }) {
 
   return (
     <Card className="plant-card h-100">
+      <div
+        className={`fav-ribbon ${isFav ? 'fav-ribbon-on' : 'fav-ribbon-off'}`}
+        onClick={e => { e.stopPropagation(); toggleFavorite(plant.id); }}
+        title={isFav ? 'Remove from garden' : 'Add to garden'}
+      >
+        {isFav ? '★' : '☆'}
+      </div>
       <div className="plant-img-area">
         {ICONS[plant.culinary_type] || '🌱'}
-        <button
-          className={`fav-btn btn btn-sm ${isFav ? 'btn-warning' : 'btn-outline-warning'}`}
-          onClick={e => { e.stopPropagation(); toggleFavorite(plant.id); }}
-          title={isFav ? 'Remove from garden' : 'Add to garden'}
-        >
-          {isFav ? '★' : '☆'}
-        </button>
       </div>
 
       <Card.Body className="pt-1 pb-2 px-3">

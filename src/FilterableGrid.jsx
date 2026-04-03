@@ -3,7 +3,7 @@ import PlantCard from "./PlantCard";
 import FilterBar from "./FilterBar";
 import AlphabetScrubber from "./AlphabetScrubber";
 import { useFilters } from "./lib/FilterProvider";
-import { useIsMobile } from "./lib/customHooks";
+import { useIsMobile, useColumnCount } from "./lib/customHooks";
 
 const DIFF_ORDER = ['easy', 'moderate', 'hard'];
 
@@ -16,9 +16,16 @@ function groupByFirstLetter(plants) {
     }, {});
 }
 
+function splitIntoColumns(items, colCount) {
+    const cols = Array.from({ length: colCount }, () => []);
+    items.forEach((item, i) => cols[i % colCount].push(item));
+    return cols;
+}
+
 export default function FilterableGrid({ plants }) {
     const { sunFilter, difficultyFilter, sortBy, sortOrder, textFilter } = useFilters();
     const isMobile = useIsMobile();
+    const colCount = useColumnCount();
 
     const filtered = [...plants]
         .filter(p =>
@@ -60,9 +67,13 @@ export default function FilterableGrid({ plants }) {
                             </Row>
                         ) : (
                             <div className="masonry-grid">
-                                {grouped[letter].map(plant => (
-                                    <div key={plant.id} className="masonry-item">
-                                        <PlantCard plant={plant} />
+                                {splitIntoColumns(grouped[letter], colCount).map((col, ci) => (
+                                    <div key={ci} className="masonry-col">
+                                        {col.map(plant => (
+                                            <div key={plant.id} className="masonry-item">
+                                                <PlantCard plant={plant} />
+                                            </div>
+                                        ))}
                                     </div>
                                 ))}
                             </div>
