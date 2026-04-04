@@ -14,6 +14,7 @@ jobs:
         with:
           node-version: 24
       - run: npm ci
+      - run: echo "SUPABASE_URL set:${{ secrets.VITE_SUPABASE_URL != '' }}"
       - run: npm run build
         env:
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
