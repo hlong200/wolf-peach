@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { Container as BsContainer } from 'react-bootstrap';
 import Catalog from './Catalog';
 import MyGarden from './MyGarden';
@@ -10,7 +10,7 @@ function App() {
     return (
         <AuthProvider>
         <FavoritesProvider>
-            <BrowserRouter>
+            <HashRouter>
                 <Navigator />
                 <BsContainer className="px-4 px-md-5 mt-3">
                     <Routes>
@@ -18,7 +18,7 @@ function App() {
                         <Route path="/garden" element={<MyGarden />} />
                     </Routes>
                 </BsContainer>
-            </BrowserRouter>
+            </HashRouter>
         </FavoritesProvider>
         </AuthProvider>
     );
