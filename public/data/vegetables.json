@@ -1395,6 +1395,7 @@
   {
     "id": "german-butterball",
     "name": "German Butterball",
+    "emoji": "🥔",
     "culinary_type": "potato",
     "species": "Solanum tuberosum",
     "difficulty": "easy",
@@ -1425,6 +1426,7 @@
   {
     "id": "all-blue",
     "name": "All Blue",
+    "emoji": "🥔",
     "culinary_type": "potato",
     "species": "Solanum tuberosum",
     "difficulty": "easy",
@@ -1455,6 +1457,7 @@
   {
     "id": "irish-cobbler",
     "name": "Irish Cobbler",
+    "emoji": "🥔",
     "culinary_type": "potato",
     "species": "Solanum tuberosum",
     "difficulty": "easy",
@@ -1485,6 +1488,7 @@
   {
     "id": "beauregard",
     "name": "Beauregard",
+    "emoji": "🍠",
     "culinary_type": "sweet-potato",
     "species": "Ipomoea batatas",
     "difficulty": "easy",
@@ -1514,6 +1518,7 @@
   {
     "id": "purple-stokes",
     "name": "Stokes Purple",
+    "emoji": "🍠",
     "culinary_type": "sweet-potato",
     "species": "Ipomoea batatas",
     "difficulty": "moderate",
@@ -1543,6 +1548,7 @@
   {
     "id": "japanese-sweet-potato",
     "name": "Japanese",
+    "emoji": "🍠",
     "culinary_type": "sweet-potato",
     "species": "Ipomoea batatas",
     "difficulty": "moderate",

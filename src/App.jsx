@@ -4,9 +4,11 @@ import Catalog from './Catalog';
 import MyGarden from './MyGarden';
 import Navigator from './Navigator';
 import { FavoritesProvider } from './lib/FavoritesProvider';
+import { AuthProvider } from './lib/AuthProvider';
 
 function App() {
     return (
+        <AuthProvider>
         <FavoritesProvider>
             <BrowserRouter>
                 <Navigator />
@@ -18,6 +20,7 @@ function App() {
                 </BsContainer>
             </BrowserRouter>
         </FavoritesProvider>
+        </AuthProvider>
     );
 };
 

@@ -1,33 +1,54 @@
+import { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import Button from 'react-bootstrap/Button';
 import { LinkContainer } from 'react-router-bootstrap';
+import { useAuth } from './lib/AuthProvider';
+import LoginModal from './LoginModal';
 import './Navigator.css';
 
 function Navigator() {
+    const { user, signOut } = useAuth();
+    const [showLogin, setShowLogin] = useState(false);
+
     return (
-        <Navbar bg="primary" data-bs-theme="dark" expand="md">
-            <Container>
-                <Navbar.Toggle aria-controls="main-nav" />
-                <Navbar.Brand href="/">Wolf Peach</Navbar.Brand>
-                <Navbar.Collapse id="main-nav">
-                    <Nav>
-                        <LinkContainer to="/wolf-peach">
-                            <Nav.Link>Catalog</Nav.Link>
-                        </LinkContainer>
-                        <LinkContainer to="/garden">
-                            <Nav.Link>My Garden</Nav.Link>
-                        </LinkContainer>
-                        <LinkContainer to="/companion">
-                            <Nav.Link>Companion Planting</Nav.Link>
-                        </LinkContainer>
-                        <LinkContainer to="/seasons">
-                            <Nav.Link>Seasonal Calendar</Nav.Link>
-                        </LinkContainer>
-                    </Nav>
-                </Navbar.Collapse>
-            </Container>
-        </Navbar>
+        <>
+            <Navbar bg="primary" data-bs-theme="dark" expand="md">
+                <Container>
+                    <Navbar.Toggle aria-controls="main-nav" />
+                    <Navbar.Brand href="/wolf-peach">Wolf Peach</Navbar.Brand>
+                    <Navbar.Collapse id="main-nav">
+                        <Nav className="me-auto">
+                            <LinkContainer to="/wolf-peach">
+                                <Nav.Link>Catalog</Nav.Link>
+                            </LinkContainer>
+                            <LinkContainer to="/garden">
+                                <Nav.Link>My Garden</Nav.Link>
+                            </LinkContainer>
+                            <LinkContainer to="/companion">
+                                <Nav.Link>Companion Planting</Nav.Link>
+                            </LinkContainer>
+                            <LinkContainer to="/seasons">
+                                <Nav.Link>Seasonal Calendar</Nav.Link>
+                            </LinkContainer>
+                        </Nav>
+                        <Nav>
+                            {user ? (
+                                <Button size="sm" variant="outline-light" onClick={signOut}>
+                                    Sign out
+                                </Button>
+                            ) : (
+                                <Button size="sm" variant="outline-light" onClick={() => setShowLogin(true)}>
+                                    Sign in
+                                </Button>
+                            )}
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
+            <LoginModal show={showLogin} onHide={() => setShowLogin(false)} />
+        </>
     );
 }
 

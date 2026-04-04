@@ -1,4 +1,5 @@
 import { createPortal } from 'react-dom';
+import './AlphabetScrubber.css';
 
 const ALL_LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 

@@ -1,0 +1,59 @@
+.filterbar-desktop input::placeholder,
+.filterbar-compact input::placeholder {
+  opacity: 0.35;
+}
+
+.filterbar-desktop {
+  background: linear-gradient(to right,
+    rgba(var(--bs-body-bg-rgb), 0),
+    rgba(var(--bs-body-bg-rgb), 0.78) 8%,
+    rgba(var(--bs-body-bg-rgb), 0.78) 92%,
+    rgba(var(--bs-body-bg-rgb), 0)
+  );
+}
+
+.filterbar-compact {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030;
+  border-top: 2px solid #343a40;
+  padding: 8px 12px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  background: linear-gradient(to bottom,
+    rgba(var(--bs-body-bg-rgb), 0),
+    rgba(var(--bs-body-bg-rgb), 0.78) 30%
+  );
+}
+
+.filterbar-compact::after {
+  content: '›';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #343a40;
+  background: linear-gradient(to right, transparent, var(--bs-body-bg) 60%);
+  pointer-events: none;
+}
+
+.filterbar-compact-inner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-right: 32px;
+}
+
+.filterbar-compact-inner::-webkit-scrollbar {
+  display: none;
+}

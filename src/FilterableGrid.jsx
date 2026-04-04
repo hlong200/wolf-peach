@@ -1,9 +1,11 @@
 import { Container, Row, Col } from "react-bootstrap";
 import PlantCard from "./PlantCard";
 import FilterBar from "./FilterBar";
+import './FilterableGrid.css';
 import AlphabetScrubber from "./AlphabetScrubber";
 import { useFilters } from "./lib/FilterProvider";
 import { useIsMobile, useColumnCount } from "./lib/customHooks";
+import { useFilteredPlants } from "./lib/useFilteredPlants";
 
 const DIFF_ORDER = ['easy', 'moderate', 'hard'];
 
@@ -19,9 +21,9 @@ function parseDaysBucketStart(label) {
 function groupPlants(plants, sortBy) {
     return plants.reduce((acc, plant) => {
         let key;
-        if (sortBy === 'name')       key = plant.name[0].toUpperCase();
+        if (sortBy === 'name')            key = plant.name[0].toUpperCase();
         else if (sortBy === 'difficulty') key = plant.difficulty;
-        else if (sortBy === 'days')  key = getDaysLabel(plant.days_to_maturity);
+        else if (sortBy === 'days')       key = getDaysLabel(plant.days_to_maturity);
         if (!acc[key]) acc[key] = [];
         acc[key].push(plant);
         return acc;
@@ -62,29 +64,16 @@ function splitIntoColumns(items, colCount) {
     return cols;
 }
 
-export default function FilterableGrid({ plants }) {
-    const { sunFilter, difficultyFilter, sortBy, sortOrder, textFilter } = useFilters();
+export default function FilterableGrid({ ids } = {}) {
+    const { sortBy, sortOrder } = useFilters();
+    const { data, loading, error } = useFilteredPlants({ ids });
     const isMobile = useIsMobile();
     const colCount = useColumnCount();
 
-    const filtered = [...plants]
-        .filter(p =>
-            p.name?.toLowerCase().includes(textFilter.toLowerCase())
-            || p.culinary_type?.toLowerCase().includes(textFilter.toLowerCase())
-            || p.species?.toLowerCase().includes(textFilter.toLowerCase())
-            || p.tags.some(t => t?.includes(textFilter.toLowerCase()))
-        )
-        .filter(p => difficultyFilter === null || p.difficulty === difficultyFilter)
-        .filter(p => sunFilter === null || p.sun === sunFilter)
-        .sort((a, b) => {
-            let cmp = 0;
-            if (sortBy === 'name') cmp = a.name.localeCompare(b.name);
-            else if (sortBy === 'days') cmp = a.days_to_maturity - b.days_to_maturity;
-            else if (sortBy === 'difficulty') cmp = DIFF_ORDER.indexOf(a.difficulty) - DIFF_ORDER.indexOf(b.difficulty);
-            return sortOrder === 'asc' ? cmp : -cmp;
-        });
+    if (loading) return <p>Loading...</p>;
+    if (error)   return <p>Something went wrong.</p>;
 
-    const grouped = groupPlants(filtered, sortBy);
+    const grouped = groupPlants(data, sortBy);
     const keys = sortKeys(Object.keys(grouped), sortBy, sortOrder);
 
     return (

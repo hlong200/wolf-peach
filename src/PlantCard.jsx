@@ -32,7 +32,20 @@ export default function PlantCard({ plant, species }) {
         {isFav ? '★' : '☆'}
       </div>
       <div className="plant-img-area">
-        {ICONS[plant.culinary_type] || '🌱'}
+        {plant.thumbnail_url
+          ? <img
+              src={plant.thumbnail_url}
+              alt={plant.name}
+              className="plant-thumbnail"
+              onError={e => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }}
+            />
+          : null}
+        <span
+          className="plant-emoji"
+          style={{ display: plant.thumbnail_url ? 'none' : 'block' }}
+        >
+          {ICONS[plant.culinary_type] || '🌱'}
+        </span>
       </div>
 
       <Card.Body className="pt-1 pb-2 px-3">

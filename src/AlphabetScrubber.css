@@ -1,0 +1,40 @@
+.alphabet-scrubber {
+  position: fixed;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  bottom: 70px;
+  z-index: 1020;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1px;
+  touch-action: none;
+}
+
+.scrubber-letter {
+  font-size: 10px;
+  font-weight: 700;
+  width: 20px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  user-select: none;
+}
+
+.scrubber-letter-active {
+  color: #343a40;
+  cursor: pointer;
+}
+
+.scrubber-letter-active:hover {
+  background: #343a40;
+  color: #fff;
+}
+
+.scrubber-letter-inactive {
+  color: #ccc;
+  cursor: default;
+}

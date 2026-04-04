@@ -1,6 +1,7 @@
 import { Dropdown, Button, Form, DropdownButton, InputGroup } from "react-bootstrap";
 import { createPortal } from "react-dom";
 import { useFilters } from "./lib/FilterProvider";
+import './FilterBar.css';
 
 function FilterBar({ compact = false }) {
     const { textFilter, setTextFilter, sunFilter, setSunFilter,
