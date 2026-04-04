@@ -70,9 +70,6 @@ export default function FilterableGrid({ ids } = {}) {
     const isMobile = useIsMobile();
     const colCount = useColumnCount();
 
-    if (loading) return <p>Loading...</p>;
-    if (error)   return <p>Something went wrong.</p>;
-
     const grouped = groupPlants(data, sortBy);
     const keys = sortKeys(Object.keys(grouped), sortBy, sortOrder);
 
@@ -81,7 +78,9 @@ export default function FilterableGrid({ ids } = {}) {
             {!isMobile && <FilterBar />}
 
             <Container className={isMobile ? 'pb-5 mb-4 pe-5' : ''}>
-                {keys.map(key => (
+                {error   && <p>Something went wrong.</p>}
+                {loading && <p className="text-muted">Loading...</p>}
+                {!loading && !error && keys.map(key => (
                     <div key={key} id={sectionId(key)} className="catalog-section">
                         <div className={`section-header ${!isMobile ? 'section-header-sticky' : ''}`}>
                             {formatHeader(key, sortBy)}
