@@ -1,3 +1,5 @@
+import { createPortal } from 'react-dom';
+
 const ALL_LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
 function scrollToSection(letter) {
@@ -15,7 +17,7 @@ export default function AlphabetScrubber({ availableLetters }) {
         }
     };
 
-    return (
+    return createPortal(
         <div className="alphabet-scrubber" onTouchMove={handleTouchMove} onTouchStart={handleTouchMove}>
             {ALL_LETTERS.map(letter => {
                 const active = availableLetters.includes(letter);
@@ -30,6 +32,7 @@ export default function AlphabetScrubber({ availableLetters }) {
                     </span>
                 );
             })}
-        </div>
+        </div>,
+        document.body
     );
 }

@@ -1,4 +1,5 @@
-import { Dropdown, Button, Form, DropdownButton } from "react-bootstrap";
+import { Dropdown, Button, Form, DropdownButton, InputGroup } from "react-bootstrap";
+import { createPortal } from "react-dom";
 import { useFilters } from "./lib/FilterProvider";
 
 function FilterBar({ compact = false }) {
@@ -20,13 +21,16 @@ function FilterBar({ compact = false }) {
 
     const controls = (
         <>
-            <Form.Control
-                type="text"
-                size="sm"
-                placeholder="cherokee purple"
-                value={textFilter}
-                onChange={e => setTextFilter(e.target.value)}
-                style={{ minWidth: compact ? 120 : undefined }} />
+            <InputGroup size="sm" style={{ minWidth: compact ? 120 : 180 }}>
+                <Form.Control
+                    type="text"
+                    placeholder="cherokee purple"
+                    value={textFilter}
+                    onChange={e => setTextFilter(e.target.value)} />
+                {textFilter && (
+                    <Button variant="outline-secondary" onClick={() => setTextFilter('')}>✕</Button>
+                )}
+            </InputGroup>
             {['easy', 'moderate', 'hard'].map(option => (
                 <Button
                     key={option}
@@ -66,12 +70,13 @@ function FilterBar({ compact = false }) {
     );
 
     if (compact) {
-        return (
+        return createPortal(
             <div className="filterbar-compact">
                 <div className="filterbar-compact-inner">
                     {controls}
                 </div>
-            </div>
+            </div>,
+            document.body
         );
     }
 
