@@ -49,7 +49,7 @@ export default function PlantCard({ plant, species }) {
       </div>
 
       <Card.Body className="pt-1 pb-2 px-3">
-        <Card.Title>{plant.name} {fmt(plant.culinary_type)}</Card.Title>
+        <Card.Title>{plant.name}</Card.Title>
         <Card.Subtitle>{plant.species}</Card.Subtitle>
 
         <div className="d-flex flex-wrap gap-1 mb-1">
