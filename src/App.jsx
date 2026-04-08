@@ -5,6 +5,7 @@ import MyGarden from './MyGarden';
 import Navigator from './Navigator';
 import { FavoritesProvider } from './lib/FavoritesProvider';
 import { AuthProvider } from './lib/AuthProvider';
+import HelpButton from './HelpButton';
 
 function App() {
     return (
@@ -12,6 +13,7 @@ function App() {
         <FavoritesProvider>
             <HashRouter>
                 <Navigator />
+                <HelpButton />
                 <BsContainer className="px-4 px-md-5 mt-3">
                     <Routes>
                         <Route path="/wolf-peach" element={<Catalog />} />
