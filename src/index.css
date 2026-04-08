@@ -1,8 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
 
+/* overflow-x: clip prevents horizontal overflow without creating a scroll container.
+   Unlike overflow-x: hidden, clip does not break position:fixed in iOS Safari. */
+html, body {
+  overflow-x: clip;
+}
+
 body {
   background-color: #fefcf6 !important;
 }
+
 
 .card {
   padding: 2em;

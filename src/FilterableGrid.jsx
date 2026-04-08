@@ -1,4 +1,5 @@
-import { Container, Row, Col } from "react-bootstrap";
+import { useRef, useLayoutEffect } from "react";
+import { Row, Col } from "react-bootstrap";
 import PlantCard from "./PlantCard";
 import FilterBar from "./FilterBar";
 import './FilterableGrid.css';
@@ -63,6 +64,40 @@ function sectionId(key) {
     return `section-${key.replace(/[^a-zA-Z0-9]/g, '-')}`;
 }
 
+// Sets min-height directly on each .plant-card to match the tallest card in its row.
+// Targets the card element (not the grid cell) because height:100% on a child only
+// resolves when the parent has an explicit height — min-height alone isn't enough.
+// Runs synchronously before paint so there's no visible layout jump.
+// align-items:start on the grid lets accordions expand freely beyond min-height
+// without stretching sibling cards.
+function equalizeRows(gridEl) {
+    if (!gridEl) return;
+    const items = Array.from(gridEl.children);
+
+    // Reset min-heights on the cards themselves
+    items.forEach(el => {
+        const card = el.querySelector('.plant-card');
+        if (card) card.style.minHeight = '';
+    });
+
+    // Group cells by their vertical position to identify rows
+    const rows = new Map();
+    items.forEach(el => {
+        const top = Math.round(el.getBoundingClientRect().top);
+        if (!rows.has(top)) rows.set(top, []);
+        rows.get(top).push(el);
+    });
+
+    // Apply the tallest card's height as min-height on every card in the row
+    rows.forEach(row => {
+        const max = Math.max(...row.map(el => el.getBoundingClientRect().height));
+        row.forEach(el => {
+            const card = el.querySelector('.plant-card');
+            if (card) card.style.minHeight = `${max}px`;
+        });
+    });
+}
+
 // Optional `ids` prop scopes the grid to a subset of plants (used by My Garden)
 export default function FilterableGrid({ ids } = {}) {
     const { sortBy, sortOrder } = useFilters();
@@ -74,6 +109,12 @@ export default function FilterableGrid({ ids } = {}) {
     const grouped = groupPlants(data, sortBy);
     const keys = sortKeys(Object.keys(grouped), sortBy, sortOrder);
 
+    // Re-equalize row heights whenever data, sort, or column count changes
+    const gridRefs = useRef({});
+    useLayoutEffect(() => {
+        Object.values(gridRefs.current).forEach(equalizeRows);
+    }, [data, sortBy, sortOrder, colCount]);
+
     return (
         <>
             {/* FilterBar is always mounted to preserve text input focus across re-renders;
@@ -81,7 +122,7 @@ export default function FilterableGrid({ ids } = {}) {
             {!isMobile && <FilterBar />}
 
             {/* pe-5 on mobile reserves space for the fixed alphabet scrubber on the right */}
-            <Container className={isMobile ? 'pb-5 mb-4 pe-5' : ''}>
+            <div className={isMobile ? 'pb-5 mb-4 pe-5' : ''}>
                 {error   && <p>Something went wrong.</p>}
                 {loading && <p className="text-muted">Loading...</p>}
                 {!loading && !error && keys.map(key => (
@@ -92,7 +133,8 @@ export default function FilterableGrid({ ids } = {}) {
 
                         {isMobile ? (
                             // Mobile: simple Bootstrap responsive grid, no tilts
-                            <Row xs={1} sm={2} className="g-3">
+                            // mx-0 removes Row's default negative gutter margins to prevent overflow
+                            <Row xs={1} sm={2} className="g-3 mx-0">
                                 {grouped[key].map(plant => (
                                     <Col key={plant.id}>
                                         <PlantCard plant={plant} />
@@ -100,9 +142,14 @@ export default function FilterableGrid({ ids } = {}) {
                                 ))}
                             </Row>
                         ) : (
-                            // Desktop: CSS Grid with equal row heights and slight card tilts.
-                            // --col-count drives grid-template-columns in CSS.
-                            <div className="masonry-grid" style={{ '--col-count': colCount }}>
+                            // Desktop: CSS Grid with align-items:start so accordion expansion
+                            // only grows the one card. JS equalizeRows sets min-height per row
+                            // to match the tallest closed card.
+                            <div
+                                className="masonry-grid"
+                                style={{ '--col-count': colCount }}
+                                ref={el => gridRefs.current[key] = el}
+                            >
                                 {grouped[key].map(plant => (
                                     <div key={plant.id} className="masonry-item">
                                         <PlantCard plant={plant} />
@@ -112,7 +159,7 @@ export default function FilterableGrid({ ids } = {}) {
                         )}
                     </div>
                 ))}
-            </Container>
+            </div>
 
             {isMobile && (
                 <>

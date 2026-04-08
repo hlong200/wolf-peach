@@ -17,7 +17,7 @@ function Navigator() {
             <Navbar bg="primary" data-bs-theme="dark" expand="md">
                 <Container>
                     <Navbar.Toggle aria-controls="main-nav" />
-                    <Navbar.Brand href="/wolf-peach">Wolf Peach</Navbar.Brand>
+                    <Navbar.Brand href="/wolf-peach">🍅 Wolf Peach</Navbar.Brand>
                     <Navbar.Collapse id="main-nav">
                         <Nav className="me-auto">
                             <LinkContainer to="/wolf-peach">

@@ -27,24 +27,20 @@
   );
 }
 
-/* --col-count is set inline from JS so column count stays in sync with useColumnCount() */
+/* --col-count is set inline from JS so column count stays in sync with useColumnCount().
+   align-items: start means cells don't stretch beyond their content height —
+   accordion expansion grows only the one card, not its row siblings. */
 .masonry-grid {
   display: grid;
   grid-template-columns: repeat(var(--col-count, 3), 1fr);
   gap: 1rem;
+  align-items: start;
 }
 
-/* content-visibility skips rendering off-screen cards for scroll performance.
-   contain-intrinsic-size gives the browser a size estimate while the card is hidden.
-   padding + negative margins create a small overflow buffer so rotated card borders
-   aren't clipped at the masonry-item boundary in Safari. */
+/* padding gives rotated card borders room to render without hitting the cell boundary in Safari */
 .masonry-item {
   margin-bottom: 1rem;
-  content-visibility: auto;
-  contain-intrinsic-size: 0 340px;
   padding: 3px;
-  margin-left: -3px;
-  margin-right: -3px;
 }
 
 /* translateZ(0) promotes each card to its own GPU layer, preventing Safari
