@@ -1,16 +1,13 @@
-# React + Vite
+# Wolf Peach
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React frontend for a vegetable garden guidebook website, Wolf Peach, aiding the user in growth habit, seasonality, companion planting, and more
 
-Currently, two official plugins are available:
+Theme Sketchy from bootswatch.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Dependencies
 
-## React Compiler
+Vite, React Bootstrap, sketchy/bootstrap.min.css
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Backend
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Simple backend made possible by the use of supabase auth, tables, and storage bucket. Edge function enables Gardener assistant LLM functionality from the Claude Haiku language model given a starter prompt with relevant site context.
