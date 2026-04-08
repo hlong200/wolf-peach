@@ -3,11 +3,13 @@
   position: fixed;
   bottom: 1.5rem;
   right: 1.5rem;
-  z-index: 1050;
+  z-index: 9000;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   gap: 0.5rem;
+  width: fit-content;
+  height: fit-content;
 }
 
 .help-fab {
@@ -70,11 +72,11 @@
   font-size: 1rem;
 }
 
-@media (max-width: 575px), (pointer: coarse) {
-  .help-fab-wrap {
-    bottom: 4.5rem;
-    right: 0.75rem;
-  }
+/* Applied via JS using the same useIsMobile signal as the compact FilterBar,
+   so the offset only kicks in when the FilterBar is actually present */
+.help-fab-wrap-mobile {
+  bottom: 4.5rem;
+  right: 0.75rem;
 }
 
 /* Chat panel */
@@ -90,7 +92,7 @@
   border-radius: 2px;
   background: #fefcf6;
   box-shadow: 5px 5px 0 rgba(0,0,0,0.15);
-  z-index: 1049;
+  z-index: 8999;
   overflow: hidden;
 }
 

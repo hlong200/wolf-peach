@@ -122,7 +122,9 @@ export default function FilterableGrid({ ids } = {}) {
             {!isMobile && <FilterBar />}
 
             {/* pe-5 on mobile reserves space for the fixed alphabet scrubber on the right */}
-            <div className={isMobile ? 'pb-5 mb-4 pe-5' : ''}>
+            {/* pe-5 always reserves right clearance for the FAB (right:24px, width:48px = 72px from edge).
+                pb-5/mb-4 only on mobile reserves bottom clearance for the compact FilterBar. */}
+            <div className={`pe-5${isMobile ? ' pb-5 mb-4' : ''}`}>
                 {error   && <p>Something went wrong.</p>}
                 {loading && <p className="text-muted">Loading...</p>}
                 {!loading && !error && keys.map(key => (

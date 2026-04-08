@@ -6,6 +6,7 @@ import { FilterProvider } from "./lib/FilterProvider";
 
 // FilterableGrid is the existing component that displays the filtered plant cards
 import FilterableGrid from "./FilterableGrid";
+import './Catalog.css';
 
 export default function Catalog() {
   return (
@@ -13,6 +14,9 @@ export default function Catalog() {
     // so any child component that needs filter state can access it
     <FilterProvider>
       <>
+        {/* Decorative botanical border — hidden on mobile */}
+        <img src="/plant-left.png" className="catalog-plant-left" alt="" aria-hidden="true" />
+        <img src="/plant-right.png" className="catalog-plant-right" alt="" aria-hidden="true" />
         {/* Hero / intro section — py-3 on mobile, py-5 on desktop */}
         <section className="py-3 py-md-5">
           <Row className="align-items-center mx-0 g-3">

@@ -1,0 +1,33 @@
+/* Decorative botanical illustration pinned to the left edge of the catalog viewport.
+   pointer-events: none so it never intercepts clicks on content behind it. */
+.catalog-plant-left {
+  position: fixed;
+  left: -20px;
+  bottom: 0;
+  height: clamp(0px, 55vw, 90vh);
+  width: auto;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+.catalog-plant-right {
+  position: fixed;
+  right: -20px;
+  bottom: 0;
+  height: clamp(0px, 55vw, 90vh);
+  width: auto;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+/* Hide on mobile — not enough horizontal room */
+@media (max-width: 767px) {
+  .catalog-plant-left {
+    display: none;
+  }
+  .catalog-plant-right {
+    display: none;
+  }
+}

@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
 
-/* overflow-x: clip prevents horizontal overflow without creating a scroll container.
-   Unlike overflow-x: hidden, clip does not break position:fixed in iOS Safari. */
-html, body {
+/* Clip overflow on #root so page content can't cause horizontal scroll.
+   We use #root (not html/body) because portaled elements (FilterBar, AlphabetScrubber,
+   HelpButton FAB) are direct children of body — outside #root — and must remain unclipped.
+   overflow-x: clip does not create a scroll container, so position:sticky still works. */
+#root {
   overflow-x: clip;
 }
 

@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { Button } from 'react-bootstrap';
 import WelcomeModal from './WelcomeModal';
+import { useIsMobile } from './lib/customHooks';
 import './HelpButton.css';
 
 export default function HelpButton() {
@@ -10,6 +11,9 @@ export default function HelpButton() {
     const [showGuide, setShowGuide] = useState(() => !localStorage.getItem('wolf-peach:welcomed'));
     const [showChat, setShowChat] = useState(false);
     const menuRef = useRef(null);
+    // Use the same isMobile signal as the rest of the app so FAB position
+    // stays in sync with when the compact FilterBar actually appears
+    const isMobile = useIsMobile();
 
     // Close the menu when the user clicks outside it
     useEffect(() => {
@@ -29,7 +33,7 @@ export default function HelpButton() {
     // Portal to document.body so the FAB is never clipped by a parent stacking context
     return createPortal(
         <>
-            <div className="help-fab-wrap" ref={menuRef}>
+            <div className={`help-fab-wrap${isMobile ? ' help-fab-wrap-mobile' : ''}`} ref={menuRef}>
                 {menuOpen && (
                     <div className="help-menu">
                         <button className="help-menu-item" onClick={openGuide}>
