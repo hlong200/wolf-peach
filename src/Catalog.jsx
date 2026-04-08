@@ -15,8 +15,8 @@ export default function Catalog() {
     <FilterProvider>
       <>
         {/* Decorative botanical border — hidden on mobile */}
-        <img src="/plant-left.png" className="catalog-plant-left" alt="" aria-hidden="true" />
-        <img src="/plant-right.png" className="catalog-plant-right" alt="" aria-hidden="true" />
+        <img src={`${import.meta.env.BASE_URL}plant-left.png`} className="catalog-plant-left" alt="" aria-hidden="true" />
+        <img src={`${import.meta.env.BASE_URL}plant-right.png`} className="catalog-plant-right" alt="" aria-hidden="true" />
         {/* Hero / intro section — py-3 on mobile, py-5 on desktop */}
         <section className="py-3 py-md-5">
           <Row className="align-items-center mx-0 g-3">
