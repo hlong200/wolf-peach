@@ -9,7 +9,6 @@
   flex-direction: column;
   
 }
-<<<<<<< HEAD
 
 @keyframes card-pop {
   0%   { transform: scale(1); }
@@ -32,9 +31,6 @@
 .fav-ribbon-snap {
   animation: ribbon-snap 0.4s ease forwards;
 }
-
-=======
->>>>>>> origin/main
 .plant-img-area {
   position: relative;
   background-color: #ffffff;
