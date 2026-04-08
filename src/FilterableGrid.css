@@ -40,6 +40,9 @@
   margin-bottom: 1rem;
   content-visibility: auto;
   contain-intrinsic-size: 0 340px;
+  padding: 3px;
+  margin-left: -3px;
+  margin-right: -3px;
 }
 
 .masonry-item:nth-child(4n+1) .plant-card { transform: translateZ(0) rotate(-0.5deg); }

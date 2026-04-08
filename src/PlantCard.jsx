@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Card, Badge, Accordion } from 'react-bootstrap';
 import { useFavorites } from './lib/FavoritesProvider';
 import './PlantCard.css';
@@ -21,12 +22,22 @@ export default function PlantCard({ plant, species }) {
   const qv = plant.quick_view;
   const { favorites, toggleFavorite } = useFavorites();
   const isFav = favorites.includes(plant.id);
+  const [popping, setPopping] = useState(false);
+
+  const handleToggle = (e) => {
+    e.stopPropagation();
+    toggleFavorite(plant.id);
+    setPopping(true);
+  };
 
   return (
-    <Card className="plant-card h-100">
+    <Card
+      className={`plant-card h-100${popping ? ' plant-card-pop' : ''}`}
+      onAnimationEnd={() => setPopping(false)}
+    >
       <div
-        className={`fav-ribbon ${isFav ? 'fav-ribbon-on' : 'fav-ribbon-off'}`}
-        onClick={e => { e.stopPropagation(); toggleFavorite(plant.id); }}
+        className={`fav-ribbon ${isFav ? 'fav-ribbon-on' : 'fav-ribbon-off'}${popping ? ' fav-ribbon-snap' : ''}`}
+        onClick={handleToggle}
         title={isFav ? 'Remove from garden' : 'Add to garden'}
       >
         {isFav ? '★' : '☆'}

@@ -6,6 +6,28 @@
   transition: transform 0.15s ease;
 }
 
+@keyframes card-pop {
+  0%   { transform: scale(1); }
+  30%  { transform: scale(1.045); }
+  60%  { transform: scale(0.98); }
+  100% { transform: scale(1); }
+}
+
+@keyframes ribbon-snap {
+  0%   { filter: brightness(1) drop-shadow(1px 2px 3px rgba(0,0,0,0.3)); }
+  25%  { filter: brightness(1.4) drop-shadow(0 0 8px rgba(255,193,7,0.9)); }
+  60%  { filter: brightness(1.1) drop-shadow(1px 2px 4px rgba(0,0,0,0.4)); }
+  100% { filter: brightness(1) drop-shadow(1px 2px 3px rgba(0,0,0,0.3)); }
+}
+
+.plant-card-pop {
+  animation: card-pop 0.35s ease forwards;
+}
+
+.fav-ribbon-snap {
+  animation: ribbon-snap 0.4s ease forwards;
+}
+
 .plant-img-area {
   position: relative;
   background-color: #f5f3ec;

@@ -1,0 +1,90 @@
+.welcome-modal .modal-content {
+  background-color: #fefcf6;
+  border: 3px solid #343a40;
+  border-radius: 2px;
+  box-shadow: 6px 6px 0 rgba(0,0,0,0.15);
+}
+
+.welcome-body {
+  padding: 2.5rem 2.5rem 2rem;
+}
+
+.welcome-stamp {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  filter: drop-shadow(1px 2px 4px rgba(0,0,0,0.15));
+}
+
+.welcome-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0;
+  letter-spacing: -0.01em;
+}
+
+.welcome-subtitle {
+  text-align: center;
+  font-style: italic;
+  color: #777;
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+.welcome-rule {
+  border-color: #343a40;
+  border-width: 2px;
+  opacity: 1;
+  margin: 1.25rem 0;
+}
+
+.welcome-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem 2rem;
+}
+
+@media (max-width: 575px) {
+  .welcome-sections {
+    grid-template-columns: 1fr;
+  }
+}
+
+.welcome-section {
+  border-left: 3px solid #c0392b;
+  padding-left: 10px;
+}
+
+.welcome-section-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #c0392b;
+  margin-bottom: 4px;
+}
+
+.welcome-section p {
+  font-size: 0.875rem;
+  color: #444;
+  margin: 0;
+  line-height: 1.55;
+}
+
+.welcome-btn {
+  display: block;
+  width: 100%;
+  margin-top: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.welcome-revisit {
+  font-size: 0.75rem;
+  color: #aaa;
+  text-align: center;
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+}
