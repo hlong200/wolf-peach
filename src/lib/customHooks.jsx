@@ -48,6 +48,7 @@ export function useAttributions(id) {
     })
 }
 
+// Breakpoints mirror Bootstrap's xl (1400px) and lg (992px) thresholds
 export function useColumnCount() {
     const getCount = () => {
         if (window.innerWidth >= 1400) return 4;
@@ -63,6 +64,9 @@ export function useColumnCount() {
     return count;
 }
 
+// Checks both viewport width AND pointer type so touch tablets at wide widths
+// still get the mobile layout. Uses a resize listener rather than matchMedia
+// change events because Safari's Responsive Design Mode fires those unreliably.
 export function useIsMobile() {
     const check = () =>
         window.matchMedia('(max-width: 575px)').matches ||

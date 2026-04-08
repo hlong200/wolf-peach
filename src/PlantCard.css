@@ -1,3 +1,4 @@
+/* overflow:hidden clips the fav ribbon into the card corner and contains tilt transforms */
 .plant-card {
   width: 100%;
   height: 100%;
@@ -7,7 +8,6 @@
   transition: transform 0.15s ease;
   display: flex;
   flex-direction: column;
-  
 }
 
 @keyframes card-pop {
@@ -31,6 +31,8 @@
 .fav-ribbon-snap {
   animation: ribbon-snap 0.4s ease forwards;
 }
+
+/* Dot-grid texture mimics seed catalog photography paper */
 .plant-img-area {
   position: relative;
   background-color: #ffffff;
@@ -60,6 +62,9 @@
   line-height: 1;
 }
 
+/* Ribbon is rotated 45° and positioned off the top-left corner;
+   the card's overflow:hidden creates the triangular crop effect.
+   clip-path adds a V-notch to the tail for a cloth ribbon look. */
 .fav-ribbon {
   position: absolute;
   top: 18px;
@@ -103,6 +108,7 @@
   filter: drop-shadow(1px 2px 3px rgba(0,0,0,0.3));
 }
 
+/* min-height reserves space for species names that may be absent */
 .plant-card .card-subtitle {
   font-size: 11px;
   font-style: italic;
@@ -155,7 +161,7 @@
   line-height: 1.5;
 }
 
-/* Make the card body fill the remaining space */
+/* flex column so mt-auto on the accordion pins quick view to the card bottom */
 .plant-card .card-body {
   display: flex;
   flex-direction: column;
@@ -163,9 +169,8 @@
   flex-grow: 1;
 }
 
-/* Clamp long titles so one card does not become taller */
+/* Clamp long titles to 2 lines */
 .plant-card .card-title {
-  min-height: 48px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;

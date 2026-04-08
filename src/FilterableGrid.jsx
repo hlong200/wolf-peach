@@ -9,15 +9,18 @@ import { useFilteredPlants } from "./lib/useFilteredPlants";
 
 const DIFF_ORDER = ['easy', 'moderate', 'hard'];
 
+// Groups days into 5-day bucket labels for section headers (e.g. "30 – 34 days")
 function getDaysLabel(days) {
     const start = Math.floor(days / 5) * 5;
     return `${start} – ${start + 4} days`;
 }
 
+// Parses the numeric start of a bucket label so we can sort them numerically
 function parseDaysBucketStart(label) {
     return parseInt(label, 10);
 }
 
+// Groups a flat plant list into an object keyed by section header
 function groupPlants(plants, sortBy) {
     return plants.reduce((acc, plant) => {
         let key;
@@ -30,6 +33,7 @@ function groupPlants(plants, sortBy) {
     }, {});
 }
 
+// Sorts section header keys respecting each sort mode's natural ordering
 function sortKeys(keys, sortBy, sortOrder) {
     if (sortBy === 'name') {
         return [...keys].sort((a, b) =>
@@ -54,20 +58,17 @@ function formatHeader(key, sortBy) {
     return key;
 }
 
+// Produces a DOM-safe id for alphabet scrubber scroll targets
 function sectionId(key) {
     return `section-${key.replace(/[^a-zA-Z0-9]/g, '-')}`;
 }
 
-function splitIntoColumns(items, colCount) {
-    const cols = Array.from({ length: colCount }, () => []);
-    items.forEach((item, i) => cols[i % colCount].push(item));
-    return cols;
-}
-
+// Optional `ids` prop scopes the grid to a subset of plants (used by My Garden)
 export default function FilterableGrid({ ids } = {}) {
     const { sortBy, sortOrder } = useFilters();
     const { data, loading, error } = useFilteredPlants({ ids });
     const isMobile = useIsMobile();
+    // colCount is passed as a CSS variable so grid columns are responsive without media queries
     const colCount = useColumnCount();
 
     const grouped = groupPlants(data, sortBy);
@@ -75,8 +76,11 @@ export default function FilterableGrid({ ids } = {}) {
 
     return (
         <>
+            {/* FilterBar is always mounted to preserve text input focus across re-renders;
+                compact (mobile) version portals itself to document.body */}
             {!isMobile && <FilterBar />}
 
+            {/* pe-5 on mobile reserves space for the fixed alphabet scrubber on the right */}
             <Container className={isMobile ? 'pb-5 mb-4 pe-5' : ''}>
                 {error   && <p>Something went wrong.</p>}
                 {loading && <p className="text-muted">Loading...</p>}
@@ -87,6 +91,7 @@ export default function FilterableGrid({ ids } = {}) {
                         </div>
 
                         {isMobile ? (
+                            // Mobile: simple Bootstrap responsive grid, no tilts
                             <Row xs={1} sm={2} className="g-3">
                                 {grouped[key].map(plant => (
                                     <Col key={plant.id}>
@@ -95,14 +100,12 @@ export default function FilterableGrid({ ids } = {}) {
                                 ))}
                             </Row>
                         ) : (
-                            <div className="masonry-grid">
-                                {splitIntoColumns(grouped[key], colCount).map((col, ci) => (
-                                    <div key={ci} className="masonry-col">
-                                        {col.map(plant => (
-                                            <div key={plant.id} className="masonry-item">
-                                                <PlantCard plant={plant} />
-                                            </div>
-                                        ))}
+                            // Desktop: CSS Grid with equal row heights and slight card tilts.
+                            // --col-count drives grid-template-columns in CSS.
+                            <div className="masonry-grid" style={{ '--col-count': colCount }}>
+                                {grouped[key].map(plant => (
+                                    <div key={plant.id} className="masonry-item">
+                                        <PlantCard plant={plant} />
                                     </div>
                                 ))}
                             </div>

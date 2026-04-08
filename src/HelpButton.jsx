@@ -5,11 +5,13 @@ import WelcomeModal from './WelcomeModal';
 import './HelpButton.css';
 
 export default function HelpButton() {
+    // Auto-show the guide on first visit by reading the localStorage flag at init time
     const [menuOpen, setMenuOpen] = useState(false);
     const [showGuide, setShowGuide] = useState(() => !localStorage.getItem('wolf-peach:welcomed'));
     const [showChat, setShowChat] = useState(false);
     const menuRef = useRef(null);
 
+    // Close the menu when the user clicks outside it
     useEffect(() => {
         if (!menuOpen) return;
         const handler = (e) => {
@@ -24,6 +26,7 @@ export default function HelpButton() {
     const openGuide = () => { setMenuOpen(false); setShowGuide(true); };
     const openChat  = () => { setMenuOpen(false); setShowChat(true); };
 
+    // Portal to document.body so the FAB is never clipped by a parent stacking context
     return createPortal(
         <>
             <div className="help-fab-wrap" ref={menuRef}>
@@ -64,6 +67,7 @@ function GardenChat({ onClose }) {
     const [loading, setLoading] = useState(false);
     const bottomRef = useRef(null);
 
+    // Scroll to the latest message whenever the list updates
     useEffect(() => {
         bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
     }, [messages]);
@@ -75,6 +79,7 @@ function GardenChat({ onClose }) {
         setMessages(prev => [...prev, { role: 'user', text }]);
         setLoading(true);
         try {
+            // Build full conversation history from current state before appending the new message
             const history = messages.map(m => ({ role: m.role, content: m.text }));
             history.push({ role: 'user', content: text });
             const res = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/wolf-peach-assistant`, {
@@ -95,6 +100,7 @@ function GardenChat({ onClose }) {
         }
     };
 
+    // Enter sends; Shift+Enter allows multi-line input
     const handleKey = (e) => {
         if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); }
     };

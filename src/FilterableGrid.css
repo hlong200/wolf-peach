@@ -1,3 +1,4 @@
+/* scroll-margin-top offsets jump targets so the sticky navbar doesn't cover the header */
 .catalog-section {
   margin-bottom: 2rem;
   scroll-margin-top: 70px;
@@ -14,6 +15,7 @@
   background: var(--bs-body-bg);
 }
 
+/* top: 56px = Bootstrap navbar height; gradient feathers the bottom edge into the content below */
 .section-header-sticky {
   position: sticky;
   top: 56px;
@@ -25,17 +27,17 @@
   );
 }
 
+/* --col-count is set inline from JS so column count stays in sync with useColumnCount() */
 .masonry-grid {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(var(--col-count, 3), 1fr);
   gap: 1rem;
-  align-items: flex-start;
 }
 
-.masonry-col {
-  flex: 1;
-  min-width: 0;
-}
-
+/* content-visibility skips rendering off-screen cards for scroll performance.
+   contain-intrinsic-size gives the browser a size estimate while the card is hidden.
+   padding + negative margins create a small overflow buffer so rotated card borders
+   aren't clipped at the masonry-item boundary in Safari. */
 .masonry-item {
   margin-bottom: 1rem;
   content-visibility: auto;
@@ -45,6 +47,8 @@
   margin-right: -3px;
 }
 
+/* translateZ(0) promotes each card to its own GPU layer, preventing Safari
+   compositing artifacts (tearing/popping) during tilt transitions */
 .masonry-item:nth-child(4n+1) .plant-card { transform: translateZ(0) rotate(-0.5deg); }
 .masonry-item:nth-child(4n+2) .plant-card { transform: translateZ(0) rotate(0.4deg);  }
 .masonry-item:nth-child(4n+3) .plant-card { transform: translateZ(0) rotate(-0.7deg); }

@@ -14,6 +14,7 @@ const SUN = { full:'Full sun', partial:'Partial shade', shade:'Full shade' };
 const SEASON_TAGS = ['cool-season','warm-season','overwintering'];
 const GROWTH_TAGS = ['indeterminate','determinate'];
 
+// Converts hyphenated tag slugs to Title Case for display
 const fmt = t => t.split('-').map(w => w[0].toUpperCase() + w.slice(1)).join(' ');
 
 export default function PlantCard({ plant, species }) {
@@ -22,6 +23,9 @@ export default function PlantCard({ plant, species }) {
   const qv = plant.quick_view;
   const { favorites, toggleFavorite } = useFavorites();
   const isFav = favorites.includes(plant.id);
+
+  // Transient animation state: class is added on toggle, removed when animation ends.
+  // This allows re-triggering the animation on repeated clicks.
   const [popping, setPopping] = useState(false);
 
   const handleToggle = (e) => {
@@ -35,6 +39,7 @@ export default function PlantCard({ plant, species }) {
       className={`plant-card h-100${popping ? ' plant-card-pop' : ''}`}
       onAnimationEnd={() => setPopping(false)}
     >
+      {/* Ribbon sits in the top-left corner; overflow:hidden on .plant-card clips it into shape */}
       <div
         className={`fav-ribbon ${isFav ? 'fav-ribbon-on' : 'fav-ribbon-off'}${popping ? ' fav-ribbon-snap' : ''}`}
         onClick={handleToggle}
@@ -42,6 +47,8 @@ export default function PlantCard({ plant, species }) {
       >
         {isFav ? '★' : '☆'}
       </div>
+
+      {/* Thumbnail with emoji fallback: img is hidden via onError if it fails to load */}
       <div className="plant-img-area">
         {plant.thumbnail_url
           ? <img
@@ -75,8 +82,9 @@ export default function PlantCard({ plant, species }) {
           )}
         </div>
 
+        {/* mt-auto pushes the accordion to the card bottom regardless of card height */}
         {qv && (
-          <Accordion className="plant-accordion mt-1">
+          <Accordion className="plant-accordion mt-auto">
             <Accordion.Item eventKey="0">
               <Accordion.Header>Quick view</Accordion.Header>
               <Accordion.Body>
