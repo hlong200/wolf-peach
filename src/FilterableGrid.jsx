@@ -25,9 +25,10 @@ function parseDaysBucketStart(label) {
 function groupPlants(plants, sortBy) {
     return plants.reduce((acc, plant) => {
         let key;
-        if (sortBy === 'name')            key = plant.name[0].toUpperCase();
-        else if (sortBy === 'difficulty') key = plant.difficulty;
-        else if (sortBy === 'days')       key = getDaysLabel(plant.days_to_maturity);
+        if (sortBy === 'name')              key = plant.name[0].toUpperCase();
+        else if (sortBy === 'difficulty')   key = plant.difficulty;
+        else if (sortBy === 'days')         key = getDaysLabel(plant.days_to_maturity);
+        else if (sortBy === 'culinary_type') key = plant.culinary_type;
         if (!acc[key]) acc[key] = [];
         acc[key].push(plant);
         return acc;
@@ -51,11 +52,17 @@ function sortKeys(keys, sortBy, sortOrder) {
             return sortOrder === 'asc' ? cmp : -cmp;
         });
     }
+    if (sortBy === 'culinary_type') {
+        return [...keys].sort((a, b) =>
+            sortOrder === 'asc' ? a.localeCompare(b) : b.localeCompare(a)
+        );
+    }
     return keys;
 }
 
 function formatHeader(key, sortBy) {
-    if (sortBy === 'difficulty') return key[0].toUpperCase() + key.slice(1);
+    if (sortBy === 'difficulty' || sortBy === 'culinary_type')
+        return key.split('-').map(w => w[0].toUpperCase() + w.slice(1)).join(' ');
     return key;
 }
 

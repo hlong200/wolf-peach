@@ -33,11 +33,14 @@ function Navigator() {
                                 <Nav.Link>Seasonal Calendar</Nav.Link>
                             </LinkContainer>
                         </Nav>
-                        <Nav>
+                        <Nav className="align-items-center gap-2">
                             {user ? (
-                                <Button size="sm" variant="outline-light" onClick={signOut}>
-                                    Sign out
-                                </Button>
+                                <>
+                                    <span className="nav-user-email">{user.email}</span>
+                                    <Button size="sm" variant="outline-light" onClick={signOut}>
+                                        Sign out
+                                    </Button>
+                                </>
                             ) : (
                                 <Button size="sm" variant="outline-light" onClick={() => setShowLogin(true)}>
                                     Sign in

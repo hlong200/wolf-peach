@@ -10,8 +10,9 @@ function FilterBar({ compact = false }) {
 
     const SORT_LABELS = {
         name: 'Name',
-        days: "Days",
-        difficulty: 'Difficulty'
+        days: 'Days',
+        difficulty: 'Difficulty',
+        culinary_type: 'Type',
     };
 
     const SUN_LABELS = {
@@ -58,6 +59,7 @@ function FilterBar({ compact = false }) {
                 <Dropdown.Item onClick={() => setSortBy('name')}>Name</Dropdown.Item>
                 <Dropdown.Item onClick={() => setSortBy('days')}>Days to maturity</Dropdown.Item>
                 <Dropdown.Item onClick={() => setSortBy('difficulty')}>Difficulty</Dropdown.Item>
+                <Dropdown.Item onClick={() => setSortBy('culinary_type')}>Type</Dropdown.Item>
             </DropdownButton>
             <Button
                 size="sm"

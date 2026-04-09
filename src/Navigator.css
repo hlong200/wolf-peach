@@ -19,9 +19,23 @@
   opacity: 0.85;
 }
 
+.nav-user-email {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.65);
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 @media (max-width: 767.98px) {
   .navbar .navbar-brand {
     flex: 1;
     text-align: center;
+  }
+
+  .nav-user-email {
+    max-width: 100%;
+    padding: 0.25rem 0.625rem;
   }
 }
