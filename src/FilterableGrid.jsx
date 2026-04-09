@@ -1,4 +1,4 @@
-import { useRef, useLayoutEffect } from "react";
+import { useRef, useLayoutEffect, useMemo } from "react";
 import { Row, Col } from "react-bootstrap";
 import PlantCard from "./PlantCard";
 import FilterBar from "./FilterBar";
@@ -106,8 +106,8 @@ export default function FilterableGrid({ ids } = {}) {
     // colCount is passed as a CSS variable so grid columns are responsive without media queries
     const colCount = useColumnCount();
 
-    const grouped = groupPlants(data, sortBy);
-    const keys = sortKeys(Object.keys(grouped), sortBy, sortOrder);
+    const grouped = useMemo(() => groupPlants(data, sortBy), [data, sortBy]);
+    const keys = useMemo(() => sortKeys(Object.keys(grouped), sortBy, sortOrder), [grouped, sortBy, sortOrder]);
 
     // Re-equalize row heights whenever data, sort, or column count changes
     const gridRefs = useRef({});

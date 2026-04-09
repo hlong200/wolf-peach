@@ -38,6 +38,11 @@
   color: #fefcf6;
 }
 
+.back-to-top-fab {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
 /* Pop-up menu */
 .help-menu {
   display: flex;

@@ -10,10 +10,17 @@ export default function HelpButton() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [showGuide, setShowGuide] = useState(() => !localStorage.getItem('wolf-peach:welcomed'));
     const [showChat, setShowChat] = useState(false);
+    const [showBackToTop, setShowBackToTop] = useState(false);
     const menuRef = useRef(null);
     // Use the same isMobile signal as the rest of the app so FAB position
     // stays in sync with when the compact FilterBar actually appears
     const isMobile = useIsMobile();
+
+    useEffect(() => {
+        const onScroll = () => setShowBackToTop(window.scrollY > 400);
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
 
     // Close the menu when the user clicks outside it
     useEffect(() => {
@@ -34,6 +41,15 @@ export default function HelpButton() {
     return createPortal(
         <>
             <div className={`help-fab-wrap${isMobile ? ' help-fab-wrap-mobile' : ''}`} ref={menuRef}>
+                {showBackToTop && (
+                    <button
+                        className="help-fab back-to-top-fab"
+                        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                        aria-label="Back to top"
+                    >
+                        ↑
+                    </button>
+                )}
                 {menuOpen && (
                     <div className="help-menu">
                         <button className="help-menu-item" onClick={openGuide}>
