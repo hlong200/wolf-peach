@@ -4,6 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import { LinkContainer } from 'react-router-bootstrap';
+import { useLocation } from 'react-router-dom';
 import { useAuth } from './lib/AuthProvider';
 import LoginModal from './LoginModal';
 import './Navigator.css';
@@ -11,6 +12,7 @@ import './Navigator.css';
 function Navigator() {
     const { user, signOut } = useAuth();
     const [showLogin, setShowLogin] = useState(false);
+    const { pathname } = useLocation();
 
     return (
         <>
@@ -21,16 +23,16 @@ function Navigator() {
                     <Navbar.Collapse id="main-nav">
                         <Nav className="me-auto">
                             <LinkContainer to="/catalog">
-                                <Nav.Link>Catalog</Nav.Link>
+                                <Nav.Link active={pathname === '/catalog'}>Catalog</Nav.Link>
                             </LinkContainer>
                             <LinkContainer to="/garden">
-                                <Nav.Link>My Garden</Nav.Link>
+                                <Nav.Link active={pathname === '/garden'}>My Garden</Nav.Link>
                             </LinkContainer>
                             <LinkContainer to="/companion">
-                                <Nav.Link>Companion Planting</Nav.Link>
+                                <Nav.Link active={pathname === '/companion'}>Companion Planting</Nav.Link>
                             </LinkContainer>
                             <LinkContainer to="/seasons">
-                                <Nav.Link>Seasonal Calendar</Nav.Link>
+                                <Nav.Link active={pathname === '/seasons'}>Seasonal Calendar</Nav.Link>
                             </LinkContainer>
                         </Nav>
                         <Nav className="align-items-center gap-2">
