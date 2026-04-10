@@ -1,4 +1,4 @@
-import { Dropdown, Button, Form, DropdownButton, InputGroup } from "react-bootstrap";
+import { Dropdown, Button, Form, InputGroup } from "react-bootstrap";
 import { createPortal } from "react-dom";
 import { useFilters } from "./lib/FilterProvider";
 import './FilterBar.css';
@@ -55,12 +55,17 @@ function FilterBar({ compact = false }) {
                     {SUN_LABELS[option]}
                 </Button>
             ))}
-            <DropdownButton size="sm" title={SORT_LABELS[sortBy]}>
-                <Dropdown.Item onClick={() => setSortBy('name')}>Name</Dropdown.Item>
-                <Dropdown.Item onClick={() => setSortBy('days')}>Days to maturity</Dropdown.Item>
-                <Dropdown.Item onClick={() => setSortBy('difficulty')}>Difficulty</Dropdown.Item>
-                <Dropdown.Item onClick={() => setSortBy('culinary_type')}>Type</Dropdown.Item>
-            </DropdownButton>
+            <Dropdown>
+                <Dropdown.Toggle size="sm" variant="secondary">
+                    {SORT_LABELS[sortBy]}
+                </Dropdown.Toggle>
+                <Dropdown.Menu popperConfig={{ strategy: 'fixed' }} renderOnMount>
+                    <Dropdown.Item onClick={() => setSortBy('name')}>Name</Dropdown.Item>
+                    <Dropdown.Item onClick={() => setSortBy('days')}>Days to maturity</Dropdown.Item>
+                    <Dropdown.Item onClick={() => setSortBy('difficulty')}>Difficulty</Dropdown.Item>
+                    <Dropdown.Item onClick={() => setSortBy('culinary_type')}>Type</Dropdown.Item>
+                </Dropdown.Menu>
+            </Dropdown>
             <Button
                 size="sm"
                 variant="outline-secondary"

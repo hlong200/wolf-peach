@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import { createContext, useContext, useState, useEffect, useCallback, useRef } from 'react';
 import { supabase } from './supabase';
 import { useAuth } from './AuthProvider';
 
@@ -17,6 +17,9 @@ const FavoritesContext = createContext(null);
 export function FavoritesProvider({ children }) {
     const { user } = useAuth();
     const [favorites, setFavorites] = useState([]);
+    const [deferRemovals, setDeferRemovals] = useState(false);
+    const [pendingRemoval, setPendingRemoval] = useState(null); // { id, name }
+    const pendingTimerRef = useRef(null);
 
     // Load favorites whenever auth state changes
     useEffect(() => {
@@ -32,9 +35,52 @@ export function FavoritesProvider({ children }) {
         }
     }, [user]);
 
-    const toggleFavorite = useCallback(async (id) => {
+    const doDelete = useCallback(async (id) => {
         if (user) {
-            const isFav = favorites.includes(id);
+            await supabase.from('user_plants').delete().eq('plant_id', id);
+        } else {
+            setFavorites(prev => {
+                const next = prev.filter(f => f !== id);
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+                return next;
+            });
+        }
+    }, [user]);
+
+    const commitPendingRemoval = useCallback(() => {
+        if (!pendingRemoval) return;
+        clearTimeout(pendingTimerRef.current);
+        doDelete(pendingRemoval.id);
+        setPendingRemoval(null);
+    }, [pendingRemoval, doDelete]);
+
+    const undoRemoval = useCallback(() => {
+        if (!pendingRemoval) return;
+        clearTimeout(pendingTimerRef.current);
+        setFavorites(prev => [...prev, pendingRemoval.id]);
+        setPendingRemoval(null);
+    }, [pendingRemoval]);
+
+    const toggleFavorite = useCallback(async (id, name) => {
+        const isFav = favorites.includes(id);
+
+        // If removing while in defer mode, optimistically remove and schedule the delete
+        if (isFav && deferRemovals) {
+            // Commit any existing pending removal before starting a new one
+            if (pendingRemoval) {
+                clearTimeout(pendingTimerRef.current);
+                doDelete(pendingRemoval.id);
+            }
+            setFavorites(prev => prev.filter(f => f !== id));
+            setPendingRemoval({ id, name });
+            pendingTimerRef.current = setTimeout(() => {
+                doDelete(id);
+                setPendingRemoval(null);
+            }, 5000);
+            return;
+        }
+
+        if (user) {
             if (isFav) {
                 await supabase.from('user_plants').delete().eq('plant_id', id);
             } else {
@@ -50,10 +96,14 @@ export function FavoritesProvider({ children }) {
                 return next;
             });
         }
-    }, [user, favorites]);
+    }, [user, favorites, deferRemovals, pendingRemoval, doDelete]);
 
     return (
-        <FavoritesContext.Provider value={{ favorites, toggleFavorite }}>
+        <FavoritesContext.Provider value={{
+            favorites, toggleFavorite,
+            deferRemovals, setDeferRemovals,
+            pendingRemoval, undoRemoval, commitPendingRemoval,
+        }}>
             {children}
         </FavoritesContext.Provider>
     );

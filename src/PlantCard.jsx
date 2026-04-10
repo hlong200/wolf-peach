@@ -30,7 +30,7 @@ export default function PlantCard({ plant, species }) {
 
   const handleToggle = (e) => {
     e.stopPropagation();
-    toggleFavorite(plant.id);
+    toggleFavorite(plant.id, plant.name);
     setPopping(true);
   };
 

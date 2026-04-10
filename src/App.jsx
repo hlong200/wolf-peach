@@ -1,5 +1,6 @@
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import { Container as BsContainer } from 'react-bootstrap';
+import Home from './Home';
 import Catalog from './Catalog';
 import MyGarden from './MyGarden';
 import Navigator from './Navigator';
@@ -16,7 +17,8 @@ function App() {
                 <HelpButton />
                 <BsContainer className="px-4 px-md-5 mt-3">
                     <Routes>
-                        <Route path="/wolf-peach" element={<Catalog />} />
+                        <Route path="/" element={<Home />} />
+                        <Route path="/catalog" element={<Catalog />} />
                         <Route path="/garden" element={<MyGarden />} />
                     </Routes>
                 </BsContainer>

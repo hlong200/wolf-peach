@@ -1,24 +1,59 @@
-// Provides filtering capabilities (same as catalog page)
+import { useEffect, useState, useRef } from "react";
 import { FilterProvider } from "./lib/FilterProvider";
-
-// Hook to access user's favorite plants (their saved garden)
 import { useFavorites } from "./lib/FavoritesProvider";
-
-// Reuse the same grid component to display plants
 import FilterableGrid from "./FilterableGrid";
-
-// React Bootstrap layout components
 import { Container } from "react-bootstrap";
+import "./MyGarden.css";
 
-/**
- * Inner component that handles the logic of displaying the user's garden
- */
+const UNDO_DURATION_MS = 5000;
+
+function UndoToast({ pendingRemoval, onUndo }) {
+  const [progress, setProgress] = useState(100);
+  const startRef = useRef(Date.now());
+  const rafRef = useRef(null);
+
+  useEffect(() => {
+    startRef.current = Date.now();
+    const tick = () => {
+      const elapsed = Date.now() - startRef.current;
+      const remaining = Math.max(0, 100 - (elapsed / UNDO_DURATION_MS) * 100);
+      setProgress(remaining);
+      if (remaining > 0) rafRef.current = requestAnimationFrame(tick);
+    };
+    rafRef.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, [pendingRemoval.id]);
+
+  return (
+    <div className="undo-toast">
+      <div className="undo-toast-body">
+        <span>Removed <strong>{pendingRemoval.name}</strong> from your garden</span>
+        <button className="undo-toast-btn" onClick={onUndo}>Undo</button>
+      </div>
+      <div className="undo-toast-progress" style={{ width: `${progress}%` }} />
+    </div>
+  );
+}
+
 function MyGardenInner() {
-  // Get list of favorite plant IDs
-  const { favorites } = useFavorites();
+  const { favorites, setDeferRemovals, pendingRemoval, undoRemoval, commitPendingRemoval } = useFavorites();
 
-  // If no plants saved, show message
-  if (favorites.length === 0) {
+  // Keep a ref current so the cleanup always calls the latest commitPendingRemoval,
+  // not the stale one captured at mount. If the user already undid the removal,
+  // pendingRemoval will be null and commitPendingRemoval is a no-op.
+  const commitRef = useRef(commitPendingRemoval);
+  useEffect(() => { commitRef.current = commitPendingRemoval; }, [commitPendingRemoval]);
+
+  useEffect(() => {
+    setDeferRemovals(true);
+    return () => {
+      commitRef.current();
+      setDeferRemovals(false);
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  if (favorites.length === 0 && !pendingRemoval) {
     return (
       <p className="text-center mt-5 text-muted">
         No plants in your garden yet — star some from the Catalog!
@@ -26,29 +61,24 @@ function MyGardenInner() {
     );
   }
 
-  // Otherwise, display only favorite plants using the grid
-  return <FilterableGrid ids={favorites} />;
+  return (
+    <>
+      <FilterableGrid ids={favorites} />
+      {pendingRemoval && <UndoToast pendingRemoval={pendingRemoval} onUndo={undoRemoval} />}
+    </>
+  );
 }
 
-/**
- * Main Garden Page Component
- */
 export default function MyGarden() {
   return (
-    // Wrap with FilterProvider (needed because FilterableGrid depends on it)
     <FilterProvider>
       <>
-        {/* Page header / intro */}
         <section className="py-5 text-center">
           <Container>
             <h1 className="fw-bold">My Garden</h1>
-            <p className="text-muted">
-              View and manage the plants you’ve saved.
-            </p>
+            <p className="text-muted">View and manage the plants you’ve saved.</p>
           </Container>
         </section>
-
-        {/* Garden content (favorites list or empty state) */}
         <section className="py-4">
           <Container>
             <MyGardenInner />
