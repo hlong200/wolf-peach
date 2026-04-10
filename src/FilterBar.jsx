@@ -55,17 +55,38 @@ function FilterBar({ compact = false }) {
                     {SUN_LABELS[option]}
                 </Button>
             ))}
-            <Dropdown>
-                <Dropdown.Toggle size="sm" variant="secondary">
-                    {SORT_LABELS[sortBy]}
-                </Dropdown.Toggle>
-                <Dropdown.Menu popperConfig={{ strategy: 'fixed' }} renderOnMount>
-                    <Dropdown.Item onClick={() => setSortBy('name')}>Name</Dropdown.Item>
-                    <Dropdown.Item onClick={() => setSortBy('days')}>Days to maturity</Dropdown.Item>
-                    <Dropdown.Item onClick={() => setSortBy('difficulty')}>Difficulty</Dropdown.Item>
-                    <Dropdown.Item onClick={() => setSortBy('culinary_type')}>Type</Dropdown.Item>
-                </Dropdown.Menu>
-            </Dropdown>
+            {compact ? (() => {
+                const keys = Object.keys(SORT_LABELS);
+                const next = keys[(keys.indexOf(sortBy) + 1) % keys.length];
+                const SORT_VARIANTS = {
+                    name: 'outline-secondary',
+                    days: 'success',
+                    difficulty: 'danger',
+                    culinary_type: 'warning',
+                };
+                return (
+                    <Button
+                        size="sm"
+                        className="rounded-pill py-0 text-nowrap"
+                        variant={SORT_VARIANTS[sortBy]}
+                        onClick={() => setSortBy(next)}
+                    >
+                        {SORT_LABELS[sortBy]}
+                    </Button>
+                );
+            })() : (
+                <Dropdown>
+                    <Dropdown.Toggle size="sm" variant="secondary">
+                        {SORT_LABELS[sortBy]}
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                        <Dropdown.Item onClick={() => setSortBy('name')}>Name</Dropdown.Item>
+                        <Dropdown.Item onClick={() => setSortBy('days')}>Days to maturity</Dropdown.Item>
+                        <Dropdown.Item onClick={() => setSortBy('difficulty')}>Difficulty</Dropdown.Item>
+                        <Dropdown.Item onClick={() => setSortBy('culinary_type')}>Type</Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
+            )}
             <Button
                 size="sm"
                 variant="outline-secondary"
