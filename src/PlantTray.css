@@ -1,0 +1,241 @@
+/* ── Snap point glow indicators ── */
+/* Each glow is centered on a screen edge/corner anchor and half-clipped by the viewport.
+   transform: translate(-50%, -50%) centers it on the anchor so it appears to bulge
+   out of the edge. Opacity and scale transition on active to give a "pulse" feel. */
+.tray-snap-glow {
+  position: fixed;
+  z-index: 8990;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(40, 167, 69, 0.18) 0%, rgba(40, 167, 69, 0) 70%);
+  pointer-events: none;
+  opacity: 0.5;
+  scale: 0.85;
+  transition: opacity 0.18s ease, scale 0.18s ease, background 0.18s ease;
+}
+
+.tray-snap-glow-active {
+  opacity: 1;
+  scale: 1.15;
+  background: radial-gradient(circle, rgba(40, 167, 69, 0.45) 0%, rgba(40, 167, 69, 0.1) 55%, rgba(40, 167, 69, 0) 70%);
+}
+
+/* ── Desktop floating window ── */
+.tray-window {
+  position: fixed;
+  z-index: 9000;
+  background: #fefcf6;
+  border: 2.5px solid #343a40;
+  border-radius: 4px;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.18);
+  display: flex;
+  flex-direction: column;
+  max-height: 480px;
+  user-select: none;
+}
+
+.tray-window.tray-drop-ready .tray-body {
+  border: 2px dashed #343a40;
+}
+
+.tray-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  background: #343a40;
+  color: #fefcf6;
+  cursor: grab;
+  border-radius: 2px 2px 0 0;
+  gap: 0.5rem;
+}
+
+.tray-header:active {
+  cursor: grabbing;
+}
+
+.tray-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.tray-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+.tray-action-btn {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fefcf6;
+  border-radius: 2px;
+  padding: 0.1rem 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.1s;
+}
+
+.tray-action-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.tray-action-clear {
+  border-color: rgba(220, 53, 69, 0.6);
+  color: #f8a8af;
+}
+
+.tray-action-clear:hover {
+  background: rgba(220, 53, 69, 0.2);
+}
+
+/* ── Tray body / drop zone ── */
+.tray-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-height: 80px;
+  max-height: 400px; /* mirrors TRAY_MAX_BODY_HEIGHT */
+  border-radius: 0 0 2px 2px;
+  transition: background 0.15s, border 0.15s;
+}
+
+.tray-body-empty {
+  align-items: center;
+  justify-content: center;
+}
+
+.tray-body-dragover {
+  background: rgba(40, 167, 69, 0.08);
+  outline: 2.5px dashed #28a745;
+  outline-offset: -4px;
+}
+
+.tray-empty-hint {
+  font-size: 0.78rem;
+  color: #aaa;
+  text-align: center;
+  margin: 0;
+  pointer-events: none;
+}
+
+/* ── Minimized tab ── */
+.tray-minimized {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9000;
+  background: #343a40;
+  color: #fefcf6;
+  border: 2px solid #343a40;
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+  padding: 0.35rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: 2px -2px 0 rgba(0, 0, 0, 0.12);
+  transition: background 0.12s;
+}
+
+.tray-minimized:hover {
+  background: #4a5157;
+}
+
+/* ── Badge ── */
+.tray-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffc107;
+  color: #343a40;
+  border-radius: 999px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  min-width: 1.2em;
+  height: 1.2em;
+  padding: 0 0.25em;
+  line-height: 1;
+}
+
+/* ── Mobile FAB ── */
+.tray-fab {
+  position: fixed;
+  bottom: 5rem;
+  left: 1.5rem;
+  z-index: 9000;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2.5px solid #343a40;
+  background: #fefcf6;
+  font-size: 1.25rem;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.tray-fab:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.22);
+}
+
+/* ── Mobile bottom sheet ── */
+.tray-sheet {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9000;
+  background: #fefcf6;
+  border-top: 2.5px solid #343a40;
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  max-height: 65vh;
+}
+
+.tray-sheet.tray-sheet-open {
+  transform: translateY(0);
+}
+
+.tray-sheet-handle-bar {
+  width: 40px;
+  height: 4px;
+  background: #ccc;
+  border-radius: 2px;
+  margin: 0.5rem auto 0;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.tray-sheet-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1.5px solid #e0ddd5;
+}

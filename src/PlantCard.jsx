@@ -1,14 +1,11 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Card, Badge, Accordion } from 'react-bootstrap';
 import { useFavorites } from './lib/FavoritesProvider';
+import { usePlantTray } from './lib/PlantTrayProvider';
+import { useDragState } from './lib/DragStateProvider';
+import { useIsMobile } from './lib/customHooks';
+import { ICONS } from './lib/plantIcons';
 import './PlantCard.css';
-
-const ICONS = {
-  tomato:'🍅', pepper:'🌶️', squash:'🎃', cabbage:'🥬', broccoli:'🥦',
-  carrot:'🥕', corn:'🌽', bean:'🫘', spinach:'🌿', lettuce:'🥗',
-  cucumber:'🥒', onion:'🧅', beet:'🫜', radish:'🫜', pea:'🫛',
-  potato: '🥔', 'sweet-potato': '🍠'
-};
 
 const SUN = { full:'Full sun', partial:'Partial shade', shade:'Full shade' };
 const SEASON_TAGS = ['cool-season','warm-season','overwintering'];
@@ -22,11 +19,15 @@ export default function PlantCard({ plant, species }) {
   const growthTag = plant.tags.find(t => GROWTH_TAGS.includes(t));
   const qv = plant.quick_view;
   const { favorites, toggleFavorite } = useFavorites();
+  const { addToTray } = usePlantTray();
+  const { setDragging, clearDragging } = useDragState();
+  const isMobile = useIsMobile();
   const isFav = favorites.includes(plant.id);
 
-  // Transient animation state: class is added on toggle, removed when animation ends.
-  // This allows re-triggering the animation on repeated clicks.
   const [popping, setPopping] = useState(false);
+  const [draggingThis, setDraggingThis] = useState(false);
+  const [jiggling, setJiggling] = useState(false);
+  const longPressTimer = useRef(null);
 
   const handleToggle = (e) => {
     e.stopPropagation();
@@ -34,10 +35,55 @@ export default function PlantCard({ plant, species }) {
     setPopping(true);
   };
 
+  // Desktop drag handlers
+  const handleDragStart = (e) => {
+    const sourceRect = e.currentTarget.getBoundingClientRect();
+    e.dataTransfer.effectAllowed = 'copy';
+    e.dataTransfer.setData('application/x-plant', JSON.stringify({
+      id: plant.id, name: plant.name, culinary_type: plant.culinary_type, sourceRect,
+    }));
+    setDragging({ id: plant.id, name: plant.name, culinary_type: plant.culinary_type, sourceRect });
+    setDraggingThis(true);
+  };
+
+  const handleDragEnd = () => {
+    clearDragging();
+    setDraggingThis(false);
+  };
+
+  // Mobile long-press handlers
+  const handleTouchStart = () => {
+    if (!isMobile) return;
+    longPressTimer.current = setTimeout(() => {
+      navigator.vibrate?.(50);
+      setJiggling(true);
+    }, 500);
+  };
+
+  const handleTouchEnd = () => {
+    clearTimeout(longPressTimer.current);
+  };
+
+  const handleJiggleEnd = () => {
+    if (jiggling) {
+      setJiggling(false);
+      addToTray(plant.id, plant.name, plant.culinary_type);
+    }
+  };
+
   return (
     <Card
-      className={`plant-card h-100${popping ? ' plant-card-pop' : ''}`}
-      onAnimationEnd={() => setPopping(false)}
+      className={`plant-card h-100${popping ? ' plant-card-pop' : ''}${draggingThis ? ' plant-card-dragging' : ''}${jiggling ? ' plant-card-jiggle' : ''}`}
+      draggable={!isMobile}
+      onDragStart={!isMobile ? handleDragStart : undefined}
+      onDragEnd={!isMobile ? handleDragEnd : undefined}
+      onTouchStart={isMobile ? handleTouchStart : undefined}
+      onTouchEnd={isMobile ? handleTouchEnd : undefined}
+      onTouchMove={isMobile ? handleTouchEnd : undefined}
+      onAnimationEnd={(e) => {
+        if (e.animationName === 'card-pop') setPopping(false);
+        if (e.animationName === 'card-jiggle') handleJiggleEnd();
+      }}
     >
       {/* Ribbon sits in the top-left corner; overflow:hidden on .plant-card clips it into shape */}
       <div
