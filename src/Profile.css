@@ -1,0 +1,199 @@
+/* ── Profile header ── */
+.profile-header {
+  border-bottom: 2px solid #e0ddd5;
+}
+
+.profile-header-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.profile-avatar {
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2.5px solid #343a40;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.12);
+  flex-shrink: 0;
+}
+
+.profile-avatar-initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #343a40;
+  color: #fefcf6;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  font-family: inherit;
+}
+
+.profile-header-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.profile-display-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.15rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profile-email {
+  font-size: 0.82rem;
+}
+
+.profile-bio {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.profile-edit-btn {
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+/* ── Tabs ── */
+.profile-tabs {
+  border-bottom: 2px solid #343a40;
+}
+
+.profile-tabs .nav-link {
+  color: #666;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  padding-bottom: 0.6rem;
+}
+
+.profile-tabs .nav-link.active {
+  color: #343a40;
+  border-bottom-color: #343a40;
+  background: none;
+}
+
+.profile-tabs .nav-link:hover:not(.active) {
+  color: #343a40;
+  border-bottom-color: rgba(52, 58, 64, 0.25);
+}
+
+/* ── Tab content ── */
+.profile-tab-content {
+  max-width: 640px;
+}
+
+/* ── Section label ── */
+.profile-section-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #999;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+/* ── Zone badge ── */
+.zone-badge {
+  display: inline-block;
+  background: #343a40;
+  color: #fefcf6;
+  border-radius: 3px;
+  padding: 0.2rem 0.7rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.12);
+}
+
+/* ── Stat cards ── */
+.profile-stat-card {
+  border: 1.5px solid #343a40;
+  border-radius: 4px;
+  padding: 0.85rem 0.75rem;
+  background: #fff;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.profile-stat-icon {
+  font-size: 1.4rem;
+  margin-bottom: 0.3rem;
+  line-height: 1;
+}
+
+.profile-stat-label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #999;
+  font-weight: 700;
+}
+
+.profile-stat-value {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #343a40;
+  margin-top: 0.2rem;
+}
+
+/* ── Goal tags ── */
+.profile-goals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.profile-goal-tag {
+  background: #343a40;
+  color: #fefcf6;
+  border-radius: 999px;
+  padding: 0.2rem 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* ── Edit modal: goal pills ── */
+.edit-goal-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.edit-goal-pill {
+  background: none;
+  border: 1.5px solid #ced4da;
+  border-radius: 999px;
+  padding: 0.3rem 0.9rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  color: #555;
+  transition: border-color 0.12s, background 0.12s, color 0.12s;
+}
+
+.edit-goal-pill:hover {
+  border-color: #343a40;
+  color: #343a40;
+}
+
+.edit-goal-pill-active {
+  background: #343a40;
+  border-color: #343a40;
+  color: #fefcf6;
+}
+
+/* ── Mobile adjustments ── */
+@media (max-width: 575.98px) {
+  .profile-display-name {
+    font-size: 1.2rem;
+  }
+
+  .profile-edit-btn {
+    font-size: 0.78rem;
+    padding: 0.2rem 0.5rem;
+  }
+}

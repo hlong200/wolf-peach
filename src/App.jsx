@@ -4,6 +4,8 @@ import { Container as BsContainer } from 'react-bootstrap';
 import Home from './Home';
 import Catalog from './Catalog';
 import MyGarden from './MyGarden';
+import Profile from './Profile';
+import PlantLogDetail from './PlantLogDetail';
 import Navigator from './Navigator';
 import LoginModal from './LoginModal';
 import { FavoritesProvider } from './lib/FavoritesProvider';
@@ -48,6 +50,8 @@ function App() {
                         <Route path="/" element={<Home />} />
                         <Route path="/catalog" element={<RequireAuth><Catalog /></RequireAuth>} />
                         <Route path="/garden"  element={<RequireAuth><MyGarden /></RequireAuth>} />
+                        <Route path="/profile" element={<RequireAuth><Profile /></RequireAuth>} />
+                        <Route path="/log/:id" element={<PlantLogDetail />} />
                     </Routes>
                 </BsContainer>
             </HashRouter>

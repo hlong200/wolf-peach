@@ -38,7 +38,9 @@ function Navigator() {
                         <Nav className="align-items-center gap-2">
                             {user ? (
                                 <>
-                                    <span className="nav-user-email">{user.email}</span>
+                                    <LinkContainer to="/profile">
+                                        <span className="nav-user-email nav-user-email-link" title="View profile">{user.email}</span>
+                                    </LinkContainer>
                                     <Button size="sm" variant="outline-light" onClick={signOut}>
                                         Sign out
                                     </Button>

@@ -35,6 +35,15 @@
   white-space: nowrap;
 }
 
+.nav-user-email-link {
+  cursor: pointer;
+  transition: color 0.12s;
+}
+
+.nav-user-email-link:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
 @media (max-width: 767.98px) {
   .navbar .navbar-brand {
     flex: 1;

@@ -1,0 +1,349 @@
+/* ── Page ── */
+.pld-page {
+  padding-top: 1.25rem;
+  max-width: 680px;
+}
+
+.pld-back {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.85rem;
+  font-family: inherit;
+  color: #666;
+  cursor: pointer;
+  margin-bottom: 1.25rem;
+  display: inline-block;
+  transition: color 0.1s;
+}
+
+.pld-back:hover {
+  color: #343a40;
+}
+
+/* ── Plant header ── */
+.pld-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.pld-header-emoji {
+  font-size: 2.5rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.pld-header-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.pld-plant-name {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+  line-height: 1.2;
+}
+
+.pld-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.pld-badge {
+  display: inline-block;
+  background: #343a40;
+  color: #fefcf6;
+  border-radius: 2px;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.pld-badge-loc {
+  background: #6c757d;
+}
+
+/* ── Stats row ── */
+.pld-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border: 1.5px solid #e0ddd5;
+  border-radius: 4px;
+  padding: 0.85rem 1rem;
+  background: #fff;
+  margin-bottom: 1.5rem;
+}
+
+.pld-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.pld-stat-label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #999;
+  font-weight: 700;
+}
+
+.pld-stat-value {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #343a40;
+}
+
+/* ── QR section ── */
+.pld-qr-section {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  border: 1.5px solid #343a40;
+  border-radius: 4px;
+  padding: 1rem;
+  background: #fff;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.07);
+  margin-bottom: 1.75rem;
+}
+
+.pld-qr-code {
+  flex-shrink: 0;
+  display: block;
+}
+
+.pld-qr-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.pld-qr-hint {
+  font-size: 0.82rem;
+  color: #666;
+  margin: 0;
+}
+
+/* ── Section label ── */
+.pld-section-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #999;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+/* ── Timeline ── */
+.pld-timeline {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.pld-timeline::before {
+  content: '';
+  position: absolute;
+  left: 13px;
+  top: 18px;
+  bottom: 18px;
+  width: 1.5px;
+  background: #e0ddd5;
+  z-index: 0;
+}
+
+.pld-timeline-item {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.6rem 0;
+}
+
+.pld-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid #343a40;
+  background: #fefcf6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+  z-index: 1;
+  line-height: 1;
+}
+
+.pld-dot-journal {
+  border-style: dashed;
+  background: #fff;
+}
+
+.pld-content {
+  flex: 1;
+  min-width: 0;
+  padding-top: 0.2rem;
+}
+
+.pld-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.2rem;
+}
+
+.pld-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.pld-label-journal {
+  font-style: italic;
+  font-weight: 600;
+}
+
+.pld-date {
+  font-size: 0.72rem;
+  color: #999;
+  flex-shrink: 0;
+}
+
+.pld-private {
+  font-size: 0.65rem;
+  font-style: normal;
+}
+
+.pld-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.2rem;
+}
+
+.pld-detail {
+  font-size: 0.78rem;
+  color: #666;
+  background: #f5f0e8;
+  border-radius: 2px;
+  padding: 0.05rem 0.35rem;
+}
+
+.pld-body {
+  font-size: 0.83rem;
+  color: #444;
+  margin: 0.2rem 0 0;
+  line-height: 1.55;
+}
+
+.pld-body-journal {
+  font-size: 0.88rem;
+  color: #333;
+  white-space: pre-wrap;
+}
+
+.pld-expand {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.75rem;
+  color: #888;
+  cursor: pointer;
+  font-family: inherit;
+  margin-top: 0.25rem;
+  text-decoration: underline;
+}
+
+.pld-expand:hover {
+  color: #343a40;
+}
+
+/* ── Owner actions ── */
+.pld-actions {
+  display: flex;
+  gap: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px dashed #e0ddd5;
+}
+
+/* ── Print label — hidden on screen ── */
+.print-label {
+  display: none;
+}
+
+/* ── Print styles ── */
+@media print {
+  /* Hide everything */
+  body * {
+    visibility: hidden;
+  }
+
+  /* Show only the label */
+  .print-label,
+  .print-label * {
+    visibility: visible;
+  }
+
+  .print-label {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .print-label-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 1.25rem;
+    border: 2px solid #000;
+    border-radius: 6px;
+    width: 220px;
+    margin: 1cm auto;
+    font-family: sans-serif;
+    text-align: center;
+    background: #fff;
+  }
+
+  .print-label-emoji {
+    font-size: 2rem;
+    line-height: 1;
+  }
+
+  .print-label-name {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .print-label-loc {
+    font-size: 0.75rem;
+    color: #555;
+  }
+
+  .print-label-date {
+    font-size: 0.72rem;
+    color: #777;
+  }
+
+  .print-label-qr {
+    margin: 0.5rem 0;
+  }
+
+  .print-label-footer {
+    font-size: 0.68rem;
+    color: #aaa;
+    letter-spacing: 0.04em;
+  }
+}

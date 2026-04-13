@@ -1,0 +1,361 @@
+/* ── Toolbar ── */
+.journal-toolbar {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+/* ── Empty state ── */
+.journal-empty {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+/* ── Plant instance cards ── */
+.plant-instances {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-width: 680px;
+}
+
+.plant-instance {
+  border: 1.5px solid #343a40;
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+}
+
+.plant-instance-open {
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.13);
+}
+
+.plant-instance-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  transition: background 0.1s;
+}
+
+.plant-instance-header:hover {
+  background: #f5f0e8;
+}
+
+.plant-instance-open .plant-instance-header {
+  background: #343a40;
+  color: #fefcf6;
+}
+
+.plant-instance-emoji {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.plant-instance-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.plant-instance-name {
+  font-weight: 700;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.plant-instance-loc {
+  font-size: 0.75rem;
+  opacity: 0.7;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.plant-instance-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+  gap: 0.1rem;
+}
+
+.plant-instance-count {
+  font-size: 0.72rem;
+  opacity: 0.65;
+}
+
+.plant-instance-date {
+  font-size: 0.72rem;
+  opacity: 0.65;
+}
+
+.plant-instance-chevron {
+  font-size: 0.65rem;
+  opacity: 0.5;
+  flex-shrink: 0;
+  margin-left: 0.25rem;
+}
+
+/* ── Instance body ── */
+.plant-instance-body {
+  border-top: 1.5px solid #e0ddd5;
+  padding: 1rem;
+}
+
+.plant-instance-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed #e0ddd5;
+}
+
+/* ── Timeline ── */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+
+/* Vertical connector line */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 13px;
+  top: 20px;
+  bottom: 20px;
+  width: 1.5px;
+  background: #e0ddd5;
+  z-index: 0;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.6rem 0;
+  position: relative;
+}
+
+.timeline-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid #343a40;
+  background: #fefcf6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+  z-index: 1;
+  line-height: 1;
+}
+
+.timeline-dot-journal {
+  border-style: dashed;
+  background: #fff;
+}
+
+.timeline-content {
+  flex: 1;
+  min-width: 0;
+  padding-top: 0.2rem;
+}
+
+.timeline-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.2rem;
+}
+
+.timeline-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.timeline-label-journal {
+  font-style: italic;
+  font-weight: 600;
+}
+
+.timeline-date {
+  font-size: 0.72rem;
+  color: #999;
+  flex-shrink: 0;
+}
+
+.timeline-private {
+  font-size: 0.65rem;
+  font-style: normal;
+}
+
+.timeline-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.timeline-detail {
+  font-size: 0.78rem;
+  color: #666;
+  background: #f5f0e8;
+  border-radius: 2px;
+  padding: 0.05rem 0.35rem;
+}
+
+.timeline-body {
+  font-size: 0.82rem;
+  color: #444;
+  margin: 0.2rem 0 0;
+  line-height: 1.5;
+}
+
+.timeline-body-journal {
+  color: #333;
+  font-size: 0.85rem;
+}
+
+.timeline-expand {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.75rem;
+  color: #888;
+  cursor: pointer;
+  font-family: inherit;
+  margin-top: 0.2rem;
+  text-decoration: underline;
+}
+
+.timeline-expand:hover {
+  color: #343a40;
+}
+
+/* ── Plant search (shared by LogEventModal) ── */
+.plant-search-wrap {
+  position: relative;
+}
+
+.plant-search-clear {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color: #999;
+  cursor: pointer;
+  padding: 0 0.25rem;
+  line-height: 1;
+}
+
+.plant-search-clear:hover {
+  color: #343a40;
+}
+
+.plant-search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1050;
+  background: #fff;
+  border: 1.5px solid #343a40;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-shadow: 3px 4px 0 rgba(0, 0, 0, 0.1);
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.plant-search-results li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.75rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.1s;
+}
+
+.plant-search-results li:hover {
+  background: #f5f0e8;
+}
+
+.plant-search-icon {
+  flex-shrink: 0;
+}
+
+.plant-search-name {
+  flex: 1;
+  font-weight: 600;
+}
+
+.plant-search-type {
+  font-size: 0.72rem;
+  color: #999;
+  flex-shrink: 0;
+}
+
+/* ── Event type grid (LogEventModal) ── */
+.event-type-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.4rem;
+}
+
+.event-type-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.5rem 0.25rem;
+  background: none;
+  border: 1.5px solid #ced4da;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  color: #555;
+  transition: border-color 0.1s, background 0.1s, color 0.1s;
+}
+
+.event-type-icon {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.event-type-btn:hover {
+  border-color: #343a40;
+  color: #343a40;
+}
+
+.event-type-btn-active {
+  background: #343a40;
+  border-color: #343a40;
+  color: #fefcf6;
+}
