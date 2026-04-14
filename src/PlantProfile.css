@@ -1,0 +1,93 @@
+.plant-profile-header {
+  background: linear-gradient(120deg, #f4f9f0 0%, #ffffff 100%);
+}
+.plant-profile-header-inner {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.plant-profile-thumb {
+  width: 120px;
+  height: 120px;
+  min-width: 120px;
+  border-radius: 20px;
+  background: #fff;
+  border: 2px solid #dee2e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.plant-profile-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.plant-profile-thumb span {
+  font-size: 3rem;
+}
+.plant-profile-info h1 {
+  margin-bottom: 0.4rem;
+}
+.plant-profile-section-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #495057;
+}
+.plant-profile-card {
+  border: 1px solid #dee2e6;
+  border-radius: 1rem;
+}
+.plant-profile-detail {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+.plant-profile-chip {
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: #fff;
+}
+.plant-profile-chip-good {
+  background: #28a745;
+}
+.plant-profile-chip-bad {
+  background: #dc3545;
+}
+.plant-profile-tip {
+  font-size: 0.95rem;
+  margin: 0;
+  padding-left: 0.6rem;
+  border-left: 3px solid #6c757d;
+  color: #495057;
+}
+.plant-profile-stat {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+.plant-profile-stat div {
+  font-size: 1rem;
+  color: #212529;
+  margin-top: 0.25rem;
+}
+.plant-profile-text {
+  color: #495057;
+  line-height: 1.6;
+}
+.plant-profile-subsection {
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+.plant-profile-highlights {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: #495057;
+}
+.plant-profile-highlights li {
+  margin-bottom: 0.7rem;
+  line-height: 1.5;
+}

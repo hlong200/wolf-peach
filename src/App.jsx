@@ -5,6 +5,7 @@ import Home from './Home';
 import Catalog from './Catalog';
 import MyGarden from './MyGarden';
 import Profile from './Profile';
+import PlantProfile from './PlantProfile';
 import PlantLogDetail from './PlantLogDetail';
 import Navigator from './Navigator';
 import LoginModal from './LoginModal';
@@ -51,6 +52,7 @@ function App() {
                         <Route path="/catalog" element={<RequireAuth><Catalog /></RequireAuth>} />
                         <Route path="/garden"  element={<RequireAuth><MyGarden /></RequireAuth>} />
                         <Route path="/profile" element={<RequireAuth><Profile /></RequireAuth>} />
+                        <Route path="/plant/:id" element={<RequireAuth><PlantProfile /></RequireAuth>} />
                         <Route path="/log/:id" element={<PlantLogDetail />} />
                     </Routes>
                 </BsContainer>

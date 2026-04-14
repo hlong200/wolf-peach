@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Card, Badge, Accordion } from 'react-bootstrap';
 import { useFavorites } from './lib/FavoritesProvider';
 import { usePlantTray } from './lib/PlantTrayProvider';
@@ -14,7 +15,8 @@ const GROWTH_TAGS = ['indeterminate','determinate'];
 // Converts hyphenated tag slugs to Title Case for display
 const fmt = t => t.split('-').map(w => w[0].toUpperCase() + w.slice(1)).join(' ');
 
-export default function PlantCard({ plant, species }) {
+export default function PlantCard({ plant }) {
+  const navigate = useNavigate();
   const seasonTag = plant.tags.find(t => SEASON_TAGS.includes(t));
   const growthTag = plant.tags.find(t => GROWTH_TAGS.includes(t));
   const qv = plant.quick_view;
@@ -71,10 +73,15 @@ export default function PlantCard({ plant, species }) {
     }
   };
 
+  const handleNavigate = () => {
+    navigate(`/plant/${plant.id}`);
+  };
+
   return (
     <Card
       className={`plant-card h-100${popping ? ' plant-card-pop' : ''}${draggingThis ? ' plant-card-dragging' : ''}${jiggling ? ' plant-card-jiggle' : ''}`}
       draggable={!isMobile}
+      onClick={handleNavigate}
       onDragStart={!isMobile ? handleDragStart : undefined}
       onDragEnd={!isMobile ? handleDragEnd : undefined}
       onTouchStart={isMobile ? handleTouchStart : undefined}
