@@ -80,7 +80,7 @@ export default function PlantTray() {
     const { favorites, toggleFavorite } = useFavorites();
     const isMobile = useIsMobile();
 
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
     const [minimized, setMinimized] = useState(false);
     const [position, setPosition] = useState({ x: 20, y: 120 });
     const [snappedTo, setSnappedTo] = useState(null);
