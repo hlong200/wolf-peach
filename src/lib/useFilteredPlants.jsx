@@ -50,7 +50,9 @@ export function useFilteredPlants({ ids } = {}) {
                 let query = supabase.from('catalog').select(`
                     *,
                     plant_tags ( tags ( name ) ),
-                    companions ( companion, sentiment, reason )
+                    companions ( companion, sentiment, reason ),
+                    plant_seasons ( start_indoors_weeks, direct_sow_weeks, transplant_weeks,
+                                    harvest_start_weeks_from_frost, harvest_end_weeks_from_frost )
                 `);
 
                 if (ids)              query = query.in('id', ids);
@@ -78,6 +80,8 @@ export function useFilteredPlants({ ids } = {}) {
                     thumbnail_url: thumbnailUrls[String(p.id)] ?? null,
                     tags: p.plant_tags.map(pt => pt.tags.name),
                     plant_tags: undefined,
+                    season: Array.isArray(p.plant_seasons) ? (p.plant_seasons[0] ?? null) : (p.plant_seasons ?? null),
+                    plant_seasons: undefined,
                     quick_view: {
                         companions_good: p.companions
                             .filter(c => c.sentiment === 'good')

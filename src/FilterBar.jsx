@@ -5,8 +5,8 @@ import './FilterBar.css';
 
 function FilterBar({ compact = false }) {
     const { textFilter, setTextFilter, sunFilter, setSunFilter,
-            difficultyFilter, setDifficultyFilter, sortBy, setSortBy,
-            sortOrder, setSortOrder } = useFilters();
+            difficultyFilter, setDifficultyFilter, seasonFilter, setSeasonFilter,
+            sortBy, setSortBy, sortOrder, setSortOrder } = useFilters();
 
     const SORT_LABELS = {
         name: 'Name',
@@ -53,6 +53,21 @@ function FilterBar({ compact = false }) {
                     onClick={() => setSunFilter(sunFilter === option ? null : option)}
                 >
                     {SUN_LABELS[option]}
+                </Button>
+            ))}
+            {[
+                { value: 'harvest',      label: 'In Season' },
+                { value: 'planting',     label: 'Plant Now' },
+                { value: 'out-of-season', label: 'Out of Season' },
+            ].map(({ value, label }) => (
+                <Button
+                    key={value}
+                    size="sm"
+                    className="rounded-pill py-0 text-nowrap"
+                    variant={seasonFilter === value ? 'success' : 'outline-secondary'}
+                    onClick={() => setSeasonFilter(seasonFilter === value ? null : value)}
+                >
+                    {label}
                 </Button>
             ))}
             {compact ? (() => {

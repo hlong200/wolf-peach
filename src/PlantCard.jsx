@@ -6,6 +6,7 @@ import { usePlantTray } from './lib/PlantTrayProvider';
 import { useDragState } from './lib/DragStateProvider';
 import { useIsMobile } from './lib/customHooks';
 import { ICONS } from './lib/plantIcons';
+import { computeSeasonStatus } from './lib/seasonUtils';
 import './PlantCard.css';
 
 const SUN = { full:'Full sun', partial:'Partial shade', shade:'Full shade' };
@@ -15,10 +16,11 @@ const GROWTH_TAGS = ['indeterminate','determinate'];
 // Converts hyphenated tag slugs to Title Case for display
 const fmt = t => t.split('-').map(w => w[0].toUpperCase() + w.slice(1)).join(' ');
 
-export default function PlantCard({ plant }) {
+export default function PlantCard({ plant, lastFrost }) {
   const navigate = useNavigate();
   const seasonTag = plant.tags.find(t => SEASON_TAGS.includes(t));
   const growthTag = plant.tags.find(t => GROWTH_TAGS.includes(t));
+  const seasonStatus = computeSeasonStatus(plant.season, lastFrost);
   const qv = plant.quick_view;
   const { favorites, toggleFavorite } = useFavorites();
   const { addToTray } = usePlantTray();
@@ -133,11 +135,13 @@ export default function PlantCard({ plant }) {
               {fmt(seasonTag.replace('-season', ''))} season
             </Badge>
           )}
+          {seasonStatus === 'harvest'  && <Badge bg="success">In Season</Badge>}
+          {seasonStatus === 'planting' && <Badge bg="info">Plant Now</Badge>}
         </div>
 
         {/* mt-auto pushes the accordion to the card bottom regardless of card height */}
         {qv && (
-          <Accordion className="plant-accordion mt-auto">
+          <Accordion className="plant-accordion mt-auto" onClick={e => e.stopPropagation()}>
             <Accordion.Item eventKey="0">
               <Accordion.Header>Quick view</Accordion.Header>
               <Accordion.Body>

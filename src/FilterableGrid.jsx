@@ -7,6 +7,8 @@ import AlphabetScrubber from "./AlphabetScrubber";
 import { useFilters } from "./lib/FilterProvider";
 import { useIsMobile, useColumnCount } from "./lib/customHooks";
 import { useFilteredPlants } from "./lib/useFilteredPlants";
+import { useZoneFrostDates } from "./lib/useZoneFrostDates";
+import { computeSeasonStatus } from "./lib/seasonUtils";
 
 const DIFF_ORDER = ['easy', 'moderate', 'hard'];
 
@@ -107,13 +109,22 @@ function equalizeRows(gridEl) {
 
 // Optional `ids` prop scopes the grid to a subset of plants (used by My Garden)
 export default function FilterableGrid({ ids } = {}) {
-    const { sortBy, sortOrder } = useFilters();
+    const { sortBy, sortOrder, seasonFilter } = useFilters();
     const { data, loading, error } = useFilteredPlants({ ids });
+    const { lastFrost } = useZoneFrostDates();
+
+    const filteredData = useMemo(() => {
+        if (!seasonFilter || lastFrost === undefined) return data;
+        return data.filter(plant => {
+            const status = computeSeasonStatus(plant.season, lastFrost);
+            return seasonFilter === 'out-of-season' ? status === null : status === seasonFilter;
+        });
+    }, [data, seasonFilter, lastFrost]);
     const isMobile = useIsMobile();
     // colCount is passed as a CSS variable so grid columns are responsive without media queries
     const colCount = useColumnCount();
 
-    const grouped = useMemo(() => groupPlants(data, sortBy), [data, sortBy]);
+    const grouped = useMemo(() => groupPlants(filteredData, sortBy), [filteredData, sortBy]);
     const keys = useMemo(() => sortKeys(Object.keys(grouped), sortBy, sortOrder), [grouped, sortBy, sortOrder]);
 
     // Re-equalize row heights whenever data, sort, or column count changes
@@ -146,7 +157,7 @@ export default function FilterableGrid({ ids } = {}) {
                             <Row xs={1} sm={2} className="g-3 mx-0">
                                 {grouped[key].map(plant => (
                                     <Col key={plant.id}>
-                                        <PlantCard plant={plant} />
+                                        <PlantCard plant={plant} lastFrost={lastFrost} />
                                     </Col>
                                 ))}
                             </Row>
@@ -161,7 +172,7 @@ export default function FilterableGrid({ ids } = {}) {
                             >
                                 {grouped[key].map(plant => (
                                     <div key={plant.id} className="masonry-item">
-                                        <PlantCard plant={plant} />
+                                        <PlantCard plant={plant} lastFrost={lastFrost} />
                                     </div>
                                 ))}
                             </div>
