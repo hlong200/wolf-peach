@@ -6,11 +6,13 @@ import Button from 'react-bootstrap/Button';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useLocation } from 'react-router-dom';
 import { useAuth } from './lib/AuthProvider';
+import { useIsAdmin } from './lib/useIsAdmin';
 import LoginModal from './LoginModal';
 import './Navigator.css';
 
 function Navigator() {
     const { user, signOut } = useAuth();
+    const { isAdmin } = useIsAdmin();
     const [showLogin, setShowLogin] = useState(false);
     const { pathname } = useLocation();
 
@@ -34,6 +36,11 @@ function Navigator() {
                             <LinkContainer to="/seasons">
                                 <Nav.Link active={pathname === '/seasons'}>Seasonal Calendar</Nav.Link>
                             </LinkContainer>
+                            {isAdmin && (
+                                <LinkContainer to="/admin">
+                                    <Nav.Link active={pathname.startsWith('/admin')}>Admin</Nav.Link>
+                                </LinkContainer>
+                            )}
                         </Nav>
                         <Nav className="align-items-center gap-2">
                             {user ? (

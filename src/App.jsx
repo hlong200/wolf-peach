@@ -7,11 +7,14 @@ import MyGarden from './MyGarden';
 import Profile from './Profile';
 import PlantProfile from './PlantProfile';
 import PlantLogDetail from './PlantLogDetail';
+import Admin from './Admin';
+import AdminPlantForm from './AdminPlantForm';
 import Navigator from './Navigator';
 import LoginModal from './LoginModal';
 import { FavoritesProvider } from './lib/FavoritesProvider';
 import { AuthProvider } from './lib/AuthProvider';
 import { useAuth } from './lib/AuthProvider';
+import { useIsAdmin } from './lib/useIsAdmin';
 import { PlantTrayProvider } from './lib/PlantTrayProvider';
 import { DragStateProvider } from './lib/DragStateProvider';
 import HelpButton from './HelpButton';
@@ -36,6 +39,16 @@ function RequireAuth({ children }) {
     return children;
 }
 
+function RequireAdmin({ children }) {
+    const { user, loading: authLoading } = useAuth();
+    const { isAdmin, loading: adminLoading } = useIsAdmin();
+
+    if (authLoading || adminLoading) return null;
+    if (!user || !isAdmin) return <Navigate to="/" replace />;
+
+    return children;
+}
+
 function App() {
     return (
         <AuthProvider>
@@ -54,6 +67,9 @@ function App() {
                         <Route path="/profile" element={<RequireAuth><Profile /></RequireAuth>} />
                         <Route path="/plant/:id" element={<RequireAuth><PlantProfile /></RequireAuth>} />
                         <Route path="/log/:id" element={<PlantLogDetail />} />
+                        <Route path="/admin" element={<RequireAdmin><Admin /></RequireAdmin>} />
+                        <Route path="/admin/plant/:id" element={<RequireAdmin><AdminPlantForm /></RequireAdmin>} />
+                        <Route path="/admin/plant/new" element={<RequireAdmin><AdminPlantForm /></RequireAdmin>} />
                     </Routes>
                 </BsContainer>
             </HashRouter>
