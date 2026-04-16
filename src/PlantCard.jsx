@@ -21,7 +21,6 @@ export default function PlantCard({ plant, lastFrost }) {
   const seasonTag = plant.tags.find(t => SEASON_TAGS.includes(t));
   const growthTag = plant.tags.find(t => GROWTH_TAGS.includes(t));
   const seasonStatus = computeSeasonStatus(plant.season, lastFrost);
-  const qv = plant.quick_view;
   const { favorites, toggleFavorite } = useFavorites();
   const { addToTray } = usePlantTray();
   const { setDragging, clearDragging } = useDragState();
@@ -79,9 +78,22 @@ export default function PlantCard({ plant, lastFrost }) {
     navigate(`/plant/${plant.id}`);
   };
 
+  const isPlanting = seasonStatus === 'planting';
+
+  const handleFoilMove = isPlanting ? (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    e.currentTarget.style.setProperty('--mx', `${((e.clientX - rect.left) / rect.width * 100).toFixed(1)}%`);
+    e.currentTarget.style.setProperty('--my', `${((e.clientY - rect.top) / rect.height * 100).toFixed(1)}%`);
+  } : undefined;
+
+  const handleFoilLeave = isPlanting ? (e) => {
+    e.currentTarget.style.removeProperty('--mx');
+    e.currentTarget.style.removeProperty('--my');
+  } : undefined;
+
   return (
     <Card
-      className={`plant-card h-100${popping ? ' plant-card-pop' : ''}${draggingThis ? ' plant-card-dragging' : ''}${jiggling ? ' plant-card-jiggle' : ''}`}
+      className={`plant-card h-100${popping ? ' plant-card-pop' : ''}${draggingThis ? ' plant-card-dragging' : ''}${jiggling ? ' plant-card-jiggle' : ''}${isPlanting ? ' plant-card-foil' : ''}`}
       draggable={!isMobile}
       onClick={handleNavigate}
       onDragStart={!isMobile ? handleDragStart : undefined}
@@ -89,6 +101,8 @@ export default function PlantCard({ plant, lastFrost }) {
       onTouchStart={isMobile ? handleTouchStart : undefined}
       onTouchEnd={isMobile ? handleTouchEnd : undefined}
       onTouchMove={isMobile ? handleTouchEnd : undefined}
+      onMouseMove={handleFoilMove}
+      onMouseLeave={handleFoilLeave}
       onAnimationEnd={(e) => {
         if (e.animationName === 'card-pop') setPopping(false);
         if (e.animationName === 'card-jiggle') handleJiggleEnd();
@@ -129,37 +143,48 @@ export default function PlantCard({ plant, lastFrost }) {
           <Badge className="pill-days">{plant.days_to_maturity} days</Badge>
           <Badge className="pill-sun">{SUN[plant.sun] || plant.sun}</Badge>
           <Badge className={`pill-${plant.difficulty}`}>{fmt(plant.difficulty)}</Badge>
-          {growthTag && <Badge className="pill-tag">{fmt(growthTag)}</Badge>}
-          {seasonTag && (
-            <Badge className="pill-season">
-              {fmt(seasonTag.replace('-season', ''))} season
-            </Badge>
-          )}
-          {seasonStatus === 'harvest'  && <Badge bg="success">In Season</Badge>}
-          {seasonStatus === 'planting' && <Badge bg="info">Plant Now</Badge>}
         </div>
 
+        {(seasonTag || growthTag || seasonStatus) && (
+          <div className={`plant-season-strip${seasonStatus === 'planting' ? ' season-strip-planting' : seasonStatus === 'harvest' ? ' season-strip-harvest' : ''}`}>
+            <span className="season-strip-meta">
+              {seasonTag && <span className="season-strip-tag">{fmt(seasonTag.replace('-season', ''))} season</span>}
+              {growthTag && <span className="season-strip-tag">{fmt(growthTag)}</span>}
+            </span>
+            {seasonStatus === 'harvest'  && <span className="season-strip-status">In Season</span>}
+            {seasonStatus === 'planting' && <span className="season-strip-status">Plant Now ✦</span>}
+          </div>
+        )}
+
         {/* mt-auto pushes the accordion to the card bottom regardless of card height */}
-        {qv && (
+        {(plant.companions_good?.length > 0 || plant.companions_bad?.length > 0 || plant.tip) && (
           <Accordion className="plant-accordion mt-auto" onClick={e => e.stopPropagation()}>
             <Accordion.Item eventKey="0">
               <Accordion.Header>Quick view</Accordion.Header>
               <Accordion.Body>
-                <div className="companion-label mt-2">Good with</div>
-                <div className="d-flex flex-wrap gap-1 mb-2">
-                  {qv.companions_good.map(c => (
-                    <span key={c} className="chip-good">{c}</span>
-                  ))}
-                </div>
+                {plant.companions_good?.length > 0 && (
+                  <>
+                    <div className="companion-label mt-2">Good with</div>
+                    <div className="d-flex flex-wrap gap-1 mb-2">
+                      {plant.companions_good.map(c => (
+                        <span key={c} className="chip-good">{c}</span>
+                      ))}
+                    </div>
+                  </>
+                )}
 
-                <div className="companion-label">Keep away</div>
-                <div className="d-flex flex-wrap gap-1">
-                  {qv.companions_bad.map(c => (
-                    <span key={c} className="chip-bad">{c}</span>
-                  ))}
-                </div>
+                {plant.companions_bad?.length > 0 && (
+                  <>
+                    <div className="companion-label">Keep away</div>
+                    <div className="d-flex flex-wrap gap-1">
+                      {plant.companions_bad.map(c => (
+                        <span key={c} className="chip-bad">{c}</span>
+                      ))}
+                    </div>
+                  </>
+                )}
 
-                {qv.tip && <p className="tip-text mb-0">{qv.tip}</p>}
+                {plant.tip && <p className="tip-text mb-0">{plant.tip}</p>}
               </Accordion.Body>
             </Accordion.Item>
           </Accordion>

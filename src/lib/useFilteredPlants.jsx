@@ -82,15 +82,12 @@ export function useFilteredPlants({ ids } = {}) {
                     plant_tags: undefined,
                     season: Array.isArray(p.plant_seasons) ? (p.plant_seasons[0] ?? null) : (p.plant_seasons ?? null),
                     plant_seasons: undefined,
-                    quick_view: {
-                        companions_good: p.companions
-                            .filter(c => c.sentiment === 'good')
-                            .map(c => c.companion),
-                        companions_bad: p.companions
-                            .filter(c => c.sentiment === 'bad')
-                            .map(c => c.companion),
-                        tip: p.tip,
-                    },
+                    companions_good: p.companions
+                        .filter(c => c.sentiment === 'good')
+                        .map(c => c.companion),
+                    companions_bad: p.companions
+                        .filter(c => c.sentiment === 'bad')
+                        .map(c => c.companion),
                     companions: undefined,
                 }));
                 setCached(cacheKey, mapped);

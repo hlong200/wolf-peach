@@ -1,4 +1,4 @@
-import { useRef, useLayoutEffect, useMemo } from "react";
+import { useRef, useLayoutEffect, useMemo, useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
 import PlantCard from "./PlantCard";
 import FilterBar from "./FilterBar";
@@ -110,7 +110,24 @@ function equalizeRows(gridEl) {
 // Optional `ids` prop scopes the grid to a subset of plants (used by My Garden)
 export default function FilterableGrid({ ids } = {}) {
     const { sortBy, sortOrder, seasonFilter } = useFilters();
-    const { data, loading, error } = useFilteredPlants({ ids });
+
+    // Keep a stable fetch set that only ever grows so that removing a favorite
+    // doesn't trigger a re-fetch — the removed card is filtered out client-side instead.
+    const fetchIdsRef = useRef(ids);
+    useEffect(() => {
+        if (!ids) return;
+        fetchIdsRef.current = [...new Set([...(fetchIdsRef.current ?? []), ...ids])];
+    }, [ids]);
+    const fetchIds = ids ? fetchIdsRef.current : undefined;
+
+    const { data: rawData, loading, error } = useFilteredPlants({ ids: fetchIds });
+
+    // Filter out ids that have since been removed from favorites
+    const data = useMemo(() => {
+        if (!ids || !rawData) return rawData;
+        const idSet = new Set(ids);
+        return rawData.filter(p => idSet.has(p.id));
+    }, [rawData, ids]);
     const { lastFrost } = useZoneFrostDates();
 
     const filteredData = useMemo(() => {

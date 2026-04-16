@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button, Form, Tabs, Tab, Alert, Spinner, Row, Col } from 'react-bootstrap';
 import { supabase } from './lib/supabase';
+import { bustThumbnailCache } from './lib/usePlantThumbnails';
 
 const EMPTY_CORE = {
     id: '', name: '', culinary_type: '', species: '', subtype: '',
@@ -18,10 +19,6 @@ const EMPTY_SEASON = {
 
 const EMPTY_COMPANION = { companion: '', sentiment: 'good', reason: '' };
 
-function intOrNull(v) {
-    const n = parseInt(v, 10);
-    return isNaN(n) ? null : n;
-}
 
 function arrToText(arr) {
     if (!arr) return '';
@@ -122,64 +119,49 @@ export default function AdminPlantForm() {
             const plantId = core.id.trim();
 
             const catalogPayload = {
-                ...core,
                 id: plantId,
+                name: core.name,
+                culinary_type: core.culinary_type,
+                species: core.species,
+                subtype: core.subtype,
+                difficulty: core.difficulty,
                 days_to_maturity: parseInt(core.days_to_maturity, 10),
+                sun: core.sun,
+                water: core.water,
                 spacing_in: parseInt(core.spacing_in, 10),
+                tip: core.tip,
+                description: core.description,
+                history: core.history,
+                seasonal_quirks: core.seasonal_quirks,
+                harvest_cues: core.harvest_cues,
+                variety_notes: core.variety_notes,
+                preservation: core.preservation,
                 culinary_uses: textToArr(core.culinary_uses),
                 pests_diseases: textToArr(core.pests_diseases),
             };
 
-            if (isNew) {
-                const { error } = await supabase.from('catalog').insert(catalogPayload);
-                if (error) throw error;
-            } else {
-                const { id: _id, ...updates } = catalogPayload;
-                const { error } = await supabase.from('catalog').update(updates).eq('id', plantId);
-                if (error) throw error;
-            }
+            const NUM_SEASON_KEYS = [
+                'start_indoors_weeks', 'direct_sow_weeks', 'transplant_weeks',
+                'harvest_start_weeks_from_frost', 'harvest_end_weeks_from_frost',
+            ];
+            const hasSeasonData = NUM_SEASON_KEYS.some(k => season[k] !== '');
+            const seasonPayload = hasSeasonData
+                ? Object.fromEntries(
+                    Object.entries(season).map(([k, v]) =>
+                        [k, NUM_SEASON_KEYS.includes(k) ? (v === '' ? null : parseInt(v, 10)) : v]
+                    )
+                  )
+                : null;
 
-            // Companions — full replace
-            await supabase.from('companions').delete().eq('plant_id', plantId);
-            const validCompanions = companions.filter(c => c.companion.trim());
-            if (validCompanions.length > 0) {
-                const { error } = await supabase.from('companions').insert(
-                    validCompanions.map(c => ({ plant_id: plantId, companion: c.companion.trim(), sentiment: c.sentiment, reason: c.reason || null }))
-                );
-                if (error) throw error;
-            }
+            const { error } = await supabase.rpc('admin_upsert_plant', {
+                p_id:         plantId,
+                p_catalog:    catalogPayload,
+                p_season:     seasonPayload,
+                p_companions: companions.filter(c => c.companion.trim()),
+                p_tag_names:  tags,
+            });
 
-            // Tags — upsert tag names, then full replace plant_tags
-            await supabase.from('plant_tags').delete().eq('plant_id', plantId);
-            if (tags.length > 0) {
-                // Upsert any new tags into tags table
-                const { data: upserted, error: tagErr } = await supabase
-                    .from('tags')
-                    .upsert(tags.map(name => ({ name })), { onConflict: 'name' })
-                    .select('id, name');
-                if (tagErr) throw tagErr;
-
-                const { error: ptErr } = await supabase.from('plant_tags').insert(
-                    upserted.map(t => ({ plant_id: plantId, tag_id: t.id }))
-                );
-                if (ptErr) throw ptErr;
-            }
-
-            // Season — upsert
-            const hasSeasonData = Object.values(season).some(v => v !== '');
-            if (hasSeasonData) {
-                const seasonPayload = {
-                    plant_id: plantId,
-                    start_indoors_weeks:           intOrNull(season.start_indoors_weeks),
-                    direct_sow_weeks:              intOrNull(season.direct_sow_weeks),
-                    transplant_weeks:              intOrNull(season.transplant_weeks),
-                    harvest_start_weeks_from_frost: intOrNull(season.harvest_start_weeks_from_frost),
-                    harvest_end_weeks_from_frost:   intOrNull(season.harvest_end_weeks_from_frost),
-                    notes: season.notes || null,
-                };
-                const { error } = await supabase.from('plant_seasons').upsert(seasonPayload, { onConflict: 'plant_id' });
-                if (error) throw error;
-            }
+            if (error) throw error;
 
             navigate('/admin');
         } catch (err) {

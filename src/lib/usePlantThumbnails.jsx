@@ -64,6 +64,17 @@ export async function fetchThumbnailUrls(ids) {
     return result;
 }
 
+// Bust the in-memory path cache and the localStorage URL cache for one plant.
+// Call after uploading a new thumbnail so the next fetch picks it up.
+export function bustThumbnailCache(id) {
+    thumbnailPathById = null; // force re-list on next getThumbnailPathById()
+    try {
+        const cache = JSON.parse(localStorage.getItem(LS_KEY) || '{}');
+        delete cache[String(id)];
+        localStorage.setItem(LS_KEY, JSON.stringify(cache));
+    } catch {}
+}
+
 // Hook form — useful for a single plant (e.g. detail page)
 export function usePlantThumbnail(id) {
     const [url, setUrl] = useState(null);

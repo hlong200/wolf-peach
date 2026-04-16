@@ -47,7 +47,7 @@
 .filterbar-compact-inner {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
@@ -56,4 +56,59 @@
 
 .filterbar-compact-inner::-webkit-scrollbar {
   display: none;
+}
+
+/* ── Filter groups & separators ─────────────────────────────────────────── */
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 10px;
+}
+
+.filter-group-search {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.filter-group-search .input-group {
+  width: 100%;
+}
+
+.filter-sep {
+  width: 1px;
+  align-self: stretch;
+  background: rgba(0, 0, 0, 0.14);
+  flex-shrink: 0;
+  margin: 2px 0;
+}
+
+/* ── Per-group active highlight colors ──────────────────────────────────── */
+/* Difficulty — purple */
+.filter-active-difficulty {
+  background-color: #6f42c1 !important;
+  border-color:     #6f42c1 !important;
+  color: #fff !important;
+}
+
+/* Sun — orange */
+.filter-active-sun {
+  background-color: #fd7e14 !important;
+  border-color:     #fd7e14 !important;
+  color: #fff !important;
+}
+
+/* Season — teal */
+.filter-active-season {
+  background-color: #20c997 !important;
+  border-color:     #20c997 !important;
+  color: #fff !important;
+}
+
+/* Sort — steel blue; always shown so user knows it's active */
+.filter-active-sort,
+.filter-active-sort:not(:disabled):not(.disabled) {
+  background-color: #0d6efd !important;
+  border-color:     #0d6efd !important;
+  color: #fff !important;
 }

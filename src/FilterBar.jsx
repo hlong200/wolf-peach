@@ -23,93 +23,108 @@ function FilterBar({ compact = false }) {
 
     const controls = (
         <>
-            <InputGroup size="sm" style={{ minWidth: compact ? 120 : 180 }}>
-                <Form.Control
-                    type="text"
-                    placeholder="cherokee purple"
-                    value={textFilter}
-                    onChange={e => setTextFilter(e.target.value)} />
-                {textFilter && (
-                    <Button variant="outline-secondary" onClick={() => setTextFilter('')}>✕</Button>
-                )}
-            </InputGroup>
-            {['easy', 'moderate', 'hard'].map(option => (
-                <Button
-                    key={option}
-                    size="sm"
-                    className="rounded-pill py-0 text-nowrap"
-                    variant={difficultyFilter === option ? 'success' : 'outline-secondary'}
-                    onClick={() => setDifficultyFilter(difficultyFilter === option ? null : option)}
-                >
-                    {option}
-                </Button>
-            ))}
-            {['full', 'partial', 'shade'].map(option => (
-                <Button
-                    key={option}
-                    size="sm"
-                    className="rounded-pill py-0 text-nowrap"
-                    variant={sunFilter === option ? 'success' : 'outline-secondary'}
-                    onClick={() => setSunFilter(sunFilter === option ? null : option)}
-                >
-                    {SUN_LABELS[option]}
-                </Button>
-            ))}
-            {[
-                { value: 'harvest',      label: 'In Season' },
-                { value: 'planting',     label: 'Plant Now' },
-                { value: 'out-of-season', label: 'Out of Season' },
-            ].map(({ value, label }) => (
-                <Button
-                    key={value}
-                    size="sm"
-                    className="rounded-pill py-0 text-nowrap"
-                    variant={seasonFilter === value ? 'success' : 'outline-secondary'}
-                    onClick={() => setSeasonFilter(seasonFilter === value ? null : value)}
-                >
-                    {label}
-                </Button>
-            ))}
-            {compact ? (() => {
-                const keys = Object.keys(SORT_LABELS);
-                const next = keys[(keys.indexOf(sortBy) + 1) % keys.length];
-                const SORT_VARIANTS = {
-                    name: 'outline-secondary',
-                    days: 'success',
-                    difficulty: 'danger',
-                    culinary_type: 'warning',
-                };
-                return (
+            {/* ── Search ── */}
+            <div className="filter-group filter-group-search">
+                <InputGroup size="sm">
+                    <Form.Control
+                        type="text"
+                        placeholder="cherokee purple"
+                        value={textFilter}
+                        onChange={e => setTextFilter(e.target.value)} />
+                    {textFilter && (
+                        <Button variant="outline-secondary" onClick={() => setTextFilter('')}>✕</Button>
+                    )}
+                </InputGroup>
+            </div>
+
+            <span className="filter-sep" />
+
+            {/* ── Plant traits: difficulty + sun ── */}
+            <div className="filter-group">
+                {['easy', 'moderate', 'hard'].map(option => (
                     <Button
+                        key={option}
                         size="sm"
-                        className="rounded-pill py-0 text-nowrap"
-                        variant={SORT_VARIANTS[sortBy]}
-                        onClick={() => setSortBy(next)}
+                        className={`rounded-pill py-0 text-nowrap${difficultyFilter === option ? ' filter-active-difficulty' : ''}`}
+                        variant="outline-secondary"
+                        onClick={() => setDifficultyFilter(difficultyFilter === option ? null : option)}
                     >
-                        {SORT_LABELS[sortBy]}
+                        {option}
                     </Button>
-                );
-            })() : (
-                <Dropdown>
-                    <Dropdown.Toggle size="sm" variant="secondary">
-                        {SORT_LABELS[sortBy]}
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu>
-                        <Dropdown.Item onClick={() => setSortBy('name')}>Name</Dropdown.Item>
-                        <Dropdown.Item onClick={() => setSortBy('days')}>Days to maturity</Dropdown.Item>
-                        <Dropdown.Item onClick={() => setSortBy('difficulty')}>Difficulty</Dropdown.Item>
-                        <Dropdown.Item onClick={() => setSortBy('culinary_type')}>Type</Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown>
-            )}
-            <Button
-                size="sm"
-                variant="outline-secondary"
-                onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
-                title={sortOrder === 'asc' ? 'Ascending' : 'Descending'}
-            >
-                {sortOrder === 'asc' ? '↑' : '↓'}
-            </Button>
+                ))}
+                {['full', 'partial', 'shade'].map(option => (
+                    <Button
+                        key={option}
+                        size="sm"
+                        className={`rounded-pill py-0 text-nowrap${sunFilter === option ? ' filter-active-sun' : ''}`}
+                        variant="outline-secondary"
+                        onClick={() => setSunFilter(sunFilter === option ? null : option)}
+                    >
+                        {SUN_LABELS[option]}
+                    </Button>
+                ))}
+            </div>
+
+            <span className="filter-sep" />
+
+            {/* ── Season ── */}
+            <div className="filter-group">
+                {[
+                    { value: 'harvest',       label: 'In Season' },
+                    { value: 'planting',      label: 'Plant Now' },
+                    { value: 'out-of-season', label: 'Out of Season' },
+                ].map(({ value, label }) => (
+                    <Button
+                        key={value}
+                        size="sm"
+                        className={`rounded-pill py-0 text-nowrap${seasonFilter === value ? ' filter-active-season' : ''}`}
+                        variant="outline-secondary"
+                        onClick={() => setSeasonFilter(seasonFilter === value ? null : value)}
+                    >
+                        {label}
+                    </Button>
+                ))}
+            </div>
+
+            <span className="filter-sep" />
+
+            {/* ── Sort ── */}
+            <div className="filter-group">
+                {compact ? (() => {
+                    const keys = Object.keys(SORT_LABELS);
+                    const next = keys[(keys.indexOf(sortBy) + 1) % keys.length];
+                    return (
+                        <Button
+                            size="sm"
+                            className="rounded-pill py-0 text-nowrap filter-active-sort"
+                            variant="outline-secondary"
+                            onClick={() => setSortBy(next)}
+                        >
+                            {SORT_LABELS[sortBy]}
+                        </Button>
+                    );
+                })() : (
+                    <Dropdown>
+                        <Dropdown.Toggle size="sm" variant="outline-secondary" className="filter-active-sort">
+                            {SORT_LABELS[sortBy]}
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                            <Dropdown.Item onClick={() => setSortBy('name')}>Name</Dropdown.Item>
+                            <Dropdown.Item onClick={() => setSortBy('days')}>Days to maturity</Dropdown.Item>
+                            <Dropdown.Item onClick={() => setSortBy('difficulty')}>Difficulty</Dropdown.Item>
+                            <Dropdown.Item onClick={() => setSortBy('culinary_type')}>Type</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
+                )}
+                <Button
+                    size="sm"
+                    variant="outline-secondary"
+                    onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
+                    title={sortOrder === 'asc' ? 'Ascending' : 'Descending'}
+                >
+                    {sortOrder === 'asc' ? '↑' : '↓'}
+                </Button>
+            </div>
         </>
     );
 
@@ -126,7 +141,7 @@ function FilterBar({ compact = false }) {
 
     return (
         <div className="filterbar-desktop sticky-top py-2">
-            <div className="d-flex align-items-center gap-2">
+            <div className="d-flex align-items-center gap-0">
                 {controls}
             </div>
         </div>

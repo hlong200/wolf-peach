@@ -41,12 +41,8 @@ export default function PlantProfile() {
                     ...data,
                     tags: data.plant_tags?.map(pt => pt.tags.name) || [],
                     plant_tags: undefined,
-                    quick_view: {
-                        companions_good: data.companions?.filter(c => c.sentiment === 'good').map(c => c.companion) || [],
-                        companions_bad: data.companions?.filter(c => c.sentiment === 'bad').map(c => c.companion) || [],
-                        spacing_in: data.quick_view?.spacing_in ?? data.spacing_in ?? null,
-                        tip: data.tip ?? data.quick_view?.tip ?? null,
-                    },
+                    companions_good: data.companions?.filter(c => c.sentiment === 'good').map(c => c.companion) || [],
+                    companions_bad: data.companions?.filter(c => c.sentiment === 'bad').map(c => c.companion) || [],
                     companions: undefined,
                 };
 
@@ -152,7 +148,7 @@ export default function PlantProfile() {
                                     <Col xs={6}><div className="plant-profile-stat">Sun<div>{SUN[plant.sun] || 'Any'}</div></div></Col>
                                     <Col xs={6}><div className="plant-profile-stat">Water<div>{WATER[plant.water] || (plant.water ? fmt(plant.water) : 'Moderate')}</div></div></Col>
                                     <Col xs={6}><div className="plant-profile-stat">Maturity<div>{plant.days_to_maturity} days</div></div></Col>
-                                    <Col xs={6}><div className="plant-profile-stat">Spacing<div>{plant.quick_view?.spacing_in ? `${plant.quick_view.spacing_in} in` : 'Standard'}</div></div></Col>
+                                    <Col xs={6}><div className="plant-profile-stat">Spacing<div>{plant.spacing_in ? `${plant.spacing_in} in` : 'Standard'}</div></div></Col>
                                 </Row>
                             </div>
 
@@ -161,18 +157,18 @@ export default function PlantProfile() {
                                 <div className="mt-2">
                                     <p className="plant-profile-detail"><strong>Good with</strong></p>
                                     <div className="d-flex flex-wrap gap-2 mb-3">
-                                        {plant.quick_view?.companions_good?.map(c => (
+                                        {plant.companions_good?.map(c => (
                                             <span key={c} className="plant-profile-chip plant-profile-chip-good">{c}</span>
                                         ))}
                                     </div>
                                     <p className="plant-profile-detail"><strong>Keep away</strong></p>
                                     <div className="d-flex flex-wrap gap-2 mb-3">
-                                        {plant.quick_view?.companions_bad?.map(c => (
+                                        {plant.companions_bad?.map(c => (
                                             <span key={c} className="plant-profile-chip plant-profile-chip-bad">{c}</span>
                                         ))}
                                     </div>
-                                    {plant.quick_view?.tip && (
-                                        <p className="plant-profile-tip">"{plant.quick_view.tip}"</p>
+                                    {plant.tip && (
+                                        <p className="plant-profile-tip">"{plant.tip}"</p>
                                     )}
                                 </div>
                             </div>
@@ -204,7 +200,7 @@ export default function PlantProfile() {
                                 <div className="plant-profile-subsection">Highlights</div>
                                 <ul className="plant-profile-highlights">
                                     <li><strong>{plant.tags.includes('heirloom') ? 'Heirloom:' : 'Variety:'}</strong> {plant.tags.includes('heirloom') ? 'Traditional flavor and open-pollinated seed saving.' : 'A garden-friendly variety.'}</li>
-                                    <li><strong>Spacing:</strong> {plant.quick_view?.spacing_in ? `${plant.quick_view.spacing_in} inches` : 'Typical spacing'}.</li>
+                                    <li><strong>Spacing:</strong> {plant.spacing_in ? `${plant.spacing_in} inches` : 'Typical spacing'}.</li>
                                     <li><strong>Harvest:</strong> Around {plant.days_to_maturity} days after sowing.</li>
                                 </ul>
                             </div>

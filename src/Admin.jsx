@@ -28,11 +28,14 @@ export default function Admin() {
 
     async function handleDelete() {
         setDeleting(true);
-        const { error } = await supabase.from('catalog').delete().eq('id', deleteTarget.id);
+        const { error } = await supabase.rpc('admin_delete_plant', { p_id: deleteTarget.id });
         setDeleting(false);
+        if (error) {
+            setError(error.message);
+        } else {
+            setPlants(prev => prev.filter(p => p.id !== deleteTarget.id));
+        }
         setDeleteTarget(null);
-        if (error) setError(error.message);
-        else setPlants(prev => prev.filter(p => p.id !== deleteTarget.id));
     }
 
     return (
@@ -103,7 +106,7 @@ export default function Admin() {
                 <Modal.Body>
                     <p>Permanently delete <strong>{deleteTarget?.name}</strong>?</p>
                     <p className="text-muted small mb-0">
-                        Companions, tags, season data, and plant logs referencing this entry will also be removed.
+                        Companions, tag associations, season data, logs, and reviews for this plant will also be removed. Tag names themselves are preserved.
                     </p>
                 </Modal.Body>
                 <Modal.Footer>
