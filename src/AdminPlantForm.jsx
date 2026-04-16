@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Button, Form, Tabs, Tab, Alert, Spinner, Row, Col } from 'react-bootstrap';
 import { supabase } from './lib/supabase';
 import { bustThumbnailCache } from './lib/usePlantThumbnails';
+import './AdminPlantForm.css';
 
 const EMPTY_CORE = {
     id: '', name: '', culinary_type: '', species: '', subtype: '',
@@ -45,6 +46,16 @@ export default function AdminPlantForm() {
     const [saving, setSaving] = useState(false);
     const [error, setError] = useState(null);
 
+    // Image state
+    const [thumbnailUrl, setThumbnailUrl]       = useState(null);
+    const [thumbnailFile, setThumbnailFile]     = useState(null);
+    const [uploadingThumb, setUploadingThumb]   = useState(false);
+    const [gallery, setGallery]                 = useState([]);
+    const [galleryFile, setGalleryFile]         = useState(null);
+    const [galleryAlt, setGalleryAlt]           = useState('');
+    const [uploadingGallery, setUploadingGallery] = useState(false);
+    const [imageError, setImageError]           = useState(null);
+
     // Load reference data and existing plant on mount
     useEffect(() => {
         async function load() {
@@ -79,6 +90,30 @@ export default function AdminPlantForm() {
                     Object.keys(EMPTY_SEASON).map(k => [k, seasonData[k] ?? ''])
                 ));
             }
+
+            // Thumbnail — find the file for this plant id in the thumbnail folder
+            const { data: thumbFiles } = await supabase.storage
+                .from('plant-images').list('thumbnail', { search: id });
+            const thumbMatch = thumbFiles?.find(f => f.name.replace(/\.[^.]+$/, '') === id);
+            if (thumbMatch) {
+                const { data: signed } = await supabase.storage
+                    .from('plant-images')
+                    .createSignedUrl(`thumbnail/${thumbMatch.name}`, 3600);
+                if (signed?.signedUrl) setThumbnailUrl(signed.signedUrl);
+            }
+
+            // Gallery images — paths stored in url column, generate signed URLs for display
+            const { data: galleryRows } = await supabase
+                .from('plant_images').select('*').eq('plant_id', id).order('sort_order');
+            if (galleryRows?.length) {
+                const { data: signed } = await supabase.storage
+                    .from('plant-images')
+                    .createSignedUrls(galleryRows.map(r => r.url), 3600);
+                const signedMap = {};
+                signed?.forEach(({ path, signedUrl }) => { signedMap[path] = signedUrl; });
+                setGallery(galleryRows.map(r => ({ ...r, displayUrl: signedMap[r.url] ?? null })));
+            }
+
             setLoading(false);
         }
         load();
@@ -108,6 +143,82 @@ export default function AdminPlantForm() {
             setAllTags(prev => [...prev, { id: null, name: t }]);
         }
         setNewTag('');
+    }
+
+    // ── Image handlers ────────────────────────────────────────────────────────
+
+    async function handleThumbnailUpload() {
+        if (!thumbnailFile || !core.id) return;
+        setUploadingThumb(true);
+        setImageError(null);
+        const ext = thumbnailFile.name.split('.').pop().toLowerCase();
+        const path = `thumbnail/${core.id}.${ext}`;
+        const { error: upErr } = await supabase.storage
+            .from('plant-images').upload(path, thumbnailFile, { upsert: true });
+        if (upErr) { setImageError(upErr.message); setUploadingThumb(false); return; }
+        bustThumbnailCache(core.id);
+        const { data: signed } = await supabase.storage
+            .from('plant-images').createSignedUrl(path, 3600);
+        setThumbnailUrl(signed?.signedUrl ?? null);
+        setThumbnailFile(null);
+        setUploadingThumb(false);
+    }
+
+    async function handleGalleryUpload() {
+        if (!galleryFile || !core.id) return;
+        setUploadingGallery(true);
+        setImageError(null);
+        const ext = galleryFile.name.split('.').pop().toLowerCase();
+        const path = `gallery/${core.id}/${Date.now()}.${ext}`;
+        const { error: upErr } = await supabase.storage
+            .from('plant-images').upload(path, galleryFile);
+        if (upErr) { setImageError(upErr.message); setUploadingGallery(false); return; }
+        const nextOrder = gallery.length
+            ? Math.max(...gallery.map(g => g.sort_order ?? 0)) + 1 : 0;
+        const { data: row, error: dbErr } = await supabase
+            .from('plant_images')
+            .insert({ plant_id: core.id, url: path, alt: galleryAlt || null,
+                      is_primary: false, sort_order: nextOrder })
+            .select().single();
+        if (dbErr) { setImageError(dbErr.message); setUploadingGallery(false); return; }
+        const { data: signed } = await supabase.storage
+            .from('plant-images').createSignedUrl(path, 3600);
+        setGallery(prev => [...prev, { ...row, displayUrl: signed?.signedUrl ?? null }]);
+        setGalleryFile(null);
+        setGalleryAlt('');
+        setUploadingGallery(false);
+    }
+
+    async function handleGalleryAlt(imgId, alt) {
+        await supabase.from('plant_images').update({ alt: alt || null }).eq('id', imgId);
+        setGallery(prev => prev.map(g => g.id === imgId ? { ...g, alt: alt || null } : g));
+    }
+
+    async function handleGalleryPrimary(imgId) {
+        const { error } = await supabase.from('plant_images')
+            .update({ is_primary: true }).eq('id', imgId);
+        if (!error)
+            setGallery(prev => prev.map(g => ({ ...g, is_primary: g.id === imgId })));
+    }
+
+    async function handleGalleryDelete(img) {
+        setImageError(null);
+        await supabase.storage.from('plant-images').remove([img.url]);
+        const { error } = await supabase.from('plant_images').delete().eq('id', img.id);
+        if (error) { setImageError(error.message); return; }
+        setGallery(prev => prev.filter(g => g.id !== img.id));
+    }
+
+    async function handleGalleryMove(i, dir) {
+        const swap = i + dir;
+        if (swap < 0 || swap >= gallery.length) return;
+        const next = [...gallery];
+        [next[i], next[swap]] = [next[swap], next[i]];
+        await Promise.all([
+            supabase.from('plant_images').update({ sort_order: i   }).eq('id', next[i].id),
+            supabase.from('plant_images').update({ sort_order: swap }).eq('id', next[swap].id),
+        ]);
+        setGallery(next.map((g, idx) => ({ ...g, sort_order: idx })));
     }
 
     async function handleSave(e) {
@@ -400,6 +511,131 @@ export default function AdminPlantForm() {
                             />
                             <Button size="sm" variant="outline-secondary" onClick={addNewTag}>Add</Button>
                         </div>
+                    </Tab>
+
+                    {/* ── IMAGES ── */}
+                    <Tab eventKey="images" title="Images">
+                        {isNew ? (
+                            <p className="text-muted small pt-2">Save the plant first, then return here to manage images.</p>
+                        ) : (
+                            <>
+                                {imageError && (
+                                    <Alert variant="danger" dismissible onClose={() => setImageError(null)} className="mt-2">
+                                        {imageError}
+                                    </Alert>
+                                )}
+
+                                {/* Thumbnail */}
+                                <div className="admin-img-section">
+                                    <div className="admin-img-section-label">Thumbnail</div>
+                                    <p className="text-muted small mb-3">
+                                        Stored at <code>thumbnail/{core.id}.*</code> — shown on the catalog card.
+                                    </p>
+                                    <div className="d-flex gap-3 align-items-start">
+                                        <div className="admin-thumb-preview">
+                                            {thumbnailUrl
+                                                ? <img src={thumbnailUrl} alt="Current thumbnail" />
+                                                : <span>No image</span>
+                                            }
+                                        </div>
+                                        <div className="d-flex flex-column gap-2">
+                                            <Form.Control
+                                                type="file" accept="image/*" size="sm"
+                                                onChange={e => setThumbnailFile(e.target.files[0] ?? null)}
+                                            />
+                                            <Button
+                                                size="sm" variant="outline-primary"
+                                                disabled={!thumbnailFile || uploadingThumb}
+                                                onClick={handleThumbnailUpload}
+                                            >
+                                                {uploadingThumb
+                                                    ? <><Spinner animation="border" size="sm" className="me-1" />Uploading…</>
+                                                    : thumbnailUrl ? 'Replace thumbnail' : 'Upload thumbnail'
+                                                }
+                                            </Button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Gallery */}
+                                <div className="admin-img-section">
+                                    <div className="admin-img-section-label">Gallery</div>
+                                    <p className="text-muted small mb-3">
+                                        Stored at <code>gallery/{core.id}/…</code> — additional photos in the plant profile.
+                                        Alt text is saved on blur. ★ marks the primary gallery image.
+                                    </p>
+
+                                    {gallery.length === 0 && (
+                                        <p className="text-muted small fst-italic mb-3">No gallery images yet.</p>
+                                    )}
+
+                                    <div className="d-flex flex-column gap-2 mb-4">
+                                        {gallery.map((img, i) => (
+                                            <div key={img.id} className="admin-gallery-row">
+                                                <div className="admin-gallery-thumb">
+                                                    {img.displayUrl
+                                                        ? <img src={img.displayUrl} alt={img.alt || ''} />
+                                                        : <span>?</span>
+                                                    }
+                                                </div>
+                                                <Form.Control
+                                                    size="sm"
+                                                    placeholder="Alt text"
+                                                    defaultValue={img.alt || ''}
+                                                    onBlur={e => handleGalleryAlt(img.id, e.target.value)}
+                                                    className="admin-gallery-alt"
+                                                />
+                                                <div className="d-flex gap-1 flex-shrink-0">
+                                                    <Button
+                                                        size="sm"
+                                                        variant={img.is_primary ? 'warning' : 'outline-secondary'}
+                                                        title={img.is_primary ? 'Primary image' : 'Set as primary'}
+                                                        onClick={() => handleGalleryPrimary(img.id)}
+                                                    >
+                                                        {img.is_primary ? '★' : '☆'}
+                                                    </Button>
+                                                    <Button size="sm" variant="outline-secondary" disabled={i === 0}
+                                                        onClick={() => handleGalleryMove(i, -1)} title="Move up">↑</Button>
+                                                    <Button size="sm" variant="outline-secondary" disabled={i === gallery.length - 1}
+                                                        onClick={() => handleGalleryMove(i, 1)} title="Move down">↓</Button>
+                                                    <Button size="sm" variant="outline-danger"
+                                                        onClick={() => handleGalleryDelete(img)} title="Delete">✕</Button>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+
+                                    <div className="d-flex gap-2 align-items-end flex-wrap">
+                                        <Form.Group>
+                                            <Form.Label className="small mb-1">Image file</Form.Label>
+                                            <Form.Control
+                                                type="file" accept="image/*" size="sm"
+                                                onChange={e => setGalleryFile(e.target.files[0] ?? null)}
+                                            />
+                                        </Form.Group>
+                                        <Form.Group>
+                                            <Form.Label className="small mb-1">Alt text</Form.Label>
+                                            <Form.Control
+                                                size="sm" placeholder="Describe the image"
+                                                value={galleryAlt}
+                                                onChange={e => setGalleryAlt(e.target.value)}
+                                                style={{ width: 220 }}
+                                            />
+                                        </Form.Group>
+                                        <Button
+                                            size="sm" variant="outline-primary"
+                                            disabled={!galleryFile || uploadingGallery}
+                                            onClick={handleGalleryUpload}
+                                        >
+                                            {uploadingGallery
+                                                ? <><Spinner animation="border" size="sm" className="me-1" />Uploading…</>
+                                                : '+ Add image'
+                                            }
+                                        </Button>
+                                    </div>
+                                </div>
+                            </>
+                        )}
                     </Tab>
                 </Tabs>
 

@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button, Container, Row, Col, Card, Badge, Spinner } from 'react-bootstrap';
 import { supabase } from './lib/supabase';
@@ -8,9 +9,62 @@ import { usePlantTray } from './lib/PlantTrayProvider';
 import { ICONS } from './lib/plantIcons';
 import './PlantProfile.css';
 
-const SUN = { full:'Full sun', partial:'Partial shade', shade:'Full shade' };
-const WATER = { moderate: 'Moderate', low: 'Low', high: 'High' };
-const fmt = t => t.split('-').map(w => w[0].toUpperCase() + w.slice(1)).join(' ');
+const SUN   = { full:'Full sun', partial:'Partial shade', shade:'Full shade' };
+const WATER = { moderate:'Moderate', low:'Low', high:'High' };
+const fmt   = t => t.split('-').map(w => w[0].toUpperCase() + w.slice(1)).join(' ');
+
+function GalleryLightbox({ images, startIdx, onClose }) {
+    const [idx, setIdx] = useState(startIdx);
+    const prev = (idx - 1 + images.length) % images.length;
+    const next = (idx + 1) % images.length;
+
+    useEffect(() => {
+        const onKey = (e) => {
+            if (e.key === 'Escape')      onClose();
+            if (e.key === 'ArrowLeft')   setIdx(i => (i - 1 + images.length) % images.length);
+            if (e.key === 'ArrowRight')  setIdx(i => (i + 1) % images.length);
+        };
+        window.addEventListener('keydown', onKey);
+        return () => window.removeEventListener('keydown', onKey);
+    }, [images.length, onClose]);
+
+    return createPortal(
+        <div className="lb-backdrop" onClick={onClose}>
+            <button className="lb-close" onClick={onClose} aria-label="Close">✕</button>
+            <div className="lb-stage" onClick={e => e.stopPropagation()}>
+                {images.length > 1 && (
+                    <div className="lb-peek lb-peek-prev" onClick={() => setIdx(prev)}>
+                        <img src={images[prev].displayUrl} alt={images[prev].alt || ''} />
+                        <span className="lb-arrow">‹</span>
+                    </div>
+                )}
+                <div className="lb-main">
+                    <img src={images[idx].displayUrl} alt={images[idx].alt || ''} />
+                    {images[idx].alt && <p className="lb-caption">{images[idx].alt}</p>}
+                </div>
+                {images.length > 1 && (
+                    <div className="lb-peek lb-peek-next" onClick={() => setIdx(next)}>
+                        <img src={images[next].displayUrl} alt={images[next].alt || ''} />
+                        <span className="lb-arrow">›</span>
+                    </div>
+                )}
+            </div>
+            {images.length > 1 && (
+                <div className="lb-dots" onClick={e => e.stopPropagation()}>
+                    {images.map((_, i) => (
+                        <button
+                            key={i}
+                            className={`pgallery-dot${i === idx ? ' pgallery-dot-active' : ''}`}
+                            onClick={() => setIdx(i)}
+                            aria-label={`Image ${i + 1}`}
+                        />
+                    ))}
+                </div>
+            )}
+        </div>,
+        document.body
+    );
+}
 
 export default function PlantProfile() {
     const { id } = useParams();
@@ -21,6 +75,12 @@ export default function PlantProfile() {
     const { favorites, toggleFavorite } = useFavorites();
     const { addToTray } = usePlantTray();
     const thumbnailUrl = usePlantThumbnail(plant?.id);
+
+    const [gallery, setGallery]           = useState([]);
+    const [galleryIdx, setGalleryIdx]     = useState(0);
+    const [paused, setPaused]             = useState(false);
+    const [lightboxOpen, setLightboxOpen] = useState(false);
+    const timerRef                        = useRef(null);
 
     useEffect(() => {
         let active = true;
@@ -57,6 +117,39 @@ export default function PlantProfile() {
         fetchPlant();
         return () => { active = false; };
     }, [id]);
+
+    // Fetch gallery images once the plant id is known
+    useEffect(() => {
+        if (!plant?.id) return;
+        let active = true;
+        async function fetchGallery() {
+            const { data: rows } = await supabase
+                .from('plant_images').select('*').eq('plant_id', plant.id).order('sort_order');
+            if (!rows?.length || !active) return;
+            // Primary image first, then ascending sort_order
+            const sorted = [...rows].sort((a, b) => {
+                if (a.is_primary && !b.is_primary) return -1;
+                if (!a.is_primary && b.is_primary) return  1;
+                return (a.sort_order ?? 99) - (b.sort_order ?? 99);
+            });
+            const { data: signed } = await supabase.storage
+                .from('plant-images').createSignedUrls(sorted.map(r => r.url), 3600);
+            const urlMap = {};
+            signed?.forEach(({ path, signedUrl }) => { urlMap[path] = signedUrl; });
+            if (active) setGallery(sorted.map(r => ({ ...r, displayUrl: urlMap[r.url] ?? null })));
+        }
+        fetchGallery();
+        return () => { active = false; };
+    }, [plant?.id]);
+
+    // Auto-advance the gallery; pause on hover
+    useEffect(() => {
+        if (gallery.length <= 1 || paused) return;
+        timerRef.current = setInterval(() => {
+            setGalleryIdx(i => (i + 1) % gallery.length);
+        }, 3500);
+        return () => clearInterval(timerRef.current);
+    }, [gallery.length, paused]);
 
     const isFav = plant ? favorites.includes(plant.id) : false;
 
@@ -95,11 +188,48 @@ export default function PlantProfile() {
             <section className="plant-profile-header py-4 py-md-5">
                 <Container>
                     <div className="plant-profile-header-inner">
-                        <div className="plant-profile-thumb">
-                            {thumbnailUrl || plant.thumbnail_url
-                                ? <img src={thumbnailUrl || plant.thumbnail_url} alt={plant.name} />
-                                : <span>{ICONS[plant.culinary_type] || '🌱'}</span>
-                            }
+                        <div
+                            className="plant-profile-gallery"
+                            onMouseEnter={() => setPaused(true)}
+                            onMouseLeave={() => setPaused(false)}
+                            onClick={() => gallery.length > 0 && setLightboxOpen(true)}
+                        >
+                            {gallery.length > 0 ? (
+                                <>
+                                    {gallery.map((img, i) => (
+                                        <img
+                                            key={img.id}
+                                            src={img.displayUrl}
+                                            alt={img.alt || plant.name}
+                                            className={`pgallery-slide${i === galleryIdx ? ' pgallery-slide-active' : ''}`}
+                                        />
+                                    ))}
+                                    {gallery.length > 1 && (
+                                        <div className="pgallery-dots">
+                                            {gallery.map((_, i) => (
+                                                <button
+                                                    key={i}
+                                                    className={`pgallery-dot${i === galleryIdx ? ' pgallery-dot-active' : ''}`}
+                                                    onClick={e => { e.stopPropagation(); setGalleryIdx(i); }}
+                                                    aria-label={`Image ${i + 1}`}
+                                                />
+                                            ))}
+                                        </div>
+                                    )}
+                                    <div className="pgallery-hint">
+                                        <span className="pgallery-hint-icon">⛶</span>
+                                        <span>View gallery</span>
+                                    </div>
+                                </>
+                            ) : thumbnailUrl || plant.thumbnail_url ? (
+                                <img
+                                    src={thumbnailUrl || plant.thumbnail_url}
+                                    alt={plant.name}
+                                    className="pgallery-slide pgallery-slide-active"
+                                />
+                            ) : (
+                                <span className="pgallery-emoji">{ICONS[plant.culinary_type] || '🌱'}</span>
+                            )}
                         </div>
                         <div className="plant-profile-info">
                             <h1>{plant.name}</h1>
@@ -132,13 +262,9 @@ export default function PlantProfile() {
                             <div className="mb-4">
                                 <div className="plant-profile-section-label">Overview</div>
                                 <div className="d-flex flex-wrap gap-2 mt-2">
-                                    <Badge bg="success">{plant.days_to_maturity} days</Badge>
-                                    <Badge bg="warning" text="dark">{SUN[plant.sun] || plant.sun}</Badge>
-                                    <Badge bg="info">{WATER[plant.water] || (plant.water ? fmt(plant.water) : 'Moderate')}</Badge>
-                                    <Badge bg={plant.difficulty === 'hard' ? 'danger' : plant.difficulty === 'moderate' ? 'warning' : 'secondary'}>
-                                        {fmt(plant.difficulty)}
-                                    </Badge>
-                                    <Badge bg="secondary">{fmt(plant.culinary_type)}</Badge>
+                                    <span className="profile-pill profile-pill-days">{plant.days_to_maturity} days to maturity</span>
+                                    <span className={`profile-pill profile-pill-diff-${plant.difficulty}`}>{fmt(plant.difficulty)} difficulty</span>
+                                    <span className="profile-pill profile-pill-type">{fmt(plant.culinary_type)}</span>
                                 </div>
                             </div>
 
@@ -208,6 +334,14 @@ export default function PlantProfile() {
                     </Col>
                 </Row>
             </Container>
+
+            {lightboxOpen && gallery.length > 0 && (
+                <GalleryLightbox
+                    images={gallery}
+                    startIdx={galleryIdx}
+                    onClose={() => setLightboxOpen(false)}
+                />
+            )}
         </>
     );
 }
