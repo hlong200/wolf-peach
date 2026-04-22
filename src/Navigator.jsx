@@ -30,7 +30,7 @@ function Navigator() {
                             <LinkContainer to="/garden">
                                 <Nav.Link active={pathname === '/garden'}>My Garden</Nav.Link>
                             </LinkContainer>
-                            <LinkContainer to="/companion">
+                            <LinkContainer to="/companion-planting">
                                 <Nav.Link active={pathname === '/companion'}>Companion Planting</Nav.Link>
                             </LinkContainer>
                             <LinkContainer to="/seasons">

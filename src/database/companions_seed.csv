@@ -1,0 +1,163 @@
+plant_id,companion,sentiment,reason
+tomato,basil,friend,May help with pest pressure and is a classic companion.
+tomato,pepper,friend,Similar growing conditions and spacing habits.
+tomato,carrot,friend,Uses different root space and can share a bed well.
+tomato,onion,friend,Can help with pest pressure and fits nearby.
+tomato,lettuce,friend,Works well as a lower-growing companion.
+tomato,corn,foe,Can compete for nutrients and attract overlapping pests.
+tomato,potato,foe,Can share diseases and similar problems.
+tomato,fennel,foe,Fennel is often considered a poor companion for many vegetables.
+tomato,cucumber,neutral,Can coexist but spacing and airflow matter.
+
+basil,tomato,friend,Classic pairing with similar sun and warmth needs.
+basil,pepper,friend,Shared growing conditions make them easy companions.
+basil,lettuce,friend,Can share space if managed carefully.
+basil,rue,foe,Traditionally considered a poor pairing.
+basil,carrot,neutral,Usually acceptable but not especially beneficial.
+
+pepper,basil,friend,Shared growing conditions and useful companion.
+pepper,tomato,friend,Warm-season plants with similar care needs.
+pepper,onion,friend,Compact and compatible nearby.
+pepper,fennel,foe,Fennel is often avoided in mixed vegetable beds.
+pepper,carrot,neutral,Usually fine if spacing is managed well.
+
+onion,carrot,friend,A traditional pairing in vegetable gardens.
+onion,lettuce,friend,Good space-sharing partner.
+onion,tomato,friend,Often compatible in mixed beds.
+onion,bean,foe,Commonly considered a poor pairing.
+onion,pea,foe,Often avoided next to onions.
+onion,pepper,neutral,Usually neither strongly beneficial nor harmful.
+
+garlic,tomato,friend,Often used near tomatoes for pest-management benefits.
+garlic,carrot,friend,Common garden companion with strong scent.
+garlic,beet,friend,Generally compatible in mixed beds.
+garlic,bean,foe,Beans are often considered poor neighbors for alliums.
+garlic,pea,foe,Peas are often avoided next to garlic.
+garlic,lettuce,neutral,Usually fine without strong effect.
+
+carrot,tomato,friend,Different growth habits can complement one another.
+carrot,onion,friend,Often used to help deter certain pests.
+carrot,lettuce,friend,Good space sharing in mixed beds.
+carrot,dill,foe,Dill can interfere with carrot growth in some cases.
+carrot,pepper,neutral,Usually okay with proper spacing.
+
+lettuce,carrot,friend,Shares bed space efficiently.
+lettuce,onion,friend,Compatible in mixed plantings.
+lettuce,tomato,friend,Can benefit from partial later-season shade.
+lettuce,parsley,foe,Can compete more than desired in tight beds.
+lettuce,cucumber,neutral,Can work depending on spread and spacing.
+
+cucumber,bean,friend,Can do well together in productive summer beds.
+cucumber,pea,friend,Often compatible with proper spacing.
+cucumber,dill,friend,Dill is often grown nearby in mixed gardens.
+cucumber,potato,foe,May compete and are not commonly recommended together.
+cucumber,sage,foe,Sage is traditionally considered a poor companion.
+cucumber,lettuce,neutral,Can work if vines are managed.
+
+zucchini,corn,friend,Can share space in a traditional garden layout.
+zucchini,bean,friend,Beans can complement larger summer crops.
+zucchini,radish,friend,Radishes can act as a quick companion crop.
+zucchini,potato,foe,Can compete for nutrients and space.
+zucchini,fennel,foe,Fennel is often avoided near many vegetables.
+zucchini,lettuce,neutral,Possible if spacing is managed.
+
+squash,corn,friend,A common traditional planting partner.
+squash,bean,friend,Often paired in mixed beds and traditional systems.
+squash,radish,friend,Radish is sometimes used as a support crop nearby.
+squash,potato,foe,Often considered a poor pairing because of competition.
+squash,fennel,foe,Fennel is not usually recommended nearby.
+squash,beet,neutral,Usually neither especially helpful nor harmful.
+
+corn,bean,friend,Beans are a classic corn companion.
+corn,squash,friend,Traditional garden pairing with complementary growth.
+corn,cucumber,neutral,Can coexist if spacing is generous.
+corn,tomato,foe,Can attract overlapping pests and compete heavily.
+corn,celery,foe,Commonly considered a poor pairing in tighter beds.
+
+bean,corn,friend,Corn can provide structure in mixed plantings.
+bean,cucumber,friend,Can grow well in summer beds together.
+bean,radish,friend,Radishes are often used in mixed vegetable plantings.
+bean,onion,foe,Beans are often poor neighbors with alliums.
+bean,garlic,foe,Garlic is often avoided near beans.
+bean,pepper,neutral,Usually acceptable without strong effect.
+
+pea,carrot,friend,Good cool-season pairing.
+pea,radish,friend,Works well as a quick and compatible companion.
+pea,lettuce,friend,Cool-season crops often share space well.
+pea,onion,foe,Peas are often avoided next to onions.
+pea,garlic,foe,Garlic is commonly considered a poor neighbor for peas.
+pea,cucumber,neutral,Can coexist depending on season timing.
+
+potato,bean,friend,Beans are often used as a compatible companion.
+potato,cabbage,friend,Can work well in mixed garden beds.
+potato,horseradish,friend,Traditionally recommended nearby.
+potato,tomato,foe,Can share diseases and similar pest issues.
+potato,cucumber,foe,Often not recommended together.
+potato,corn,neutral,Usually possible but not especially beneficial.
+
+cabbage,dill,friend,Dill is often used near brassicas.
+cabbage,celery,friend,Celery is a common brassica companion.
+cabbage,onion,friend,Onions are often used nearby.
+cabbage,tomato,foe,Can compete heavily and are not a common pairing.
+cabbage,strawberry,foe,Traditionally considered a poor pairing.
+cabbage,beet,neutral,Usually neither especially helpful nor harmful.
+
+broccoli,dill,friend,Dill is often used near brassicas.
+broccoli,celery,friend,Celery is commonly recommended nearby.
+broccoli,onion,friend,Onions can be helpful companions.
+broccoli,tomato,foe,Often not recommended because of competition.
+broccoli,pepper,neutral,Usually manageable with enough spacing.
+
+cauliflower,dill,friend,Dill is often paired with brassicas.
+cauliflower,celery,friend,Celery is a common nearby companion.
+cauliflower,onion,friend,Onions can be compatible in mixed beds.
+cauliflower,tomato,foe,Usually considered too competitive nearby.
+cauliflower,bean,neutral,Can coexist depending on spacing.
+
+kale,dill,friend,Dill is often grown near leafy brassicas.
+kale,celery,friend,Celery is commonly used nearby.
+kale,onion,friend,Onions can be useful companions.
+kale,tomato,foe,Not usually recommended as a close pairing.
+kale,beet,neutral,Usually fine without strong effect.
+
+spinach,radish,friend,Quick cool-season crops that share bed space well.
+spinach,pea,friend,Good cool-season pairing.
+spinach,strawberry,friend,Commonly considered compatible.
+spinach,potato,foe,Can compete and are not commonly paired.
+spinach,cabbage,neutral,Usually acceptable in mixed beds.
+
+radish,cucumber,friend,Radishes are often used in cucumber beds.
+radish,pea,friend,Good cool-season pairing.
+radish,bean,friend,Can fit well in mixed plantings.
+radish,hyssop,foe,Traditionally considered a poor pairing.
+radish,zucchini,neutral,Usually manageable with spacing.
+
+beet,onion,friend,Commonly compatible in mixed beds.
+beet,garlic,friend,Generally compatible with strong-scented alliums nearby.
+beet,lettuce,friend,Good use of mixed bed space.
+beet,pole bean,foe,Pole beans are often considered a poor pairing.
+beet,cabbage,neutral,Usually neither especially helpful nor harmful.
+
+celery,cabbage,friend,A classic pairing in mixed beds.
+celery,broccoli,friend,Often used near brassicas.
+celery,cauliflower,friend,Common companion in cool-season beds.
+celery,corn,foe,Often considered a poor pairing nearby.
+celery,tomato,neutral,Can coexist depending on spacing.
+
+dill,cucumber,friend,A traditional pairing in many gardens.
+dill,cabbage,friend,Often recommended near brassicas.
+dill,broccoli,friend,Good brassica companion.
+dill,carrot,foe,Can interfere with carrot growth in some cases.
+dill,tomato,neutral,Can be okay if not overcrowded.
+
+parsley,tomato,friend,Can grow well near tomatoes in mixed beds.
+parsley,asparagus,friend,Traditionally considered a strong companion.
+parsley,carrot,friend,Often compatible in herb and vegetable beds.
+parsley,lettuce,foe,Can compete in tighter spaces.
+parsley,cucumber,neutral,Usually acceptable.
+
+marigold,tomato,friend,Often planted nearby for pest-management support.
+marigold,pepper,friend,Common companion flower in summer beds.
+marigold,cucumber,friend,Often used nearby in mixed plantings.
+marigold,bean,neutral,Usually fine and commonly tolerated.
+marigold,cabbage,neutral,Often used nearby without issue.

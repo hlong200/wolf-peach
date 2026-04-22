@@ -4,6 +4,7 @@ import { Container as BsContainer } from 'react-bootstrap';
 import Home from './Home';
 import Catalog from './Catalog';
 import MyGarden from './MyGarden';
+import CompanionPlanting from "./CompanionPlanting";
 import Profile from './Profile';
 import PlantProfile from './PlantProfile';
 import PlantLogDetail from './PlantLogDetail';
@@ -19,6 +20,7 @@ import { PlantTrayProvider } from './lib/PlantTrayProvider';
 import { DragStateProvider } from './lib/DragStateProvider';
 import HelpButton from './HelpButton';
 import PlantTray from './PlantTray';
+import { FilterProvider } from "./lib/FilterProvider";
 
 function RequireAuth({ children }) {
     const { user, loading } = useAuth();
@@ -64,6 +66,14 @@ function App() {
                         <Route path="/" element={<Home />} />
                         <Route path="/catalog" element={<RequireAuth><Catalog /></RequireAuth>} />
                         <Route path="/garden"  element={<RequireAuth><MyGarden /></RequireAuth>} />
+                        <Route
+                            path="/companion-planting"
+                            element={
+                                <FilterProvider>
+                                <CompanionPlanting />
+                                </FilterProvider>
+                            }
+                            />
                         <Route path="/profile" element={<RequireAuth><Profile /></RequireAuth>} />
                         <Route path="/plant/:id" element={<RequireAuth><PlantProfile /></RequireAuth>} />
                         <Route path="/log/:id" element={<PlantLogDetail />} />
