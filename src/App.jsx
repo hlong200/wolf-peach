@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { HashRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import { Container as BsContainer } from 'react-bootstrap';
 import Home from './Home';
 import Catalog from './Catalog';
@@ -11,6 +10,7 @@ import Admin from './Admin';
 import AdminPlantForm from './AdminPlantForm';
 import Navigator from './Navigator';
 import LoginModal from './LoginModal';
+import ResetPasswordModal from './ResetPasswordModal';
 import { FavoritesProvider } from './lib/FavoritesProvider';
 import { AuthProvider } from './lib/AuthProvider';
 import { useAuth } from './lib/AuthProvider';
@@ -22,19 +22,21 @@ import PlantTray from './PlantTray';
 
 function RequireAuth({ children }) {
     const { user, loading } = useAuth();
-    const location = useLocation();
-    const [showLogin, setShowLogin] = useState(true);
+    const navigate = useNavigate();
 
     if (loading) return null;
 
-    if (!user) {
-        return (
-            <>
-                <Navigate to="/" replace state={{ from: location }} />
-                <LoginModal show={showLogin} onHide={() => setShowLogin(false)} />
-            </>
-        );
-    }
+    // Show the login modal over the current URL rather than navigating away
+    // immediately — Navigate would unmount this component before the modal renders.
+    // Dismissing without signing in sends the user home; a successful login lets
+    // auth state drive the re-render and the modal disappears naturally.
+    if (!user) return (
+        <LoginModal
+            show
+            onHide={() => navigate('/', { replace: true })}
+            onSuccess={() => {}}
+        />
+    );
 
     return children;
 }
@@ -49,6 +51,31 @@ function RequireAdmin({ children }) {
     return children;
 }
 
+function AppShell() {
+    const { isPasswordRecovery, clearRecovery } = useAuth();
+    return (
+        <>
+            <Navigator />
+            <HelpButton />
+            <PlantTray />
+            {isPasswordRecovery && <ResetPasswordModal onHide={clearRecovery} />}
+            <BsContainer className="px-4 px-md-5 mt-3">
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/catalog" element={<RequireAuth><Catalog /></RequireAuth>} />
+                    <Route path="/garden"  element={<RequireAuth><MyGarden /></RequireAuth>} />
+                    <Route path="/profile" element={<RequireAuth><Profile /></RequireAuth>} />
+                    <Route path="/plant/:id" element={<RequireAuth><PlantProfile /></RequireAuth>} />
+                    <Route path="/log/:id" element={<PlantLogDetail />} />
+                    <Route path="/admin" element={<RequireAdmin><Admin /></RequireAdmin>} />
+                    <Route path="/admin/plant/:id" element={<RequireAdmin><AdminPlantForm /></RequireAdmin>} />
+                    <Route path="/admin/plant/new" element={<RequireAdmin><AdminPlantForm /></RequireAdmin>} />
+                </Routes>
+            </BsContainer>
+        </>
+    );
+}
+
 function App() {
     return (
         <AuthProvider>
@@ -56,22 +83,7 @@ function App() {
         <PlantTrayProvider>
         <DragStateProvider>
             <HashRouter>
-                <Navigator />
-                <HelpButton />
-                <PlantTray />
-                <BsContainer className="px-4 px-md-5 mt-3">
-                    <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/catalog" element={<RequireAuth><Catalog /></RequireAuth>} />
-                        <Route path="/garden"  element={<RequireAuth><MyGarden /></RequireAuth>} />
-                        <Route path="/profile" element={<RequireAuth><Profile /></RequireAuth>} />
-                        <Route path="/plant/:id" element={<RequireAuth><PlantProfile /></RequireAuth>} />
-                        <Route path="/log/:id" element={<PlantLogDetail />} />
-                        <Route path="/admin" element={<RequireAdmin><Admin /></RequireAdmin>} />
-                        <Route path="/admin/plant/:id" element={<RequireAdmin><AdminPlantForm /></RequireAdmin>} />
-                        <Route path="/admin/plant/new" element={<RequireAdmin><AdminPlantForm /></RequireAdmin>} />
-                    </Routes>
-                </BsContainer>
+                <AppShell />
             </HashRouter>
         </DragStateProvider>
         </PlantTrayProvider>

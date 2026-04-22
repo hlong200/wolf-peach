@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Modal, Form, Button, Alert, Tab, Nav } from 'react-bootstrap';
 import { supabase } from './lib/supabase';
+import { useAuth } from './lib/AuthProvider';
 
 const ZONES = [
     '1a','1b','2a','2b','3a','3b','4a','4b','5a','5b','6a','6b','7a','7b',
@@ -20,6 +21,7 @@ const GOAL_OPTIONS = [
 ];
 
 export default function EditProfileModal({ show, onHide, profile, goals, onSave }) {
+    const { user } = useAuth();
     const [activeTab, setActiveTab] = useState('profile');
 
     // Profile fields
@@ -40,6 +42,7 @@ export default function EditProfileModal({ show, onHide, profile, goals, onSave 
     const [saveError, setSaveError] = useState(null);
 
     // Password fields
+    const [currentPassword, setCurrentPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [passwordLoading, setPasswordLoading] = useState(false);
@@ -59,6 +62,7 @@ export default function EditProfileModal({ show, onHide, profile, goals, onSave 
         setSaveError(null);
         setPasswordError(null);
         setPasswordSuccess(false);
+        setCurrentPassword('');
         setNewPassword('');
         setConfirmPassword('');
     }, [show, profile, goals]);
@@ -96,14 +100,27 @@ export default function EditProfileModal({ show, onHide, profile, goals, onSave 
         setPasswordError(null);
         setPasswordSuccess(false);
         if (newPassword !== confirmPassword) { setPasswordError('Passwords do not match.'); return; }
-        if (newPassword.length < 6) { setPasswordError('Password must be at least 6 characters.'); return; }
+        if (newPassword.length < 8) { setPasswordError('Password must be at least 8 characters.'); return; }
         setPasswordLoading(true);
+
+        // Verify current password before allowing the change
+        const { error: authError } = await supabase.auth.signInWithPassword({
+            email: user.email,
+            password: currentPassword,
+        });
+        if (authError) {
+            setPasswordLoading(false);
+            setPasswordError('Current password is incorrect.');
+            return;
+        }
+
         const { error } = await supabase.auth.updateUser({ password: newPassword });
         setPasswordLoading(false);
         if (error) {
             setPasswordError(error.message);
         } else {
             setPasswordSuccess(true);
+            setCurrentPassword('');
             setNewPassword('');
             setConfirmPassword('');
         }
@@ -214,25 +231,39 @@ export default function EditProfileModal({ show, onHide, profile, goals, onSave 
                             {passwordSuccess && <Alert variant="success" className="py-2">Password updated successfully.</Alert>}
                             <Form onSubmit={handlePasswordChange}>
                                 <Form.Group className="mb-3">
+                                    <Form.Label>Current Password</Form.Label>
+                                    <Form.Control
+                                        type="password"
+                                        value={currentPassword}
+                                        onChange={e => setCurrentPassword(e.target.value)}
+                                        required
+                                        autoComplete="current-password"
+                                    />
+                                </Form.Group>
+                                <Form.Group className="mb-3">
                                     <Form.Label>New Password</Form.Label>
                                     <Form.Control
                                         type="password"
                                         value={newPassword}
                                         onChange={e => setNewPassword(e.target.value)}
                                         required
+                                        minLength={8}
+                                        autoComplete="new-password"
                                     />
                                 </Form.Group>
                                 <Form.Group className="mb-3">
-                                    <Form.Label>Confirm Password</Form.Label>
+                                    <Form.Label>Confirm New Password</Form.Label>
                                     <Form.Control
                                         type="password"
                                         value={confirmPassword}
                                         onChange={e => setConfirmPassword(e.target.value)}
                                         required
+                                        minLength={8}
+                                        autoComplete="new-password"
                                     />
                                 </Form.Group>
                                 <Button type="submit" variant="primary" disabled={passwordLoading}>
-                                    {passwordLoading ? 'Updating...' : 'Update Password'}
+                                    {passwordLoading ? 'Updating…' : 'Update Password'}
                                 </Button>
                             </Form>
                         </Tab.Pane>
