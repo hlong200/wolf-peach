@@ -60,13 +60,15 @@ function AppShell() {
             <Navigator />
             <HelpButton />
             <PlantTray />
+            <img src={`${import.meta.env.BASE_URL}plant-left.png`} className="deco-plant-left" alt="" aria-hidden="true" />
+            <img src={`${import.meta.env.BASE_URL}plant-right.png`} className="deco-plant-right" alt="" aria-hidden="true" />
             {isPasswordRecovery && <ResetPasswordModal onHide={clearRecovery} />}
             <BsContainer className="px-4 px-md-5 mt-3">
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/catalog" element={<RequireAuth><Catalog /></RequireAuth>} />
                     <Route path="/garden"  element={<RequireAuth><MyGarden /></RequireAuth>} />
-                    <Route path="/companion-planting" element={<RequireAuth><CompanionPlanting /></RequireAuth>} />
+                    <Route path="/companion-planting" element={<RequireAuth><FilterProvider><CompanionPlanting /></FilterProvider></RequireAuth>} />
                     <Route path="/profile" element={<RequireAuth><Profile /></RequireAuth>} />
                     <Route path="/plant/:id" element={<RequireAuth><PlantProfile /></RequireAuth>} />
                     <Route path="/log/:id" element={<PlantLogDetail />} />

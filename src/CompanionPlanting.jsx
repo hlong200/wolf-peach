@@ -49,16 +49,16 @@ export default function CompanionPlanting() {
     .map((plant) => ({
       id: plant.id,
       name: plant.name,
-      companionKey: (plant.culinary_type || "").toLowerCase(),
+      culinaryType: (plant.culinary_type || "").toLowerCase(),
       searchText: `${plant.name} ${plant.culinary_type ?? ""}`.toLowerCase(),
     }))
-    .filter((plant) => plant.id && plant.name && plant.companionKey)
+    .filter((plant) => plant.id && plant.name)
     .sort((a, b) => a.name.localeCompare(b.name));
     }, [plants]);
 
   useEffect(() => {
     if (!selectedPlantKey && plantOptions.length > 0) {
-      setSelectedPlantKey(plantOptions[0].companionKey);
+      setSelectedPlantKey(plantOptions[0].id);
     }
   }, [plantOptions, selectedPlantKey]);
 
@@ -75,11 +75,7 @@ export default function CompanionPlanting() {
     }, [plantOptions, searchTerm, defaultPlants]);
 
   const selectedPlant = useMemo(() => {
-    return (
-      plantOptions.find(
-        (plant) => plant.companionKey === selectedPlantKey
-      ) || null
-    );
+    return plantOptions.find((plant) => plant.id === selectedPlantKey) || null;
   }, [plantOptions, selectedPlantKey]);
 
   const {
@@ -89,12 +85,12 @@ export default function CompanionPlanting() {
   } = useCompanions(selectedPlantKey);
 
   const friends = useMemo(
-    () => companionRows.filter((row) => row.sentiment === "friend"),
+    () => companionRows.filter((row) => row.sentiment === "good"),
     [companionRows]
   );
 
   const foes = useMemo(
-    () => companionRows.filter((row) => row.sentiment === "foe"),
+    () => companionRows.filter((row) => row.sentiment === "bad"),
     [companionRows]
   );
 
@@ -143,14 +139,14 @@ export default function CompanionPlanting() {
                     key={plant.id}
                     type="button"
                     className={`plant-select-btn ${
-                      selectedPlantKey === plant.companionKey ? "active" : ""
+                      selectedPlantKey === plant.id ? "active" : ""
                     }`}
-                    onClick={() => setSelectedPlantKey(plant.companionKey)}
+                    onClick={() => setSelectedPlantKey(plant.id)}
                   >
                     <span className="plant-select-name">
                       {plant.name}
                       <small style={{ display: "block", opacity: 0.7 }}>
-                        {plant.companionKey}
+                        {plant.culinaryType}
                       </small>
                     </span>
                   </button>

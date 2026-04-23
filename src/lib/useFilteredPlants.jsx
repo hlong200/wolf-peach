@@ -88,6 +88,9 @@ export function useFilteredPlants({ ids } = {}) {
                     companions_bad: p.companions
                         .filter(c => c.sentiment === 'bad')
                         .map(c => c.companion),
+                    companions_neutral: p.companions
+                        .filter(c => c.sentiment === 'neutral')
+                        .map(c => c.companion),
                     companions: undefined,
                 }));
                 setCached(cacheKey, mapped);

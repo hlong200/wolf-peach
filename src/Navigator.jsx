@@ -31,7 +31,7 @@ function Navigator() {
                                 <Nav.Link active={pathname === '/garden'}>My Garden</Nav.Link>
                             </LinkContainer>
                             <LinkContainer to="/companion-planting">
-                                <Nav.Link active={pathname === '/companion'}>Companion Planting</Nav.Link>
+                                <Nav.Link active={pathname === '/companion-planting'}>Companion Planting</Nav.Link>
                             </LinkContainer>
                             <LinkContainer to="/seasons">
                                 <Nav.Link active={pathname === '/seasons'}>Seasonal Calendar</Nav.Link>
@@ -46,7 +46,7 @@ function Navigator() {
                             {user ? (
                                 <>
                                     <LinkContainer to="/profile">
-                                        <span className="nav-user-email nav-user-email-link" title="View profile">{user.email}</span>
+                                        <span className={`nav-user-email nav-user-email-link${pathname === '/profile' ? ' nav-user-email-active' : ''}`} title="View profile">{user.email}</span>
                                     </LinkContainer>
                                     <Button size="sm" variant="outline-light" onClick={signOut}>
                                         Sign out

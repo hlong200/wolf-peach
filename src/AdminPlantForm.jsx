@@ -466,6 +466,7 @@ export default function AdminPlantForm() {
                                         <Form.Select value={c.sentiment} onChange={e => updateCompanion(i, 'sentiment', e.target.value)}>
                                             <option value="good">Good</option>
                                             <option value="bad">Bad</option>
+                                            <option value="neutral">Neutral</option>
                                         </Form.Select>
                                     </Col>
                                     <Col>

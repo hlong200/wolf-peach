@@ -16,3 +16,27 @@ body {
 .card {
   padding: 2em;
 }
+
+/* Decorative botanical illustration pinned to the left edge of the catalog viewport.
+   pointer-events: none so it never intercepts clicks on content behind it. */
+.deco-plant-left {
+  position: fixed;
+  left: -20px;
+  bottom: 0;
+  height: clamp(0px, 55vw, 90vh);
+  width: auto;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+.deco-plant-right {
+  position: fixed;
+  right: -20px;
+  bottom: 0;
+  height: clamp(0px, 55vw, 90vh);
+  width: auto;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}

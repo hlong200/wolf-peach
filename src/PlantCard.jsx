@@ -136,7 +136,7 @@ export default function PlantCard({ plant, lastFrost }) {
       </div>
 
       <Card.Body className="pt-1 pb-2 px-3">
-        <Card.Title>{plant.name} {fmt(plant.culinary_type)}</Card.Title>
+        <Card.Title>{plant.name}</Card.Title>
         <Card.Subtitle>{plant.species}</Card.Subtitle>
 
         <div className="d-flex flex-wrap gap-1 mb-1">
@@ -157,7 +157,7 @@ export default function PlantCard({ plant, lastFrost }) {
         )}
 
         {/* mt-auto pushes the accordion to the card bottom regardless of card height */}
-        {(plant.companions_good?.length > 0 || plant.companions_bad?.length > 0 || plant.tip) && (
+        {(plant.companions_good?.length > 0 || plant.companions_bad?.length > 0 || plant.companions_neutral?.length > 0 || plant.tip) && (
           <Accordion className="plant-accordion mt-auto" onClick={e => e.stopPropagation()}>
             <Accordion.Item eventKey="0">
               <Accordion.Header>Quick view</Accordion.Header>
@@ -179,6 +179,17 @@ export default function PlantCard({ plant, lastFrost }) {
                     <div className="d-flex flex-wrap gap-1">
                       {plant.companions_bad.map(c => (
                         <span key={c} className="chip-bad">{c}</span>
+                      ))}
+                    </div>
+                  </>
+                )}
+
+                {plant.companions_neutral?.length > 0 && (
+                  <>
+                    <div className="companion-label">Neutral</div>
+                    <div className="d-flex flex-wrap gap-1">
+                      {plant.companions_neutral.map(c => (
+                        <span key={c} className="chip-neutral">{c}</span>
                       ))}
                     </div>
                   </>

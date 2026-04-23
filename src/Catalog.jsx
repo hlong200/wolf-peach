@@ -50,9 +50,6 @@ export default function Catalog() {
   return (
     <FilterProvider>
       <>
-        <img src={`${import.meta.env.BASE_URL}plant-left.png`} className="catalog-plant-left" alt="" aria-hidden="true" />
-        <img src={`${import.meta.env.BASE_URL}plant-right.png`} className="catalog-plant-right" alt="" aria-hidden="true" />
-
         <section className="py-3 py-md-5">
           <Row className="align-items-center mx-0 g-3">
 
