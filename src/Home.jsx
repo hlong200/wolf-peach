@@ -120,7 +120,7 @@ export default function Home() {
         <article className="feature-card">
           <h3>Seasonal Calendar</h3>
           <p>Plan what to plant and when based on the growing season.</p>
-          <Link to="/seasonal-calendar" className="feature-link">
+          <Link to="/seasons" className="feature-link">
             View Calendar
           </Link>
         </article>
