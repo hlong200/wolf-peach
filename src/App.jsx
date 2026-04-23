@@ -10,6 +10,7 @@ import PlantLogDetail from './PlantLogDetail';
 import Navigator from './Navigator';
 import LoginModal from './LoginModal';
 import ResetPasswordModal from './ResetPasswordModal';
+import SeasonalCalendar from './SeasonalCalendar';
 import { FavoritesProvider } from './lib/FavoritesProvider';
 import { AuthProvider } from './lib/AuthProvider';
 import { useAuth } from './lib/AuthProvider';
