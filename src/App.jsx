@@ -21,6 +21,7 @@ import PlantTray from './PlantTray';
 import { FilterProvider } from "./lib/FilterProvider";
 import Admin from './Admin';
 import AdminPlantForm from './AdminPlantForm';
+import SeasonalCalendar from './SeasonalCalendar';
 
 function RequireAuth({ children }) {
     const { user, loading } = useAuth();
