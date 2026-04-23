@@ -7,8 +7,6 @@ import CompanionPlanting from "./CompanionPlanting";
 import Profile from './Profile';
 import PlantProfile from './PlantProfile';
 import PlantLogDetail from './PlantLogDetail';
-import Admin from './Admin';
-import AdminPlantForm from './AdminPlantForm';
 import Navigator from './Navigator';
 import LoginModal from './LoginModal';
 import ResetPasswordModal from './ResetPasswordModal';
@@ -21,6 +19,8 @@ import { DragStateProvider } from './lib/DragStateProvider';
 import HelpButton from './HelpButton';
 import PlantTray from './PlantTray';
 import { FilterProvider } from "./lib/FilterProvider";
+import Admin from './Admin';
+import AdminPlantForm from './AdminPlantForm';
 
 function RequireAuth({ children }) {
     const { user, loading } = useAuth();
@@ -75,6 +75,7 @@ function AppShell() {
                     <Route path="/admin" element={<RequireAdmin><Admin /></RequireAdmin>} />
                     <Route path="/admin/plant/:id" element={<RequireAdmin><AdminPlantForm /></RequireAdmin>} />
                     <Route path="/admin/plant/new" element={<RequireAdmin><AdminPlantForm /></RequireAdmin>} />
+                    <Route path="/seasons" element={<SeasonalCalendar />} />
                 </Routes>
             </BsContainer>
         </>

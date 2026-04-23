@@ -16,10 +16,31 @@ export function usePlantLogInstance(rootLogId) {
             // 1. Root log entry — gives us plant_id, user_id, location, and catalog join
             const { data: rootLog, error: rootError } = await supabase
                 .from('plant_logs')
-                .select('*, catalog(id, name, culinary_type, days_to_maturity, sun, difficulty)')
+                .select('*, catalog(id, name, culinary_type, days_to_maturity, sun, difficulty, history, description, seasonal_quirks, harvest_cues, variety_notes)')
                 .eq('id', rootLogId)
                 .single();
             if (rootError) throw rootError;
+
+            // Enhance plant data with JSON file data
+            let plantData = rootLog.catalog;
+            try {
+                const plantJsonResponse = await fetch('/data/vegetables.json');
+                const allPlants = await plantJsonResponse.json();
+                const plantDetails = allPlants.find(p => p.id === rootLog.plant_id);
+                if (plantDetails) {
+                    plantData = {
+                        ...plantData,
+                        description: plantData?.description || plantDetails.description,
+                        history: plantData?.history || plantDetails.history,
+                        seasonal_quirks: plantData?.seasonal_quirks || plantDetails.seasonal_quirks,
+                        harvest_cues: plantData?.harvest_cues || plantDetails.harvest_cues,
+                        variety_notes: plantData?.variety_notes || plantDetails.variety_notes,
+                    };
+                }
+            } catch (err) {
+                console.log('Could not fetch plant details from JSON:', err);
+                // Continue without JSON data - use what's in Supabase
+            }
 
             // 2. All log events for this instance (same plant + owner + location)
             let logsQuery = supabase
@@ -51,7 +72,7 @@ export function usePlantLogInstance(rootLogId) {
 
             setInstance({
                 rootLogId,
-                plant:         rootLog.catalog,
+                plant:         plantData,
                 location:      rootLog.location ?? null,
                 ownerId:       rootLog.user_id,
                 isOwner,
