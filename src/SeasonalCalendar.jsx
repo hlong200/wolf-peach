@@ -78,7 +78,7 @@ export default function SeasonalCalendar() {
     // Fetch plants from Supabase
     const fetchPlants = async () => {
       try {
-        const response = await fetch('/data/vegetables.json');
+        const response = await fetch('wolf-peach/data/vegetables.json');
         const data = await response.json();
         setPlants(data);
       } catch (error) {
