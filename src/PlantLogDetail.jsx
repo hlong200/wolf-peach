@@ -1,6 +1,6 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Container, Button, Spinner, Alert, Badge } from 'react-bootstrap';
+import { Container, Button, Spinner, Alert, Badge, Row, Col } from 'react-bootstrap';
 import { QRCodeSVG } from 'qrcode.react';
 import { usePlantLogInstance } from './lib/usePlantLogInstance';
 import { usePlantLogs } from './lib/usePlantLogs';
@@ -175,91 +175,147 @@ export default function PlantLogDetail() {
             <PrintLabel plant={plant} location={location} sowDate={sowDate} qrUrl={qrUrl} />
 
             <Container className="pld-page pb-5">
-                {/* Back */}
-                <button className="pld-back" onClick={() => navigate(-1)}>
-                    ← Back
-                </button>
+                <Row>
+                    <Col md={4} className="pld-left-panel">
+                        {/* Plant Information Panel */}
+                        {plant?.description && (
+                            <div className="pld-info-section">
+                                <h5>Description</h5>
+                                <p>{plant.description}</p>
+                            </div>
+                        )}
+                        {plant?.history && (
+                            <div className="pld-info-section">
+                                <h5>History</h5>
+                                <p>{plant.history}</p>
+                            </div>
+                        )}
+                        {plant?.seasonal_quirks && (
+                            <div className="pld-info-section">
+                                <h5>Seasonal Quirks</h5>
+                                <p>{plant.seasonal_quirks}</p>
+                            </div>
+                        )}
+                        {plant?.harvest_cues && (
+                            <div className="pld-info-section">
+                                <h5>Harvest Cues</h5>
+                                <p>{plant.harvest_cues}</p>
+                            </div>
+                        )}
+                        {plant?.variety_notes && (
+                            <div className="pld-info-section">
+                                <h5>Variety Notes</h5>
+                                <p>{plant.variety_notes}</p>
+                            </div>
+                        )}
+                    </Col>
+                    <Col md={8}>
+                        {/* Back */}
+                        <button className="pld-back" onClick={() => navigate(-1)}>
+                            ← Back
+                        </button>
 
-                {/* Plant header */}
-                <div className="pld-header">
-                    <span className="pld-header-emoji">{emoji}</span>
-                    <div className="pld-header-info">
-                        <h1 className="pld-plant-name">{plant?.name ?? 'Unknown plant'}</h1>
-                        <div className="pld-badges">
-                            {plant?.culinary_type && (
-                                <span className="pld-badge">{plant.culinary_type}</span>
-                            )}
-                            {location && (
-                                <span className="pld-badge pld-badge-loc">📍 {location}</span>
-                            )}
+                        {/* Plant header */}
+                        <div className="pld-header">
+                            <span className="pld-header-emoji">{emoji}</span>
+                            <div className="pld-header-info">
+                                <h1 className="pld-plant-name">{plant?.name ?? 'Unknown plant'}</h1>
+                                <div className="pld-badges">
+                                    {plant?.culinary_type && (
+                                        <span className="pld-badge">{plant.culinary_type}</span>
+                                    )}
+                                    {location && (
+                                        <span className="pld-badge pld-badge-loc">📍 {location}</span>
+                                    )}
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
 
-                {/* Stats row */}
-                {(sowDate || daysToMaturity) && (
-                    <div className="pld-stats">
-                        {sowDate && (
-                            <div className="pld-stat">
-                                <span className="pld-stat-label">Sowed</span>
-                                <span className="pld-stat-value">{formatDate(sowDate)}</span>
+                        {/* Stats row */}
+                        {(sowDate || daysToMaturity) && (
+                            <div className="pld-stats">
+                                {sowDate && (
+                                    <div className="pld-stat">
+                                        <span className="pld-stat-label">Sowed</span>
+                                        <span className="pld-stat-value">{formatDate(sowDate)}</span>
+                                    </div>
+                                )}
+                                {daysGrown != null && (
+                                    <div className="pld-stat">
+                                        <span className="pld-stat-label">Days grown</span>
+                                        <span className="pld-stat-value">{daysGrown}</span>
+                                    </div>
+                                )}
+                                {daysRemaining != null && (
+                                    <div className="pld-stat">
+                                        <span className="pld-stat-label">Est. days to harvest</span>
+                                        <span className="pld-stat-value">{daysRemaining > 0 ? daysRemaining : '—  Ready'}</span>
+                                    </div>
+                                )}
                             </div>
                         )}
-                        {daysGrown != null && (
-                            <div className="pld-stat">
-                                <span className="pld-stat-label">Days grown</span>
-                                <span className="pld-stat-value">{daysGrown}</span>
+
+                        {/* QR section */}
+                        <div className="pld-qr-section">
+                            <QRCodeSVG value={qrUrl} size={96} className="pld-qr-code" />
+                            <div className="pld-qr-info">
+                                <p className="pld-qr-hint">Scan to open this plant's log</p>
+                                <Button
+                                    variant="outline-secondary"
+                                    size="sm"
+                                    onClick={() => window.print()}
+                                >
+                                    🖨️ Print Label
+                                </Button>
+                            </div>
+                        </div>
+
+                        {/* About This Plant section */}
+                        {(plant?.seasonal_quirks || plant?.harvest_cues) && (
+                            <div className="pld-about-section">
+                                <h4>Growing Guide</h4>
+                                {plant?.seasonal_quirks && (
+                                    <div className="pld-guide-item">
+                                        <h6>🌍 Seasonal Quirks</h6>
+                                        <p>{plant.seasonal_quirks}</p>
+                                    </div>
+                                )}
+                                {plant?.harvest_cues && (
+                                    <div className="pld-guide-item">
+                                        <h6>✂️ Harvest Cues</h6>
+                                        <p>{plant.harvest_cues}</p>
+                                    </div>
+                                )}
                             </div>
                         )}
-                        {daysRemaining != null && (
-                            <div className="pld-stat">
-                                <span className="pld-stat-label">Est. days to harvest</span>
-                                <span className="pld-stat-value">{daysRemaining > 0 ? daysRemaining : '—  Ready'}</span>
+
+                        {/* Timeline */}
+                        <div className="pld-section-label">Timeline</div>
+                        {timeline.length === 0 ? (
+                            <p className="text-muted small">No entries yet.</p>
+                        ) : (
+                            <div className="pld-timeline">
+                                {timeline.map(item =>
+                                    item._kind === 'log'
+                                        ? <LogItem     key={item.id} item={item} />
+                                        : <JournalItem key={item.id} item={item} />
+                                )}
                             </div>
                         )}
-                    </div>
-                )}
 
-                {/* QR section */}
-                <div className="pld-qr-section">
-                    <QRCodeSVG value={qrUrl} size={96} className="pld-qr-code" />
-                    <div className="pld-qr-info">
-                        <p className="pld-qr-hint">Scan to open this plant's log</p>
-                        <Button
-                            variant="outline-secondary"
-                            size="sm"
-                            onClick={() => window.print()}
-                        >
-                            🖨️ Print Label
-                        </Button>
-                    </div>
-                </div>
-
-                {/* Timeline */}
-                <div className="pld-section-label">Timeline</div>
-                {timeline.length === 0 ? (
-                    <p className="text-muted small">No entries yet.</p>
-                ) : (
-                    <div className="pld-timeline">
-                        {timeline.map(item =>
-                            item._kind === 'log'
-                                ? <LogItem     key={item.id} item={item} />
-                                : <JournalItem key={item.id} item={item} />
+                        {/* Owner actions */}
+                        {isOwner && (
+                            <div className="pld-actions">
+                                <Button variant="outline-secondary" size="sm" onClick={() => setShowLogModal(true)}>
+                                    + Log Event
+                                </Button>
+                                <Button variant="outline-secondary" size="sm" onClick={() => setShowJournalModal(true)}>
+                                    + Journal Entry
+                                </Button>
+                            </div>
                         )}
-                    </div>
-                )}
-
-                {/* Owner actions */}
-                {isOwner && (
-                    <div className="pld-actions">
-                        <Button variant="outline-secondary" size="sm" onClick={() => setShowLogModal(true)}>
-                            + Log Event
-                        </Button>
-                        <Button variant="outline-secondary" size="sm" onClick={() => setShowJournalModal(true)}>
-                            + Journal Entry
-                        </Button>
-                    </div>
-                )}
+                    </Col>
+                </Row>
             </Container>
 
             <LogEventModal

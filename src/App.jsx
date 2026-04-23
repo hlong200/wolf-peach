@@ -7,6 +7,7 @@ import MyGarden from './MyGarden';
 import Profile from './Profile';
 import PlantProfile from './PlantProfile';
 import PlantLogDetail from './PlantLogDetail';
+import SeasonalCalendar from './SeasonalCalendar';
 import Navigator from './Navigator';
 import LoginModal from './LoginModal';
 import { FavoritesProvider } from './lib/FavoritesProvider';
@@ -54,6 +55,7 @@ function App() {
                         <Route path="/profile" element={<RequireAuth><Profile /></RequireAuth>} />
                         <Route path="/plant/:id" element={<RequireAuth><PlantProfile /></RequireAuth>} />
                         <Route path="/log/:id" element={<PlantLogDetail />} />
+                        <Route path="/seasons" element={<SeasonalCalendar />} />
                     </Routes>
                 </BsContainer>
             </HashRouter>
