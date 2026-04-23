@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Container, Row, Col, Form } from 'react-bootstrap';
+import { supabase } from './lib/supabase';
 import './SeasonalCalendar.css';
 
 // Planting season data by culinary type (weeks are 0-indexed: 0=Week 1 of Jan, 40=Week 4 of Dec)
@@ -68,21 +69,36 @@ const COLORS = {
   summer: '#FFC107'
 };
 
+// Normalize culinary type to match PLANTING_SEASONS keys
+const normalizeCulinaryType = (type) => {
+  if (!type) return null;
+  return type.toLowerCase().trim().replace(/\s+/g, '-');
+};
+
 export default function SeasonalCalendar() {
   const [plants, setPlants] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [fetchError, setFetchError] = useState(null);
   const [filter, setFilter] = useState('all');
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Fetch plants from Supabase
     const fetchPlants = async () => {
       try {
-        const response = await fetch('wolf-peach/data/vegetables.json');
-        const data = await response.json();
-        setPlants(data);
+        const { data, error } = await supabase
+          .from('catalog')
+          .select('*') // Fetch all fields while debugging
+          .order('name');
+
+        if (error) throw error;
+        console.log('Fetched plants:', data);
+        if (!data?.length) {
+          console.warn('No plants returned from catalog. Check table name / permissions / row-level security.');
+        }
+        setPlants(data || []);
       } catch (error) {
         console.error('Error fetching plants:', error);
+        setFetchError(error.message || 'Unable to load plants');
       } finally {
         setLoading(false);
       }
@@ -92,12 +108,17 @@ export default function SeasonalCalendar() {
   }, []);
 
   const getPlantingPeriods = (culinaryType) => {
-    return PLANTING_SEASONS[culinaryType] || { spring: [] };
+    const normalized = normalizeCulinaryType(culinaryType);
+    const periods = PLANTING_SEASONS[normalized];
+    if (!periods) {
+      console.warn(`No planting data for: "${culinaryType}" (normalized: "${normalized}")`);
+    }
+    return periods || { spring: [], fall: [], summer: [] };
   };
 
   const filteredPlants = plants.filter(plant => {
-    if (filter === 'all') return true;
-    return plant.culinary_type === filter;
+    if (filter !== 'all' && plant.culinary_type !== filter) return false;
+    return true;
   });
 
   const uniqueTypes = [...new Set(plants.map(p => p.culinary_type))].sort();
@@ -109,6 +130,20 @@ export default function SeasonalCalendar() {
           <div className="spinner-border" role="status">
             <span className="visually-hidden">Loading...</span>
           </div>
+        </div>
+      </Container>
+    );
+  }
+
+  if (!loading && plants.length === 0) {
+    return (
+      <Container className="seasonal-calendar">
+        <div className="text-center py-5">
+          <p className="text-muted mb-2">No vegetables found.</p>
+          <p className="text-muted small">
+            Open the browser console and check the Supabase response. Verify that your `catalog` table contains rows and that the column names match.
+          </p>
+          {fetchError && <p className="text-danger small">{fetchError}</p>}
         </div>
       </Container>
     );
@@ -165,12 +200,11 @@ export default function SeasonalCalendar() {
                 {WEEK_HEADERS.map((_, weekIndex) => {
                   let periodType = null;
 
-                  // Check if this week is in any planting season
-                  if (seasons.spring && seasons.spring.includes(weekIndex)) {
+                  if (seasons.spring?.includes(weekIndex)) {
                     periodType = 'spring';
-                  } else if (seasons.fall && seasons.fall.includes(weekIndex)) {
+                  } else if (seasons.fall?.includes(weekIndex)) {
                     periodType = 'fall';
-                  } else if (seasons.summer && seasons.summer.includes(weekIndex)) {
+                  } else if (seasons.summer?.includes(weekIndex)) {
                     periodType = 'summer';
                   }
 
