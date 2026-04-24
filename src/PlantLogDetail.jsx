@@ -177,37 +177,7 @@ export default function PlantLogDetail() {
             <Container className="pld-page pb-5">
                 <Row>
                     <Col md={4} className="pld-left-panel">
-                        {/* Plant Information Panel */}
-                        {plant?.description && (
-                            <div className="pld-info-section">
-                                <h5>Description</h5>
-                                <p>{plant.description}</p>
-                            </div>
-                        )}
-                        {plant?.history && (
-                            <div className="pld-info-section">
-                                <h5>History</h5>
-                                <p>{plant.history}</p>
-                            </div>
-                        )}
-                        {plant?.seasonal_quirks && (
-                            <div className="pld-info-section">
-                                <h5>Seasonal Quirks</h5>
-                                <p>{plant.seasonal_quirks}</p>
-                            </div>
-                        )}
-                        {plant?.harvest_cues && (
-                            <div className="pld-info-section">
-                                <h5>Harvest Cues</h5>
-                                <p>{plant.harvest_cues}</p>
-                            </div>
-                        )}
-                        {plant?.variety_notes && (
-                            <div className="pld-info-section">
-                                <h5>Variety Notes</h5>
-                                <p>{plant.variety_notes}</p>
-                            </div>
-                        )}
+                        {/* Left panel is now available for other content */}
                     </Col>
                     <Col md={8}>
                         {/* Back */}
@@ -269,25 +239,6 @@ export default function PlantLogDetail() {
                                 </Button>
                             </div>
                         </div>
-
-                        {/* About This Plant section */}
-                        {(plant?.seasonal_quirks || plant?.harvest_cues) && (
-                            <div className="pld-about-section">
-                                <h4>Growing Guide</h4>
-                                {plant?.seasonal_quirks && (
-                                    <div className="pld-guide-item">
-                                        <h6>🌍 Seasonal Quirks</h6>
-                                        <p>{plant.seasonal_quirks}</p>
-                                    </div>
-                                )}
-                                {plant?.harvest_cues && (
-                                    <div className="pld-guide-item">
-                                        <h6>✂️ Harvest Cues</h6>
-                                        <p>{plant.harvest_cues}</p>
-                                    </div>
-                                )}
-                            </div>
-                        )}
 
                         {/* Timeline */}
                         <div className="pld-section-label">Timeline</div>

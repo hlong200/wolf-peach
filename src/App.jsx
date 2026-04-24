@@ -10,6 +10,7 @@ import PlantLogDetail from './PlantLogDetail';
 import Navigator from './Navigator';
 import LoginModal from './LoginModal';
 import ResetPasswordModal from './ResetPasswordModal';
+import SeasonalCalendar from './SeasonalCalendar';
 import { FavoritesProvider } from './lib/FavoritesProvider';
 import { AuthProvider } from './lib/AuthProvider';
 import { useAuth } from './lib/AuthProvider';
@@ -76,7 +77,7 @@ function AppShell() {
                     <Route path="/admin" element={<RequireAdmin><Admin /></RequireAdmin>} />
                     <Route path="/admin/plant/:id" element={<RequireAdmin><AdminPlantForm /></RequireAdmin>} />
                     <Route path="/admin/plant/new" element={<RequireAdmin><AdminPlantForm /></RequireAdmin>} />
-                    <Route path="/seasons" element={<SeasonalCalendar />} />
+                    <Route path="/seasons" element={<FilterProvider><SeasonalCalendar /></FilterProvider>} />
                 </Routes>
             </BsContainer>
         </>

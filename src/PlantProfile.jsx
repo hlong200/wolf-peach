@@ -311,25 +311,53 @@ export default function PlantProfile() {
 
                     <Col lg={5}>
                         <Card className="plant-profile-card p-4 h-100">
-                            <div className="plant-profile-section-label mb-3">Plant profile</div>
-                            <p className="plant-profile-text">Review key trait badges and variety highlights before adding this plant to your garden or tray.</p>
-                            <div className="mt-4">
-                                <div className="plant-profile-subsection">Traits</div>
-                                <div className="d-flex flex-wrap gap-2 mt-2">
-                                    {plant.tags.map(tag => (
-                                        <Badge key={tag} bg="secondary">{fmt(tag)}</Badge>
-                                    ))}
+                            <div className="plant-profile-section-label mb-3">About this plant</div>
+                            
+                            {plant?.description && (
+                                <div className="mb-4">
+                                    <h6 className="plant-profile-subsection">Description</h6>
+                                    <p className="plant-profile-text">{plant.description}</p>
                                 </div>
-                            </div>
+                            )}
 
-                            <div className="mt-4">
-                                <div className="plant-profile-subsection">Highlights</div>
-                                <ul className="plant-profile-highlights">
-                                    <li><strong>{plant.tags.includes('heirloom') ? 'Heirloom:' : 'Variety:'}</strong> {plant.tags.includes('heirloom') ? 'Traditional flavor and open-pollinated seed saving.' : 'A garden-friendly variety.'}</li>
-                                    <li><strong>Spacing:</strong> {plant.spacing_in ? `${plant.spacing_in} inches` : 'Typical spacing'}.</li>
-                                    <li><strong>Harvest:</strong> Around {plant.days_to_maturity} days after sowing.</li>
-                                </ul>
-                            </div>
+                            {plant?.history && (
+                                <div className="mb-4">
+                                    <h6 className="plant-profile-subsection">History</h6>
+                                    <p className="plant-profile-text">{plant.history}</p>
+                                </div>
+                            )}
+
+                            {plant?.seasonal_quirks && (
+                                <div className="mb-4">
+                                    <h6 className="plant-profile-subsection">🌍 Seasonal Quirks</h6>
+                                    <p className="plant-profile-text">{plant.seasonal_quirks}</p>
+                                </div>
+                            )}
+
+                            {plant?.harvest_cues && (
+                                <div className="mb-4">
+                                    <h6 className="plant-profile-subsection">✂️ Harvest Cues</h6>
+                                    <p className="plant-profile-text">{plant.harvest_cues}</p>
+                                </div>
+                            )}
+
+                            {plant?.variety_notes && (
+                                <div className="mb-4">
+                                    <h6 className="plant-profile-subsection">Variety Notes</h6>
+                                    <p className="plant-profile-text">{plant.variety_notes}</p>
+                                </div>
+                            )}
+
+                            {plant?.tags && plant.tags.length > 0 && (
+                                <div className="mt-4">
+                                    <div className="plant-profile-subsection">Traits</div>
+                                    <div className="d-flex flex-wrap gap-2 mt-2">
+                                        {plant.tags.map(tag => (
+                                            <Badge key={tag} bg="secondary">{fmt(tag)}</Badge>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
                         </Card>
                     </Col>
                 </Row>

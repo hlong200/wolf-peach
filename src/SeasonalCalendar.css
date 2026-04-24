@@ -21,10 +21,6 @@
   margin-bottom: 1.5rem;
 }
 
-.filter-select {
-  margin: 0 auto;
-}
-
 /* Calendar Grid */
 .calendar-container {
   background: #fff;
@@ -35,12 +31,12 @@
 }
 
 .calendar-grid {
-  min-width: 2400px; /* Even more compact with 48 weeks */
+  min-width: 2000px;
 }
 
 .week-headers {
   display: grid;
-  grid-template-columns: 250px repeat(48, 1fr);
+  grid-template-columns: 250px repeat(41, 1fr);
   background: #f8f9fa;
   border-bottom: 2px solid #e9ecef;
 }
@@ -71,13 +67,8 @@
 
 .plant-row {
   display: grid;
-  grid-template-columns: 250px repeat(48, 1fr);
+  grid-template-columns: 250px 1fr;
   border-bottom: 1px solid #e9ecef;
-  transition: background-color 0.2s;
-}
-
-.plant-row:hover {
-  background-color: #f8f9fa;
 }
 
 .plant-row:last-child {
@@ -125,28 +116,24 @@
   text-transform: capitalize;
 }
 
-.calendar-cell {
-  border-right: 1px solid #e9ecef;
+.calendar-cells {
   position: relative;
   min-height: 60px;
-  min-width: 45px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.calendar-cell:last-child {
-  border-right: none;
-}
-
-.calendar-cell.active {
-  color: white;
-  font-weight: 600;
-}
-
-.planting-indicator {
-  font-size: 1.2rem;
-  opacity: 0.9;
+/* Overlay subtle grid lines matching week-header columns */
+.calendar-cells::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    to right,
+    rgba(233, 236, 239, 0.7) 0,
+    rgba(233, 236, 239, 0.7) 1px,
+    transparent 1px,
+    transparent calc(100% / 41)
+  );
 }
 
 /* Legend */
@@ -213,9 +200,8 @@
     font-size: 0.75rem;
   }
 
-  .calendar-cell {
+  .calendar-cells {
     min-height: 50px;
-    min-width: 35px;
   }
 
   .week-header {
@@ -227,10 +213,6 @@
     font-size: 0.5rem;
   }
 
-  .planting-indicator {
-    font-size: 1rem;
-  }
-
   .legend-items {
     gap: 1rem;
   }
@@ -238,13 +220,16 @@
 
 @media (max-width: 576px) {
   .calendar-grid {
-    min-width: 1700px; /* Further condensed for mobile with 48 weeks */
+    min-width: 1400px;
   }
 
-  .week-header,
-  .calendar-cell {
+  .week-header {
     padding: 0.15rem 0.05rem;
     min-width: 30px;
+    min-height: 45px;
+  }
+
+  .calendar-cells {
     min-height: 45px;
   }
 
