@@ -75,6 +75,11 @@
   width: 100%;
 }
 
+.filterbar-compact-inner .filter-group-search {
+  flex: 0 0 auto;
+  width: 140px;
+}
+
 .filter-sep {
   width: 1px;
   align-self: stretch;
