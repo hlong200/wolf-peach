@@ -22,6 +22,7 @@ import PlantTray from './PlantTray';
 import { FilterProvider } from "./lib/FilterProvider";
 import Admin from './Admin';
 import AdminPlantForm from './AdminPlantForm';
+import NotFound from './NotFound';
 
 function RequireAuth({ children }) {
     const { user, loading } = useAuth();
@@ -77,6 +78,8 @@ function AppShell() {
                     <Route path="/admin/plant/:id" element={<RequireAdmin><AdminPlantForm /></RequireAdmin>} />
                     <Route path="/admin/plant/new" element={<RequireAdmin><AdminPlantForm /></RequireAdmin>} />
                     <Route path="/seasons" element={<FilterProvider><SeasonalCalendar /></FilterProvider>} />
+                    {/* 404 catch-all route */}
+                    <Route path="*" element={<NotFound />} />
                 </Routes>
             </BsContainer>
         </>
